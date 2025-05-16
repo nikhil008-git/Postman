@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Speakers from './components/Speakers'
+import MeetOurTeam from './components/MeetOurTeam'
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <>
       {/* <Navbar/> */}
       {/* <Home/> */}
-      <Speakers/>
+      {/* <Speakers/> */}
+      <MeetOurTeam/>
     </>
   )
 }

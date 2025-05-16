@@ -6,7 +6,7 @@ function Navbar() {
     <div className="w-full flex justify-center mt-4">
       <div className="w-[100%] max-w-[1280px] bg-gray-300 flex justify-between items-center px-6 py-3 rounded-full shadow-md border border-orange-300">
         <div className="flex items-center">
-          <img src={logo} alt="Logo" className="h-12 w-12 object-contain" />
+          <img src={logo} alt="Logo" className="h-12 w-12 object-contain border-white border-2 rounded-full" />
         </div>
         <ul className="flex gap-6 font-bold text-black text-sm">
           <li className="hover:underline cursor-pointer">HOME</li>
