@@ -4,13 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
+import Speakers from './components/Speakers'
 
 function App() {
 
   return (
     <>
       {/* <Navbar/> */}
-      <Home/>
+      {/* <Home/> */}
+      <Speakers/>
     </>
   )
 }
