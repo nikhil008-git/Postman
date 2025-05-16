@@ -6,6 +6,10 @@ import insta from "../assets/insta.png";
 import linkedin from "../assets/linkedin.png";
 import notion from "../assets/notion.png";
 import peerlist from "../assets/peerlist.png";
+import star from "../assets/star.png";
+import communityIcon from "../assets/community.png";
+import workshopIcon from "../assets/workshop.png";
+import partnerIcon from "../assets/partners.png";
 
 function Home() {
   const partners = [
@@ -17,10 +21,10 @@ function Home() {
   ];
 
   const stats = [
-    { value: "2000+", label: "Community" },
-    { value: "45+", label: "Event Organized" },
-    { value: "20+", label: "Workshops" },
-    { value: "5+", label: "Global Partners" },
+    { value: "2000+", label: "Community", icon: communityIcon },
+    { value: "45+", label: "Events", icon: communityIcon },
+    { value: "20+", label: "Workshops", icon: workshopIcon },
+    { value: "5+", label: "Partners", icon: partnerIcon },
   ];
 
   return (
@@ -41,8 +45,14 @@ function Home() {
           POSTMAN Community Pune
         </h1>
         <div className="mt-20 text-center">
-          <div className="transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 py-6 rounded-xl shadow-lg w-screen text-center">
-            POSTMAN COMMUNITY PUNE
+          <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
+            <div className="mr-2 font-bold text-white">POSTMAN</div>{" "}
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
+            <div className="mr-2 font-bold text-white">COMMUNITY</div>{" "}
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
+            <div className="mr-2 font-bold text-white">PUNE</div>{" "}
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
         <div className="mt-20 text-center">
@@ -73,20 +83,20 @@ function Home() {
             ))}
           </div>
         </div>
-        <div className="mt-20 max-screen mx-auto px-4 flex flex-row items-center">
-          <div className="w-full max-w-[600px]">
+        <div className="mt-20 mx-auto px-4 flex flex-col md:flex-row justify-center items-stretch gap-8 lg:gap-20">
+          <div className="flex-1 min-h-[600px] max-w-[600px] bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold text-black mb-8">
               Building the API Community in Pune
             </h2>
 
-            <p className="text-sm text-gray-700 mb-6">
+            <p className="text-sm text-gray-700 mb-6 text-justify">
               We at Postman Community Pune are passionate about API education,
               collaboration, and innovation. Our goal is to bring together
               developers, students, and professionals to learn, build, and grow
               in the API ecosystem.
             </p>
 
-            <p className="text-sm text-gray-700 mb-8">
+            <p className="text-sm text-gray-700 mb-8 text-justify">
               Through workshops, hackathons, and hands-on coding sessions, we
               provide a platform for enhancing API skills, networking with
               industry experts, and staying updated with the latest trends in
@@ -99,12 +109,15 @@ function Home() {
               {[...Array(3)].map((_, i) => (
                 <div
                   key={i}
-                  className="flex flex-col flex-left items-center justify-center text-lg"
+                  className="flex flex-col items-start p-4 bg-gray-50 rounded-lg"
                 >
-                  <span className="mr-2 font-bold text-black">
-                    Knowledge Sharing
-                  </span>
-                  <span className="text-sm text-gray-700">
+                  <div className="flex items-center mb-2 gap-2">
+                    <div className="bg-orange-400 rounded-full h-4 w-4"></div>
+                    <span className="font-bold text-black">
+                      Knowledge Sharing
+                    </span>
+                  </div>
+                  <span className="text-sm text-gray-700 text-justify">
                     Learn from industry experts and share your expertise with
                     others
                   </span>
@@ -112,25 +125,41 @@ function Home() {
               ))}
             </div>
 
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2">
+            <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2">
               Learn More About Us →
             </button>
           </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
+          <div className="flex-1 justify-center mt-60 h-100 max-w-[600px] bg-gray-900 rounded-2xl shadow-xl p-8 grid grid-cols-2 gap-2">
             {stats.map((stat, i) => (
-              <div key={i} className="space-y-2">
-                <div className="text-4xl font-bold text-black">
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-6 h-42 flex flex-col items-center justify-start shadow-md hover:shadow-xl 
+                   hover:shadow-lg transition-all duration-300"
+              >
+                <img
+                  src={stat.icon}
+                  alt={stat.label}
+                  className="h-16 w-16 mb-4 object-contain"
+                />
+                <div className="text-2xl font-bold text-gray-900 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-sm font-medium text-gray-700 text-center">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="my-20 text-center">
-          <div className="transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 py-6 rounded-xl shadow-lg w-screen text-center">
-            POSTMAN COMMUNITY PUNE
+        <div className="mt-20 text-center my-20">
+          <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
+            <div className="mr-2 font-bold text-white">POSTMAN</div>{" "}
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
+            <div className="mr-2 font-bold text-white">COMMUNITY</div>{" "}
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
+            <div className="mr-2 font-bold text-white">PUNE</div>{" "}
+            <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
       </div>
