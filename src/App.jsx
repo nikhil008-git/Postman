@@ -7,14 +7,16 @@ import Navbar from './components/Navbar';
 
 function App() {
   return (
-   <BrowserRouter>
-      {/* <Navbar />  Navbar is inside BrowserRouter */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/speakers" element={<Speakers />} />
-        <Route path="/team" element={<MeetOurTeam />} />
-        <Route path="/lastPage" element={<LastPage />} />
-      </Routes>
+    <BrowserRouter>
+      <Navbar />
+      <div className="pt-24">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/speakers" element={<Speakers />} />
+          <Route path="/team" element={<MeetOurTeam />} />
+          <Route path="/lastPage" element={<LastPage />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

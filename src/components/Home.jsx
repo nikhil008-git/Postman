@@ -1,6 +1,5 @@
 import React from "react";
 import homeImg from "../assets/homeImg.png";
-import Navbar from "./Navbar";
 import figma from "../assets/figma.jpg";
 import insta from "../assets/insta.png";
 import linkedin from "../assets/linkedin.png";
@@ -10,6 +9,7 @@ import star from "../assets/star.png";
 import communityIcon from "../assets/community.png";
 import workshopIcon from "../assets/workshop.png";
 import partnerIcon from "../assets/partners.png";
+import GridBackground from "./GridBackground";
 
 function Home() {
   const partners = [
@@ -29,11 +29,7 @@ function Home() {
 
   return (
     <div className="relative min-h-screen bg-white overflow-hidden">
-      <div
-        className="absolute inset-0 bg-[linear-gradient(to_right,#ccc_1px,transparent_1px),linear-gradient(to_bottom,#ccc_1px,transparent_1px)] bg-[size:40px_40px] opacity-30 mask-fade"
-        aria-hidden="true"
-      ></div>
-      <Navbar />
+      <GridBackground />
 
       <div className="relative z-10 flex flex-col items-center justify-center mt-10 px-4">
         <img
