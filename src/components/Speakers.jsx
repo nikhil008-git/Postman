@@ -69,9 +69,8 @@ const Speakers = () => {
   ];
 
   return (
-    <section className="bg-white py-12 px-4 md:px-8">
+    <section className=" w-screen bg-white py-12 px-4 md:px-8">
       <div className="relative min-h-screen bg-white overflow-hidden">
-        {/* Background Grid */}
         <div
           className="absolute inset-0 bg-[linear-gradient(to_right,#ccc_1px,transparent_1px),linear-gradient(to_bottom,#ccc_1px,transparent_1px)] bg-[size:40px_40px] opacity-30 mask-fade"
           aria-hidden="true"

@@ -6,7 +6,7 @@ import sponser from '../assets/callForSponsers.png';
 
 function LastPage() {
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
+    <div className="relative w-screen min-h-screen bg-white overflow-hidden">
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,#ccc_1px,transparent_1px),linear-gradient(to_bottom,#ccc_1px,transparent_1px)] bg-[size:40px_40px] opacity-30 mask-fade"
         aria-hidden="true"

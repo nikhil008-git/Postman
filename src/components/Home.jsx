@@ -39,7 +39,7 @@ function Home() {
         <img
           src={homeImg}
           alt="Postman Hero"
-          className="max-w-[500px] w-full object-contain"
+          className="max-wl-[500px] w-ful object-contain"
         />
         <h1 className="mt-10 text-3xl md:text-4xl font-bold text-black">
           POSTMAN Community Pune
@@ -65,7 +65,7 @@ function Home() {
                 key={i}
                 src={img}
                 alt={name}
-                className="h-24 w-24 rounded-xl object-cover flex-shrink-0"
+                className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
               />
             ))}
           </div>
@@ -78,13 +78,13 @@ function Home() {
                 key={i + partners.length}
                 src={img}
                 alt={name}
-                className="h-24 w-24 rounded-xl object-cover flex-shrink-0"
+                className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
               />
             ))}
           </div>
         </div>
         <div className="mt-20 mx-auto px-4 flex flex-col md:flex-row justify-center items-stretch gap-8 lg:gap-20">
-          <div className="flex-1 min-h-[600px] max-w-[600px] bg-white rounded-2xl shadow-xl p-8">
+          <div className="flex-1 min-h-[600px] max-w-[800px] bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold text-black mb-8">
               Building the API Community in Pune
             </h2>
@@ -129,7 +129,7 @@ function Home() {
               Learn More About Us →
             </button>
           </div>
-          <div className="flex-1 justify-center mt-60 h-100 max-w-[600px] bg-gray-900 rounded-2xl shadow-xl p-8 grid grid-cols-2 gap-2">
+          <div className="flex-1 justify-center mt-44 text-center h-100 max-w-[600px] bg-gray-900 rounded-2xl shadow-xl p-8 grid grid-cols-2 gap-2">
             {stats.map((stat, i) => (
               <div
                 key={i}
