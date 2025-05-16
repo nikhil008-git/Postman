@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Speakers from './components/Speakers'
 import MeetOurTeam from './components/MeetOurTeam'
+import LastPage from './components/LastPage'
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
       {/* <Navbar/> */}
       {/* <Home/> */}
       {/* <Speakers/> */}
-      <MeetOurTeam/>
+      {/* <MeetOurTeam/> */}
+      <LastPage/>
     </>
   )
 }
