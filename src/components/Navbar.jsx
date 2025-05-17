@@ -6,10 +6,6 @@ import GridBackground from "./GridBackground";
 function Navbar() {
   const location = useLocation();
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
-
   return (
     <div className={'w-full flex justify-center fixed top-0 z-50 bg-white'}>
       
@@ -26,9 +22,7 @@ function Navbar() {
         <div className="text-black flex gap-6 text-sm">
             <Link
               to="/"
-            className={`font-extrabold cursor-pointer ${
-              isActive("/") ? "text-orange-500" : "text-black hover:text-gray-700"
-            }`}
+            className={`font-extrabold cursor-pointer `}
             style={{
               color: 'black', fontWeight: "bold"
             }}
@@ -37,9 +31,7 @@ function Navbar() {
             </Link>
             <Link
               to="/speakers"
-            className={`cursor-pointer font-extrabold ${
-              isActive("/speakers") ? "text-orange-500" : "text-black hover:text-gray-700"
-            }`}
+            className={`cursor-pointer font-extrabold `}
             style={{
               color: 'black', fontWeight: "bold"
             }}
@@ -48,9 +40,7 @@ function Navbar() {
             </Link>
             <Link
               to="/team"
-            className={`cursor-pointer font-extrabold ${
-              isActive("/team") ? "text-orange-500" : "text-black hover:text-gray-700"
-            }`}
+            className={`cursor-pointer font-extrabold `}
             style={{
               color: 'black', fontWeight: "bold"
             }}
@@ -59,9 +49,7 @@ function Navbar() {
             </Link>
             <Link
               to="/speakers"
-            className={`cursor-pointer font-extrabold ${
-              isActive("/speakers") ? "text-orange-500" : "text-black hover:text-gray-700"
-            }`}
+            className={`cursor-pointer font-extrabold `}
             style={{
               color: 'black', fontWeight: "bold"
             }}
@@ -70,9 +58,7 @@ function Navbar() {
             </Link>
             <Link
               to="/lastPage"
-            className={`cursor-pointer font-extrabold ${
-              isActive("/lastPage") ? "text-orange-500" : "text-black hover:text-gray-700"
-            }`}
+            className={`cursor-pointer font-extrabold `}
             style={{
               color: 'black', fontWeight: "bold"
             }}

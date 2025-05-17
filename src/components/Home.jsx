@@ -36,7 +36,7 @@ function Home() {
     <div className="relative min-h-screen bg-white overflow-hidden">
       <GridBackground />
 
-      <div className="relative z-10 flex flex-col items-center justify-center mt-10 px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center mt-10">
         <img
           src={homeImg}
           alt="Postman Hero"
@@ -157,7 +157,7 @@ function Home() {
             ))}
           </div>
         </div>
-        <div className="mt-20 text-center my-20">
+        <div className="mt-20 text-center py-20">
           <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
             <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
             <div className="mr-2 font-bold text-white">POSTMAN</div>{" "}
