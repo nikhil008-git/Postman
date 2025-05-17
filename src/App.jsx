@@ -4,6 +4,7 @@ import Speakers from './components/Speakers';
 import MeetOurTeam from './components/MeetOurTeam';
 import LastPage from './components/LastPage';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/lastPage" element={<LastPage />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

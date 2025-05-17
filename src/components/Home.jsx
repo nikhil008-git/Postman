@@ -1,5 +1,5 @@
 import React from "react";
-import homeImg from "../assets/homeImg.png";
+import homeImg from "../assets/homeImg.svg";
 import figma from "../assets/figma.jpg";
 import insta from "../assets/insta.png";
 import linkedin from "../assets/linkedin.png";
@@ -13,6 +13,11 @@ import GridBackground from "./GridBackground";
 
 function Home() {
   const partners = [
+    { name: "Figma", img: figma },
+    { name: "Instagram", img: insta },
+    { name: "LinkedIn", img: linkedin },
+    { name: "Notion", img: notion },
+    { name: "Peerlist", img: peerlist },
     { name: "Figma", img: figma },
     { name: "Instagram", img: insta },
     { name: "LinkedIn", img: linkedin },
@@ -69,7 +74,7 @@ function Home() {
 
         <div className="overflow-x-hidden relative mt-8">
           <div className="flex animate-scroll-right gap-8 w-max">
-            {partners.map(({ name, img }, i) => (
+            {[...partners].reverse().map(({ name, img }, i) => (
               <img
                 key={i + partners.length}
                 src={img}
@@ -121,7 +126,12 @@ function Home() {
               ))}
             </div>
 
-            <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2">
+            <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2"
+              style={{
+                background: "linear-gradient(to right, #fc5e00, #f67c03)",
+                border: "solid 1px white",
+              }}
+            >
               Learn More About Us →
             </button>
           </div>

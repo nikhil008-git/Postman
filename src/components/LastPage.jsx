@@ -1,7 +1,8 @@
 import React from "react";
-import Postman from "../assets/last.png";
-import speaker from "../assets/callForSpeaker.png";
-import sponser from '../assets/callForSponsers.png';
+import communityDay from '../assets/postmanCommunityDay.svg'
+import postmanFun from '../assets/postman-fun.svg';
+import speaker from "../assets/callForSpeaker.svg";
+import sponser from '../assets/callForSponsors.svg';
 import GridBackground from "./GridBackground";
 
 function LastPage() {
@@ -9,8 +10,9 @@ function LastPage() {
     <div className="relative w-screen min-h-screen bg-white overflow-hidden">
       <GridBackground />
       <div className="relative z-10">
-        <div className="flex w-full justify-center items-center mt-20">
-          <img src={Postman} alt="" className="h-auto w-auto" />
+        <div className="flex flex-col w-full justify-center items-center mt-20">
+          <img src={communityDay} alt="" className="h-auto w-auto" />
+          <img src={postmanFun} alt="" className="h-auto w-auto" />
         </div>
 
         <div className="m-20 flex flex-wrap justify-center gap-8 lg:gap-12">
