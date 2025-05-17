@@ -29,7 +29,15 @@ function LastPage() {
               <p className="text-gray-600 mb-6">
                 Share your expertise with Postman community. Submit your proposal to speak at our event.
               </p>
-              <button className="w-full bg-orange-500 text-white py-3 px-6 rounded-full font-semibold hover:bg-orange-600 transition-colors">
+              <button
+                className="w-full bg-orange-500 text-gray-500 py-3 px-6 rounded-full font-semibold hover:bg-orange-600 transition-colors"
+                style={{
+                  border: '2px solid',
+                  borderImage: 'linear-gradient(to right, #cc5200, #ff8000, #ffd580) 1',
+                  backgroundColor: '#f3f4f6',
+                  color: '#6b7280',
+                }}
+              >
                 Call For Speakers
               </button>
             </div>
@@ -47,7 +55,15 @@ function LastPage() {
               <p className="text-gray-600 mb-6">
                 Support our event and connect with the Postman community. Explore our sponsorship packages.
               </p>
-              <button className="w-full bg-orange-500 text-white py-3 px-6 rounded-full font-semibold hover:bg-orange-600 transition-colors">
+              <button
+                className="w-full bg-orange-500 text-gray-500 py-3 px-6 rounded-full font-semibold hover:bg-orange-600 transition-colors"
+                style={{
+                  border: '2px solid',
+                  borderImage: 'linear-gradient(to right, #cc5200, #ff8000, #ffd580) 1',
+                  backgroundColor: '#f3f4f6',
+                  color: '#6b7280', 
+                }}
+              >
                 Call For Sponsors
               </button>
             </div>
