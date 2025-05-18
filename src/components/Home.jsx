@@ -129,7 +129,7 @@ function Home() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl p-6 h-42 flex flex-col items-center justify-start shadow-md hover:shadow-xl 
+                className="bg-white rounded-2xl p-6 h-42 flex flex-col items-center justify-start shadow-md 
                    hover:shadow-lg transition-all duration-300"
               >
                 <img
