@@ -1,5 +1,5 @@
 import React from "react";
-import homeImg from "../assets/homeImg.png";
+import homeImg from "../assets/homeImg.svg";
 import figma from "../assets/figma.jpg";
 import insta from "../assets/insta.png";
 import linkedin from "../assets/linkedin.png";
@@ -18,6 +18,11 @@ function Home() {
     { name: "LinkedIn", img: linkedin },
     { name: "Notion", img: notion },
     { name: "Peerlist", img: peerlist },
+    { name: "Figma", img: figma },
+    { name: "Instagram", img: insta },
+    { name: "LinkedIn", img: linkedin },
+    { name: "Notion", img: notion },
+    { name: "Peerlist", img: peerlist },
   ];
 
   const stats = [
@@ -31,7 +36,7 @@ function Home() {
     <div className="relative min-h-screen bg-white overflow-hidden">
       <GridBackground />
 
-      <div className="relative z-10 flex flex-col items-center justify-center mt-10 px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center mt-10">
         <img
           src={homeImg}
           alt="Postman Hero"
@@ -69,7 +74,7 @@ function Home() {
 
         <div className="overflow-x-hidden relative mt-8">
           <div className="flex animate-scroll-right gap-8 w-max">
-            {partners.map(({ name, img }, i) => (
+            {[...partners].reverse().map(({ name, img }, i) => (
               <img
                 key={i + partners.length}
                 src={img}
@@ -121,7 +126,12 @@ function Home() {
               ))}
             </div>
 
-            <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2">
+            <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2"
+              style={{
+                background: "linear-gradient(to right, #fc5e00, #f67c03)",
+                border: "solid 1px white",
+              }}
+            >
               Learn More About Us →
             </button>
           </div>
@@ -147,7 +157,7 @@ function Home() {
             ))}
           </div>
         </div>
-        <div className="mt-20 text-center my-20">
+        <div className="mt-20 text-center py-20">
           <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
             <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
             <div className="mr-2 font-bold text-white">POSTMAN</div>{" "}
