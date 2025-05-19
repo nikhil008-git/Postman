@@ -56,7 +56,7 @@ function Home() {
             <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
-        <div className="mt-20 text-center">
+         <div className="mt-20 text-center">
           <p className="text-black font-bold text-2xl">----OUR PARTNERS----</p>
         </div>
         <div className="overflow-x-hidden relative mt-20">
