@@ -8,7 +8,7 @@ import GridBackground from "./GridBackground";
 function LastPage() {
   return (
     <div className="relative w-screen min-h-screen bg-white overflow-hidden">
-      <GridBackground />
+      {/* <GridBackground /> */}
       <div className="relative z-10">
         <div className="flex flex-col w-full justify-center items-center mt-20">
           <img src={communityDay} alt="" className="h-auto w-auto" />
