@@ -86,7 +86,7 @@ function Home() {
         </div>
         <div className="mt-20 mx-auto px-4 flex flex-col md:flex-row justify-center items-stretch gap-8 lg:gap-20">
           <div className="flex-1 min-h-[600px] max-w-[800px] bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-3xl font-bold text-black mb-8">
+            <h2 id="about" className="text-3xl font-bold text-black mb-8 scroll-mt-24">
               Building the API Community in Pune
             </h2>
 
