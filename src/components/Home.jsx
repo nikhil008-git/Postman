@@ -1,5 +1,4 @@
 import React from "react";
-import homeImg from "../assets/homeImg.svg";
 import figma from "../assets/figma.jpg";
 import insta from "../assets/insta.png";
 import linkedin from "../assets/linkedin.png";
@@ -10,6 +9,8 @@ import communityIcon from "../assets/community.png";
 import workshopIcon from "../assets/workshop.png";
 import partnerIcon from "../assets/partners.png";
 import GridBackground from "./GridBackground";
+import { IoIosArrowDown } from "react-icons/io";
+import { BsThreeDots } from "react-icons/bs";
 
 function Home() {
   const partners = [
@@ -41,128 +42,76 @@ function Home() {
           src={homeImg}
           alt="Postman Hero"
           className="max-wl-[500px] w-ful object-contain"
-        /> */}
-        {/* <h1 className="mt-10 text-3xl md:text-4xl font-bold text-black">
+        />
+        <h1 className="mt-10 text-3xl md:text-4xl font-bold text-black">
           POSTMAN Community Pune
         </h1> */}
-
-        <div className="bg-white w-2/5 rounded-2xl shadow-xl flex flex-col items-center justify-center">
-          <div className="w-100 h-10 flex flex-row justify-center bg-gray-200 text-center rounded-2xl p-2 mb-2 gap-10">
+        <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl flex flex-col items-center justify-center mx-auto">
+          <div className="w-full flex flex-row items-center bg-gray-50 rounded-t-2xl p-3 mb-4 gap-4">
             <div className="flex flex-row gap-2">
               <div className="h-4 w-4 bg-red-600 rounded-full"></div>
               <div className="h-4 w-4 bg-yellow-500 rounded-full"></div>
               <div className="h-4 w-4 bg-green-500 rounded-full"></div>
             </div>
-            <div className="text-black font-bold">
-              <span className="text-orange-600">POSTMAN</span> Communty Pune
+            <div className="flex-1 text-black font-bold text-lg text-center pl-4">
+              <span className="text-orange-600">POSTMAN</span> Community Pune
             </div>
           </div>
-          <div className="flex flex-row gap-1">
-            <div>
-              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+
+          <div className="w-full flex flex-row items-center gap-2 px-4 py-6 mb-2">
+            <div className="flex flex-row items-center justify-around gap-2 border border-black rounded-md px-4 py-2 font-bold text-black bg-white">
+              <div className="flex items-center gap-2 border-r-2 border-gray-200 pr-2">
                 <span>POST</span>
-                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
-                <div className="text-black font-bold">
-                  <span className="text-orange-600">POSTMAN</span> Communty Pune
-                </div>
+                <IoIosArrowDown className="h-3 w-3 text-gray-400" />
+              </div>
+              <div className="w-100">
+                <span className="text-orange-600">POSTMAN</span> Community Pune
               </div>
             </div>
-            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+            <div className="h-10 w-25 font-semibold flex flex-row items-center justify-around gap-2 bg-blue-600">
+              <div>Send</div>
+              <IoIosArrowDown className="h-3 w-3 text-white" />
+            </div>
           </div>
-          <div className="flex flex-row gap-1">
-            <div>
-              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
-                <span>POST</span>
-                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
-                <div className="text-black font-bold">
-                  <span className="text-orange-600">POSTMAN</span> Communty Pune
-                </div>
+
+          <div className="w-full flex flex-row text-sm items-center border-1 border-black px-4 py-2 text-gray-700 rounded-sm mb-2">
+            <div className="w-8 border-r-1 border-black"></div>
+            <div className="w-45 border-r-1 border-black">Key</div>
+            <div className="w-80 pl-2 border-r-1 border-black">Value</div>
+            <div className="w-32 text-center flex items-center justify-end gap-2 text-gray-400">
+              <BsThreeDots className="h-5 w-5" />
+              <span>Bulk Edit</span>
+            </div>
+          </div>
+
+          {[
+            { key: "Community", value: "POSTMAN Pune" },
+            { key: "Member", value: "2000" },
+            {
+              key: "Focus",
+              value: '["API Development", "Testing", "Collaboration"]',
+            },
+            { key: "Fastest-growing-community", value: "True" },
+            { key: "Join", value: "True" },
+          ].map((row, idx) => (
+            <div
+              key={row.key}
+              className="w-full flex flex-row items-center border-1 border-black px-4 py-3 my-2 rounded-sm text-gray-700 text-sm"
+            >
+              <div className="w-10 border-r-1 border-black"></div>
+              <div className="w-45 border-r-1 border-black text-left text-gray-700">
+                {row.key}
+              </div>
+              <div className="w-80 border-r-1 border-black text-left text-gray-700 pl-2">
+                {row.value}
+              </div>
+              <div className="w-32 text-center flex items-center justify-end gap-2 text-gray-400">
+                <BsThreeDots className="h-5 w-5" />
+                <span>Bulk Edit</span>
               </div>
             </div>
-            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
-          </div>
-          <div className="flex flex-row gap-1">
-            <div>
-              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
-                <span>POST</span>
-                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
-                <div className="text-black font-bold">
-                  <span className="text-orange-600">POSTMAN</span> Communty Pune
-                </div>
-              </div>
-            </div>
-            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
-          </div>
-          <div className="flex flex-row gap-1">
-            <div>
-              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
-                <span>POST</span>
-                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
-                <div className="text-black font-bold">
-                  <span className="text-orange-600">POSTMAN</span> Communty Pune
-                </div>
-              </div>
-            </div>
-            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
-          </div>
-          <div className="flex flex-row gap-1">
-            <div>
-              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
-                <span>POST</span>
-                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
-                <div className="text-black font-bold">
-                  <span className="text-orange-600">POSTMAN</span> Communty Pune
-                </div>
-              </div>
-            </div>
-            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
-          </div>
-          <div className="flex flex-row gap-1">
-            <div>
-              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
-                <span>POST</span>
-                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
-                <div className="text-black font-bold">
-                  <span className="text-orange-600">POSTMAN</span> Communty Pune
-                </div>
-              </div>
-            </div>
-            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
-          </div>
-          <div className="flex flex-row gap-1">
-            <div>
-              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
-                <span>POST</span>
-                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
-                <div className="text-black font-bold">
-                  <span className="text-orange-600">POSTMAN</span> Communty Pune
-                </div>
-              </div>
-            </div>
-            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
-          </div>
+          ))}
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div className="mt-20 text-center">
           <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
             <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
@@ -174,36 +123,53 @@ function Home() {
             <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
-         <div className="mt-20 text-center">
-          <p className="text-black font-bold text-2xl">----OUR PARTNERS----</p>
+        <div className="mt-20 text-center">
+          <p className="text-black font-bold text-3xl">----OUR PARTNERS----</p>
         </div>
-        <div className="overflow-x-hidden relative mt-20">
-          <div className="flex animate-scroll-left gap-8 w-max">
-            {partners.map(({ name, img }, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={name}
-                className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
-              />
-            ))}
+
+        <div className="mt-20 flex flex-col gap-8 w-full justify-center">
+          <div className="overflow-x-hidden relative w-[1300px] ml-30">
+            <div className="flex animate-scroll-left gap-8 w-max">
+              {partners.map(({ name, img }, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={name}
+                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
+                />
+              ))}
+              {partners.map(({ name, img }, i) => (
+                <img
+                  key={i + partners.length}
+                  src={img}
+                  alt={name}
+                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="overflow-x-hidden relative w-[1300px] ml-30">
+            <div className="flex animate-scroll-right gap-8 w-max">
+              {partners.map(({ name, img }, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={name}
+                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
+                />
+              ))}
+              {partners.map(({ name, img }, i) => (
+                <img
+                  key={i + partners.length}
+                  src={img}
+                  alt={name}
+                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="overflow-x-hidden relative mt-8">
-          <div className="flex animate-scroll-right gap-8 w-max">
-            {[...partners].reverse().map(({ name, img }, i) => (
-              <img
-                key={i + partners.length}
-                src={img}
-                alt={name}
-                className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
-              />
-            ))}
-          </div>
-        </div>
-
-        {/*  */}
         <div className="mt-20 mx-auto px-4 flex flex-col md:flex-row justify-center items-stretch gap-8 lg:gap-20">
           <div className="flex-1 min-h-[600px] max-w-[800px] bg-white rounded-2xl shadow-xl p-8">
             <h2
@@ -300,27 +266,45 @@ function Home() {
           <div className="flex flex-wrap justify-center items-start gap-2">
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
           </div>
         </div>

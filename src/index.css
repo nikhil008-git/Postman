@@ -6,32 +6,23 @@
 }
 
 @keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% / 5)); 
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-
 @keyframes scroll-right {
-  0% {
-    transform: translateX(calc(-100% / 5));
-  }
-  100% {
-    transform: translateX(0);
-  }
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
-
 .animate-scroll-left {
-  animation: scroll-left 5s linear infinite;
+  animation: scroll-left 20s linear infinite;
 }
-
 .animate-scroll-right {
-  animation: scroll-right 5s linear infinite;
+  animation: scroll-right 20s linear infinite;
 }
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
