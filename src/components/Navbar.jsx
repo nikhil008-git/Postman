@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import GridBackground from "./GridBackground";
 
 function Navbar() {
   const location = useLocation();
@@ -28,17 +29,16 @@ function Navbar() {
             >
               HOME
             </Link>
-            <Link
-              to="/speakers"
-            className={`cursor-pointer font-extrabold `}
-            style={{
-              color: 'black', fontWeight: "bold"
-            }}
+            <a
+              href="/#about"
+              className={`cursor-pointer font-extrabold`}
+              style={{ color: 'black', fontWeight: 'bold' }}
             >
               ABOUT
-            </Link>
+            </a>
+
             <Link
-              to="/team"
+              to="/"
             className={`cursor-pointer font-extrabold `}
             style={{
               color: 'black', fontWeight: "bold"
@@ -56,13 +56,13 @@ function Navbar() {
               SPEAKERS
             </Link>
             <Link
-              to="/lastPage"
+              to="/team"
             className={`cursor-pointer font-extrabold `}
             style={{
               color: 'black', fontWeight: "bold"
             }}
             >
-              COMMUNITY
+              TEAM
             </Link>
         </div>
         <Link to="/lastPage">
