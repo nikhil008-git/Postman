@@ -1,5 +1,5 @@
 import React from "react";
-// import homeImg from "../assets/homeImg.svg";
+import homeImg from "../assets/homeImg.svg";
 import figma from "../assets/figma.jpg";
 import insta from "../assets/insta.png";
 import linkedin from "../assets/linkedin.png";
@@ -10,7 +10,6 @@ import communityIcon from "../assets/community.png";
 import workshopIcon from "../assets/workshop.png";
 import partnerIcon from "../assets/partners.png";
 import GridBackground from "./GridBackground";
-import { IoIosArrowDown } from "react-icons/io";
 
 function Home() {
   const partners = [
@@ -37,18 +36,13 @@ function Home() {
     <div className="relative min-h-screen bg-white">
       {/* <GridBackground /> */}
 
-<<<<<<< HEAD
-      <div className="relative z-10 flex flex-col items-center justify-center mt-10">
-        {/* <img
-=======
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <img
->>>>>>> 7946c25d8dfbfecc895acc3d4761d69e8bbf75dd
+        {/* <img
           src={homeImg}
           alt="Postman Hero"
           className="max-wl-[500px] w-ful object-contain"
-        />
-        <h1 className="mt-10 text-3xl md:text-4xl font-bold text-black">
+        /> */}
+        {/* <h1 className="mt-10 text-3xl md:text-4xl font-bold text-black">
           POSTMAN Community Pune
         </h1> */}
 
@@ -149,6 +143,26 @@ function Home() {
           </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div className="mt-20 text-center">
           <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
             <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
@@ -160,7 +174,7 @@ function Home() {
             <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
-        <div className="mt-20 text-center">
+         <div className="mt-20 text-center">
           <p className="text-black font-bold text-2xl">----OUR PARTNERS----</p>
         </div>
         <div className="overflow-x-hidden relative mt-20">
@@ -286,45 +300,27 @@ function Home() {
           <div className="flex flex-wrap justify-center items-start gap-2">
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
             </div>
           </div>
         </div>
