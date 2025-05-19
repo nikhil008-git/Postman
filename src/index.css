@@ -10,14 +10,9 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% / 5)); /* scroll by one image width */
+    transform: translateX(calc(-100% / 5)); 
   }
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
 
 @keyframes scroll-right {
   0% {

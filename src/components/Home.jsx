@@ -86,7 +86,10 @@ function Home() {
         </div>
         <div className="mt-20 mx-auto px-4 flex flex-col md:flex-row justify-center items-stretch gap-8 lg:gap-20">
           <div className="flex-1 min-h-[600px] max-w-[800px] bg-white rounded-2xl shadow-xl p-8">
-            <h2 id="about" className="text-3xl font-bold text-black mb-8 scroll-mt-24">
+            <h2
+              id="about"
+              className="text-3xl font-bold text-black mb-8 scroll-mt-24"
+            >
               Building the API Community in Pune
             </h2>
 
@@ -126,7 +129,8 @@ function Home() {
               ))}
             </div>
 
-            <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2"
+            <button
+              className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2"
               style={{
                 background: "linear-gradient(to right, #fc5e00, #f67c03)",
                 border: "solid 1px white",
@@ -166,6 +170,38 @@ function Home() {
             <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
             <div className="mr-2 font-bold text-white">PUNE</div>{" "}
             <img className="inline-block h-16 w-10" src={star} alt="Star" />
+          </div>
+        </div>
+        <div className="bg-black p-10">
+          <div className="max-w-4xl mx-auto py-12 flex flex-col justify-evenly items-start">
+            <h6 className="text-orange-600 font-light">FAQ</h6>
+            <h1 className="text-white">Frequently Asked Questions</h1>
+          </div>
+          <div className="flex flex-wrap justify-center items-start gap-2">
+            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
+              <h2>The Best Financial Accounting App Ever</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+            </div>
+            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
+              <h2>The Best Financial Accounting App Ever</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+            </div>
+            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
+              <h2>The Best Financial Accounting App Ever</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+            </div>
+            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
+              <h2>The Best Financial Accounting App Ever</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+            </div>
+            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
+              <h2>The Best Financial Accounting App Ever</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+            </div>
+            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
+              <h2>The Best Financial Accounting App Ever</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+            </div>
           </div>
         </div>
       </div>

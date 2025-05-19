@@ -5,7 +5,7 @@ import wave from "../assets/footer.png";
 
 const Footer = () => (
     <footer
-    className="w-screen relative overflow-hidden bg-white"
+    className="w-screen relative overflow-hidden bg-black"
     style={{
       height: "410px",
     }}
