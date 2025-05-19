@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import GridBackground from "./GridBackground";
 
 function Navbar() {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <div className={'w-full flex justify-center fixed top-0 z-50 bg-white'}>
