@@ -5,12 +5,15 @@ import MeetOurTeam from './components/MeetOurTeam';
 import LastPage from './components/LastPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import GridBackground from './components/GridBackground';
 
+// ...existing code...
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="pt-24">
+      <div className="relative pt-24 min-h-screen">
+        <GridBackground />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/speakers" element={<Speakers />} />
@@ -22,5 +25,9 @@ function App() {
     </BrowserRouter>
   );
 }
+// ...existing code...
+
+
+
 
 export default App;

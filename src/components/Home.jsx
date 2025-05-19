@@ -34,11 +34,16 @@ function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
-      <GridBackground />
+    <div className="relative min-h-screen bg-white">
+      {/* <GridBackground /> */}
 
+<<<<<<< HEAD
       <div className="relative z-10 flex flex-col items-center justify-center mt-10">
         {/* <img
+=======
+      <div className="relative z-10 flex flex-col items-center justify-center">
+        <img
+>>>>>>> 7946c25d8dfbfecc895acc3d4761d69e8bbf75dd
           src={homeImg}
           alt="Postman Hero"
           className="max-wl-[500px] w-ful object-contain"
@@ -183,6 +188,8 @@ function Home() {
             ))}
           </div>
         </div>
+
+        {/*  */}
         <div className="mt-20 mx-auto px-4 flex flex-col md:flex-row justify-center items-stretch gap-8 lg:gap-20">
           <div className="flex-1 min-h-[600px] max-w-[800px] bg-white rounded-2xl shadow-xl p-8">
             <h2

@@ -44,7 +44,7 @@ const MeetOurTeam = () => {
 
   return (
     <div className="relative w-screen min-h-screen bg-white overflow-hidden">
-      <GridBackground />
+      {/* <GridBackground /> */}
       {/* Main content */}
       <div className="relative z-10 max-w-6xl mx-auto my-20 flex flex-col items-center justify-center">
         <h2 className="text-4xl text-black font-bold text-center mb-12 uppercase border-b-2 border-black pb-4">
