@@ -1,5 +1,5 @@
 import React from "react";
-import homeImg from "../assets/homeImg.svg";
+// import homeImg from "../assets/homeImg.svg";
 import figma from "../assets/figma.jpg";
 import insta from "../assets/insta.png";
 import linkedin from "../assets/linkedin.png";
@@ -10,6 +10,7 @@ import communityIcon from "../assets/community.png";
 import workshopIcon from "../assets/workshop.png";
 import partnerIcon from "../assets/partners.png";
 import GridBackground from "./GridBackground";
+import { IoIosArrowDown } from "react-icons/io";
 
 function Home() {
   const partners = [
@@ -37,14 +38,112 @@ function Home() {
       <GridBackground />
 
       <div className="relative z-10 flex flex-col items-center justify-center mt-10">
-        <img
+        {/* <img
           src={homeImg}
           alt="Postman Hero"
           className="max-wl-[500px] w-ful object-contain"
         />
         <h1 className="mt-10 text-3xl md:text-4xl font-bold text-black">
           POSTMAN Community Pune
-        </h1>
+        </h1> */}
+
+        <div className="bg-white w-2/5 rounded-2xl shadow-xl flex flex-col items-center justify-center">
+          <div className="w-100 h-10 flex flex-row justify-center bg-gray-200 text-center rounded-2xl p-2 mb-2 gap-10">
+            <div className="flex flex-row gap-2">
+              <div className="h-4 w-4 bg-red-600 rounded-full"></div>
+              <div className="h-4 w-4 bg-yellow-500 rounded-full"></div>
+              <div className="h-4 w-4 bg-green-500 rounded-full"></div>
+            </div>
+            <div className="text-black font-bold">
+              <span className="text-orange-600">POSTMAN</span> Communty Pune
+            </div>
+          </div>
+          <div className="flex flex-row gap-1">
+            <div>
+              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+                <span>POST</span>
+                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
+                <div className="text-black font-bold">
+                  <span className="text-orange-600">POSTMAN</span> Communty Pune
+                </div>
+              </div>
+            </div>
+            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+          </div>
+          <div className="flex flex-row gap-1">
+            <div>
+              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+                <span>POST</span>
+                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
+                <div className="text-black font-bold">
+                  <span className="text-orange-600">POSTMAN</span> Communty Pune
+                </div>
+              </div>
+            </div>
+            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+          </div>
+          <div className="flex flex-row gap-1">
+            <div>
+              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+                <span>POST</span>
+                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
+                <div className="text-black font-bold">
+                  <span className="text-orange-600">POSTMAN</span> Communty Pune
+                </div>
+              </div>
+            </div>
+            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+          </div>
+          <div className="flex flex-row gap-1">
+            <div>
+              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+                <span>POST</span>
+                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
+                <div className="text-black font-bold">
+                  <span className="text-orange-600">POSTMAN</span> Communty Pune
+                </div>
+              </div>
+            </div>
+            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+          </div>
+          <div className="flex flex-row gap-1">
+            <div>
+              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+                <span>POST</span>
+                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
+                <div className="text-black font-bold">
+                  <span className="text-orange-600">POSTMAN</span> Communty Pune
+                </div>
+              </div>
+            </div>
+            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+          </div>
+          <div className="flex flex-row gap-1">
+            <div>
+              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+                <span>POST</span>
+                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
+                <div className="text-black font-bold">
+                  <span className="text-orange-600">POSTMAN</span> Communty Pune
+                </div>
+              </div>
+            </div>
+            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+          </div>
+          <div className="flex flex-row gap-1">
+            <div>
+              <div className="text-black font-bold border-1 border-black rounded-sm p-2 flex flex-row gap-2">
+                <span>POST</span>
+                {/* <img src={IoIosArrowDown} alt="" className="h-10 w-10"/> */}
+                <div className="text-black font-bold">
+                  <span className="text-orange-600">POSTMAN</span> Communty Pune
+                </div>
+              </div>
+            </div>
+            <div className="w-20 bg-blue-600 text-white font-light rounded-sm text-center">Send</div>
+          </div>
+        </div>
+
         <div className="mt-20 text-center">
           <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
             <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}
@@ -56,7 +155,7 @@ function Home() {
             <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
-         <div className="mt-20 text-center">
+        <div className="mt-20 text-center">
           <p className="text-black font-bold text-2xl">----OUR PARTNERS----</p>
         </div>
         <div className="overflow-x-hidden relative mt-20">
@@ -180,27 +279,45 @@ function Home() {
           <div className="flex flex-wrap justify-center items-start gap-2">
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
             <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
               <h2>The Best Financial Accounting App Ever</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, mollitia.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquam, mollitia.
+              </p>
             </div>
           </div>
         </div>
