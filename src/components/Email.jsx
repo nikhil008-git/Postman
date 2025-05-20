@@ -9,24 +9,42 @@ function Email() {
   e.preventDefault();
 
   const formData = new FormData(form.current);
-  const userName = formData.get('user_name');
-  const userEmail = formData.get('user_email');
-  const userInterest = formData.get('user_interest');
-  console.log(userName, userEmail, userInterest);
+  const userName = formData.get("user_name");
+  const userEmail = formData.get("user_email");
+  const userInterest = formData.get("user_interest");
 
+  // 1. Send to admin (you)
   emailjs
     .sendForm("service_58j8oxu", "template_2empwmj", form.current, {
-      publicKey: "7q-j2p6gtmA-Sfsru", 
+      publicKey: "7q-j2p6gtmA-Sfsru",
     })
-    .then(
-      () => {
-        console.log("SUCCESS!");
-        setSubmitted(true); 
-      },
-      (error) => {
-        console.log("FAILED...", error.text);
-      }
-    );
+    .then(() => {
+      console.log("Admin email sent successfully!");
+
+      // 2. Send confirmation email to user
+      emailjs
+        .send(
+          "service_58j8oxu", // same service ID
+          "template_2bow59v", // your user confirmation template ID
+          {
+            user_name: userName,
+            user_email: userEmail,
+          },
+          {
+            publicKey: "7q-j2p6gtmA-Sfsru",
+          }
+        )
+        .then(() => {
+          console.log("Confirmation email sent to user!");
+          setSubmitted(true);
+        })
+        .catch((error) => {
+          console.error("Failed to send confirmation email:", error);
+        });
+    })
+    .catch((error) => {
+      console.error("Failed to send admin email:", error);
+    });
 };
 
   return (
@@ -87,8 +105,8 @@ function Email() {
       )}
 
       {!submitted && (
-        <p className="text-xs text-gray-600 mt-4">
-          By subscribing, you agree to our Privacy Policy and consent to receive updates from Postman Community Pune.
+        <p className="text-lg text-red-500 mt-4">
+          Kindly click the submit button once—your request may take a few seconds to process.
         </p>
       )}
     </div>
