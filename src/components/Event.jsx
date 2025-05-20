@@ -37,21 +37,21 @@ function Event() {
             <img src={memory} alt="Memory" className="h-40 w-full rounded-lg object-cover" />
           </div>
 
-          <div className=" bg-white text-black flex flex-row justify-center items-center rounded-2xl mt-4 shadow-lg">
+          <div className=" bg-white text-black flex flex-row justify-center items-center rounded-2xl mt-4 shadow-lg gap-2 m-2">
             <div className="bg-orange-500 text-black flex flex-col justify-center items-center p-6 rounded-2xl ml-4">
               <h4>2025</h4>
               <h1>06</h1>
               <h4>JAN</h4>
             </div>
-            <div className="text-black flex flex-col justify-center items-start p-6 border-r-2 border-gray-600">
+            <div className="h-40 text-black flex flex-col justify-center items-start p-6 border-r-2 border-gray-600">
               <div className="font-bold">POSTMAN @ Jun 2024</div>
               <div className="text-sm">
                 Share your expertise with postman community. Submit your
                 proposal to speak at our event.
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center p-6">
-              <div className="flex flex-col justify-center items-center p-6">
+            <div className="flex flex-col justify-center items-center p-6 gap-6">
+              <div className="flex flex-col justify-center items-center px-6 gap-2">
                 <div className="flex flex-row gap-2">
                   <CalendarDays />
                   <h2>POSTMAN @ Jun 2024</h2>
@@ -65,27 +65,27 @@ function Event() {
                   <h2>POSTMAN @ Jun 2024</h2>
                 </div>
               </div>
-              <div className="flex flex-row justify-center items-center p-6 gap-2">
-                <button className="bg-black text-white">Go to Detail</button>
+              <div className="flex flex-row justify-center items-center px-6 gap-2">
+                <button className="w-full bg-black text-white">Go to Detail</button>
                 <button className="bg-gray-100 text-black">Register</button>
               </div>
             </div>
           </div>
-          <div className=" bg-white text-black flex flex-row justify-center items-center rounded-2xl mt-4 shadow-lg">
+          <div className=" bg-white text-black flex flex-row justify-center items-center rounded-2xl mt-4 shadow-lg gap-2 m-2">
             <div className="bg-orange-500 text-black flex flex-col justify-center items-center p-6 rounded-2xl ml-4">
               <h4>2025</h4>
               <h1>06</h1>
               <h4>JAN</h4>
             </div>
-            <div className="text-black flex flex-col justify-center items-start p-6 border-r-2 border-gray-600">
+            <div className="h-40 text-black flex flex-col justify-center items-start p-6 border-r-2 border-gray-600">
               <div className="font-bold">POSTMAN @ Jun 2024</div>
               <div className="text-sm">
                 Share your expertise with postman community. Submit your
                 proposal to speak at our event.
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center p-6">
-              <div className="flex flex-col justify-center items-center p-6">
+            <div className="flex flex-col justify-center items-center p-6 gap-6">
+              <div className="flex flex-col justify-center items-center px-6 gap-2">
                 <div className="flex flex-row gap-2">
                   <CalendarDays />
                   <h2>POSTMAN @ Jun 2024</h2>
@@ -99,27 +99,27 @@ function Event() {
                   <h2>POSTMAN @ Jun 2024</h2>
                 </div>
               </div>
-              <div className="flex flex-row justify-center items-center p-6 gap-2">
-                <button className="bg-black text-white">Go to Detail</button>
+              <div className="flex flex-row justify-center items-center px-6 gap-2">
+                <button className="w-full bg-black text-white">Go to Detail</button>
                 <button className="bg-gray-100 text-black">Register</button>
               </div>
             </div>
           </div>
-          <div className=" bg-white text-black flex flex-row justify-center items-center rounded-2xl mt-4 shadow-lg">
+          <div className=" bg-white text-black flex flex-row justify-center items-center rounded-2xl mt-4 shadow-lg gap-2 m-2">
             <div className="bg-orange-500 text-black flex flex-col justify-center items-center p-6 rounded-2xl ml-4">
               <h4>2025</h4>
               <h1>06</h1>
               <h4>JAN</h4>
             </div>
-            <div className="text-black flex flex-col justify-center items-start p-6 border-r-2 border-gray-600">
+            <div className="h-40 text-black flex flex-col justify-center items-start p-6 border-r-2 border-gray-600">
               <div className="font-bold">POSTMAN @ Jun 2024</div>
               <div className="text-sm">
                 Share your expertise with postman community. Submit your
                 proposal to speak at our event.
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center p-6">
-              <div className="flex flex-col justify-center items-center p-6">
+            <div className="flex flex-col justify-center items-center p-6 gap-6">
+              <div className="flex flex-col justify-center items-center px-6 gap-2">
                 <div className="flex flex-row gap-2">
                   <CalendarDays />
                   <h2>POSTMAN @ Jun 2024</h2>
@@ -133,8 +133,8 @@ function Event() {
                   <h2>POSTMAN @ Jun 2024</h2>
                 </div>
               </div>
-              <div className="flex flex-row justify-center items-center p-6 gap-2">
-                <button className="bg-black text-white">Go to Detail</button>
+              <div className="flex flex-row justify-center items-center px-6 gap-2">
+                <button className="w-full bg-black text-white">Go to Detail</button>
                 <button className="bg-gray-100 text-black">Register</button>
               </div>
             </div>
