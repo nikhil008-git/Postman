@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import star from "../assets/star.png";
 import communityIcon from "../assets/community.png";
 import workshopIcon from "../assets/workshop.png";
@@ -22,8 +22,6 @@ import spheron from "../assets/partners/spheron.svg";
 import Email from "./Email";
 
 function Home() {
-  
-
   const partners = [
     { name: "devDisplay", img: devDisplay },
     { name: "digitalOcean", img: digitalOcean },
@@ -78,8 +76,8 @@ function Home() {
     <div className="min-h-screen bg-white">
       {/* <GridBackground /> */}
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl flex flex-col items-center justify-center mx-auto">
-          <div className="w-full flex flex-row items-center bg-gray-50 rounded-t-2xl p-3 mb-4 gap-4">
+        <div className="bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center mx-auto">
+          <div className="w-full flex flex-row items-center bg-gray-50 rounded-t-2xl p-3 mb-1 gap-4">
             <div className="flex flex-row gap-2">
               <div className="h-4 w-4 bg-red-600 rounded-full"></div>
               <div className="h-4 w-4 bg-yellow-500 rounded-full"></div>
@@ -90,9 +88,10 @@ function Home() {
             </div>
           </div>
 
+          <div className="w-180 h-2"></div>
 
-          <div className="w-full flex flex-row items-center gap-2 px-4 py-6 mb-2">
-            <div className="flex flex-row items-center justify-around gap-2 border border-black rounded-md px-4 py-2 font-bold text-black bg-white">
+          <div className="flex flex-row items-center gap-2 px-4 py-6 mb-2">
+            <div className="w-138 flex flex-row items-center justify-around gap-2 border border-black rounded-md px-4 py-2 font-bold text-black bg-white">
               <div className="flex items-center gap-2 border-r-2 border-gray-200 pr-2">
                 <span>POST</span>
                 <IoIosArrowDown className="h-3 w-3 text-gray-400" />
@@ -106,12 +105,12 @@ function Home() {
               <IoIosArrowDown className="h-3 w-3 text-white" />
             </div>
           </div>
-{/* ............................................................................................... */}
-          <div className="w-full flex flex-row text-sm items-center border-1 border-black px-4 py-2 text-gray-700 rounded-sm mb-2">
-            <div className="w-[5%] border-r border-black"></div>
-            <div className="w-[25%] border-r border-black">Key</div>
-            <div className="w-85 pl-2 border-r border-black">Value</div>
-            <div className="w-32 text-center flex items-center justify-end gap-2 text-gray-400">
+          {/* ............................................................................................... */}
+          <div className="w-165 flex flex-row text-sm border-1 border-black px-4 text-gray-700 rounded-sm mb-2">
+            <div className="w-10.5 h-8 border-r border-black"></div>
+            <div className="w-46.5 h-8 border-r border-black pl-2">Key</div>
+            <div className="w-77 h-8 pl-2 border-r border-black">Value</div>
+            <div className="w-24 h-8 text-center flex justify-end gap-2 text-gray-400">
               <BsThreeDots className="h-5 w-5" />
               <span>Bulk Edit</span>
             </div>
@@ -129,25 +128,22 @@ function Home() {
           ].map((row, idx) => (
             <div
               key={row.key}
-              className="w-full flex flex-row items-center border-1 border-black px-4 py-3 mb-2 rounded-sm text-gray-700 text-sm"
+              className="flex flex-row border-1 border-black px-4 mb-2 rounded-sm text-gray-700 text-sm"
             >
-              <div className="w-10 border-r-1 border-black"></div>
-              <div className="w-48 border-r-1 border-black text-left text-gray-700">
+              <div className="w-10 h-8 border-r-1 border-black"></div>
+              <div className="w-46 h-8 border-r-1 border-black text-left text-gray-700 pl-2">
                 {row.key}
               </div>
-              <div className="w-80 border-r-1 border-black text-left text-gray-700 pl-2">
+              <div className="w-76 h-8 border-r-1 border-black text-left text-gray-700 pl-2">
                 {row.value}
               </div>
-              <div className="w-32 text-center flex items-center justify-end gap-2 text-gray-400">
+              <div className="w-24 h-8 flex justify-end gap-2 text-gray-400">
                 <BsThreeDots className="h-5 w-5" />
                 <span>Bulk Edit</span>
               </div>
             </div>
           ))}
         </div>
-
-
-
 
         <div className="mt-20 text-center">
           <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
@@ -252,9 +248,7 @@ function Home() {
               ))}
             </div>
 
-            <button
-              className="bg-gradient-to-r from-orange-700 to-orange-400 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2"
-            >
+            <button className="bg-gradient-to-r from-orange-700 to-orange-400 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2">
               Learn More About Us →
             </button>
           </div>
@@ -291,7 +285,7 @@ function Home() {
             <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
-        
+
         <div className="flex flex-row items-center justify-center gap-2 mt-20 mb-10 m-10">
           <div className="w-3/5">
             <div className="w-full flex flex-col justify-center items-start text-black mt-10">
