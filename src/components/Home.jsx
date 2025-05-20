@@ -1,29 +1,44 @@
 import React from "react";
-import figma from "../assets/figma.jpg";
-import insta from "../assets/insta.png";
-import linkedin from "../assets/linkedin.png";
-import notion from "../assets/notion.png";
-import peerlist from "../assets/peerlist.png";
 import star from "../assets/star.png";
 import communityIcon from "../assets/community.png";
 import workshopIcon from "../assets/workshop.png";
 import partnerIcon from "../assets/partners.png";
-import GridBackground from "./GridBackground";
 import { IoIosArrowDown } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
+import {
+  MessageSquare,
+  ChevronsLeftRight,
+  Package,
+  Database,
+} from "lucide-react";
+import digitalOcean from "../assets/digitalOcean.svg";
+import kotlin from "../assets/kotlin.svg";
+import devDisplay from "../assets/devDisplay.svg";
+import GDSC from "../assets/gdsc.svg";
+import girlInTech from "../assets/girlInTech.svg";
+import MLH from "../assets/MLH.svg";
+import puneDAO from "../assets/puneDAO.svg";
+import spheron from "../assets/spheron.svg";
 
 function Home() {
   const partners = [
-    { name: "Figma", img: figma },
-    { name: "Instagram", img: insta },
-    { name: "LinkedIn", img: linkedin },
-    { name: "Notion", img: notion },
-    { name: "Peerlist", img: peerlist },
-    { name: "Figma", img: figma },
-    { name: "Instagram", img: insta },
-    { name: "LinkedIn", img: linkedin },
-    { name: "Notion", img: notion },
-    { name: "Peerlist", img: peerlist },
+    { name: "devDisplay", img: devDisplay },
+    { name: "digitalOcean", img: digitalOcean },
+    { name: "spheron", img: spheron },
+    { name: "kotlin", img: kotlin },
+    { name: "GDSC", img: GDSC },
+    { name: "girlInTech", img: girlInTech },
+    { name: "MLH", img: MLH },
+    { name: "devDisplay", img: devDisplay },
+    { name: "digitalOcean", img: digitalOcean },
+    { name: "spheron", img: spheron },
+    { name: "kotlin", img: kotlin },
+    { name: "puneDAO", img: puneDAO },
+    { name: "devDisplay", img: devDisplay },
+    { name: "GDSC", img: GDSC },
+    { name: "girlInTech", img: girlInTech },
+    { name: "MLH", img: MLH },
+    { name: "puneDAO", img: puneDAO },
   ];
 
   const stats = [
@@ -31,6 +46,29 @@ function Home() {
     { value: "45+", label: "Events", icon: communityIcon },
     { value: "20+", label: "Workshops", icon: workshopIcon },
     { value: "5+", label: "Partners", icon: partnerIcon },
+  ];
+
+  const available = [
+    {
+      icon: <MessageSquare />,
+      label: "Online Forums",
+      description: "Engage in discussions with peers",
+    },
+    {
+      icon: <ChevronsLeftRight />,
+      label: "Collaboration",
+      description: "Work together on open-source projects",
+    },
+    {
+      icon: <Package />,
+      label: "Resources",
+      description: "Access exclusive learning materials",
+    },
+    {
+      icon: <Database />,
+      label: "Job Board",
+      description: "Find API-related career opportunities",
+    },
   ];
 
   return (
@@ -135,7 +173,7 @@ function Home() {
                   key={i}
                   src={img}
                   alt={name}
-                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
+                  className="h-100 w-130 rounded-xl object-cover flex-shrink-0 p-4"
                 />
               ))}
               {partners.map(({ name, img }, i) => (
@@ -143,27 +181,7 @@ function Home() {
                   key={i + partners.length}
                   src={img}
                   alt={name}
-                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
-                />
-              ))}
-            </div>
-          </div>
-          <div className="overflow-x-hidden relative w-[1300px] ml-30">
-            <div className="flex animate-scroll-right gap-8 w-max">
-              {partners.map(({ name, img }, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={name}
-                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
-                />
-              ))}
-              {partners.map(({ name, img }, i) => (
-                <img
-                  key={i + partners.length}
-                  src={img}
-                  alt={name}
-                  className="h-32 w-32 rounded-xl object-cover flex-shrink-0"
+                  className="h-40 w-40 rounded-xl object-cover flex-shrink-0 p-4"
                 />
               ))}
             </div>
@@ -306,6 +324,73 @@ function Home() {
                 Aliquam, mollitia.
               </p>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-row items-center justify-center gap-2 mt-20 mb-10 m-10">
+          <div className="w-3/5">
+            <div className="w-full flex flex-col justify-center items-start text-black mt-10">
+              <div className="w-1/2 rounded-full bg-gradient-to-r from-orange-700 to-orange-400 text-white text-center font-bold text-2xl px-10 py-4 m-2">
+                Join Our Community
+              </div>
+              <h1 className="w-full my-2">
+                Become Part of the
+                <span className="text-orange-500"> API Revolution</span>
+              </h1>
+              <p className="w-4/5 my-2">
+                Join our growing community of developers, testers, and API
+                enthusiasts. Share knowledge collaborate on projects, and stay
+                updated with the latest trends in API development.
+              </p>
+              <div></div>
+            </div>
+            <div className="w-1/2 flex flex-col justify-center items-start text-black mt-10">
+              {/* <MessageSquare className="w-6 h-6 text-orange-500" /> */}
+              {available.map((item, index) => (
+                <div key={index} className="flex items-center gap-2 mb-4">
+                  <div className="text-orange-500">{item.icon}</div>
+                  <div>
+                    <h3 className="text-black text-lg font-semibold">
+                      {item.label}
+                    </h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-gray-100 w-1/2 text-gray-800 p-6 rounded-2xl">
+            <h2 className="p-2">Stay Connected</h2>
+            <form action="" className="flex flex-col text-gray-700">
+              <p className="py-2">Your Name</p>
+              <input
+                type="text"
+                label="Your Name"
+                placeholder="John Doe"
+                className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
+              />
+              <p className="py-2">Email Address</p>
+              <input
+                type="email"
+                label="Your Email"
+                placeholder="john@example.com"
+                className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
+              />
+              <p className="py-2">Your Interest</p>
+              <select
+                label="Your Interest"
+                className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Select an option
+                </option>
+                <option value="option1">Volunteer</option>
+                <option value="option2">Management</option>
+                <option value="option3">Social Media</option>
+                <option value="option4">Content Creation</option>
+                <option value="option5">Design</option>
+              </select>
+            </form>
           </div>
         </div>
       </div>
