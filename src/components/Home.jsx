@@ -75,18 +75,9 @@ function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* <GridBackground /> */}
-
       <div className="relative z-10 flex flex-col items-center justify-center">
-        {/* <img
-          src={homeImg}
-          alt="Postman Hero"
-          className="max-wl-[500px] w-ful object-contain"
-        />
-        <h1 className="mt-10 text-3xl md:text-4xl font-bold text-black">
-          POSTMAN Community Pune
-        </h1> */}
         <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl flex flex-col items-center justify-center mx-auto">
           <div className="w-full flex flex-row items-center bg-gray-50 rounded-t-2xl p-3 mb-4 gap-4">
             <div className="flex flex-row gap-2">
@@ -98,6 +89,7 @@ function Home() {
               <span className="text-orange-600">POSTMAN</span> Community Pune
             </div>
           </div>
+
 
           <div className="w-full flex flex-row items-center gap-2 px-4 py-6 mb-2">
             <div className="flex flex-row items-center justify-around gap-2 border border-black rounded-md px-4 py-2 font-bold text-black bg-white">
@@ -114,11 +106,11 @@ function Home() {
               <IoIosArrowDown className="h-3 w-3 text-white" />
             </div>
           </div>
-
+{/* ............................................................................................... */}
           <div className="w-full flex flex-row text-sm items-center border-1 border-black px-4 py-2 text-gray-700 rounded-sm mb-2">
-            <div className="w-8 border-r-1 border-black"></div>
-            <div className="w-45 border-r-1 border-black">Key</div>
-            <div className="w-80 pl-2 border-r-1 border-black">Value</div>
+            <div className="w-[5%] border-r border-black"></div>
+            <div className="w-[25%] border-r border-black">Key</div>
+            <div className="w-85 pl-2 border-r border-black">Value</div>
             <div className="w-32 text-center flex items-center justify-end gap-2 text-gray-400">
               <BsThreeDots className="h-5 w-5" />
               <span>Bulk Edit</span>
@@ -137,7 +129,7 @@ function Home() {
           ].map((row, idx) => (
             <div
               key={row.key}
-              className="w-full flex flex-row items-center border-1 border-black px-4 py-3 my-2 rounded-sm text-gray-700 text-sm"
+              className="w-full flex flex-row items-center border-1 border-black px-4 py-3 mb-2 rounded-sm text-gray-700 text-sm"
             >
               <div className="w-10 border-r-1 border-black"></div>
               <div className="w-48 border-r-1 border-black text-left text-gray-700">
@@ -153,6 +145,10 @@ function Home() {
             </div>
           ))}
         </div>
+
+
+
+
         <div className="mt-20 text-center">
           <div className="flex justify-evenly flex-row items-center transform rotate-[3deg] bg-orange-500 text-white font-bold text-2xl px-10 rounded-xl shadow-lg w-screen text-center gap-20">
             <img className="inline-block h-16 w-10" src={star} alt="Star" />{" "}

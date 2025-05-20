@@ -10,9 +10,9 @@ function Navbar() {
   }, [location]);
 
   return (
-    <div className={'w-full flex justify-center fixed top-0 z-50 bg-white'}>
+    <div className={'w-full flex justify-center fixed top-0 z-30 bg-white'}>
       
-      <div className="w-full h-16 max-w-3xl bg-gray-300 flex justify-between items-center pl-1 pr-6 py-3 my-4 rounded-full shadow-md border border-orange-300">
+      <div className="w-full h-15 max-w-3xl bg-gray-300 flex justify-between items-center pl-1 pr-6 py-3 my-2 rounded-full shadow-md border border-orange-300">
         <div className="flex items-center">
           <Link to="/">
           <img
