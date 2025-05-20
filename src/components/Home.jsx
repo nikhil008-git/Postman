@@ -291,56 +291,7 @@ function Home() {
             <img className="inline-block h-16 w-10" src={star} alt="Star" />
           </div>
         </div>
-        <div className="bg-black p-10">
-          <div className="max-w-4xl mx-auto py-12 flex flex-col justify-evenly items-start">
-            <h6 className="text-orange-600 font-light">FAQ</h6>
-            <h1 className="text-white">Frequently Asked Questions</h1>
-          </div>
-          <div className="flex flex-wrap justify-center items-start gap-2">
-            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
-              <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
-              <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
-              <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
-              <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-amber-600 text-white rounded-2xl p-8">
-              <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto py-12 flex flex-col items-start bg-white text-black rounded-2xl p-8">
-              <h2>The Best Financial Accounting App Ever</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, mollitia.
-              </p>
-            </div>
-          </div>
-        </div>
+        
         <div className="flex flex-row items-center justify-center gap-2 mt-20 mb-10 m-10">
           <div className="w-3/5">
             <div className="w-full flex flex-col justify-center items-start text-black mt-10">
