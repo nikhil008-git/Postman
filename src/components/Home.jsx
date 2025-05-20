@@ -11,14 +11,14 @@ import {
   Package,
   Database,
 } from "lucide-react";
-import digitalOcean from "../assets/digitalOcean.svg";
-import kotlin from "../assets/kotlin.svg";
-import devDisplay from "../assets/devDisplay.svg";
-import GDSC from "../assets/gdsc.svg";
-import girlInTech from "../assets/girlInTech.svg";
-import MLH from "../assets/MLH.svg";
-import puneDAO from "../assets/puneDAO.svg";
-import spheron from "../assets/spheron.svg";
+import digitalOcean from "../assets/partners/digitalOcean.svg";
+import kotlin from "../assets/partners/kotlin.svg";
+import devDisplay from "../assets/partners/devDisplay.svg";
+import GDSC from "../assets/partners/gdsc.svg";
+import girlInTech from "../assets/partners/girlInTech.svg";
+import MLH from "../assets/partners/MLH.svg";
+import puneDAO from "../assets/partners/puneDAO.svg";
+import spheron from "../assets/partners/spheron.svg";
 
 function Home() {
   const partners = [
@@ -173,7 +173,7 @@ function Home() {
                   key={i}
                   src={img}
                   alt={name}
-                  className="h-100 w-130 rounded-xl object-cover flex-shrink-0 p-4"
+                  className="h-42 w-42 rounded-xl object-cover flex-shrink-0 p-4"
                 />
               ))}
               {partners.map(({ name, img }, i) => (
@@ -181,7 +181,27 @@ function Home() {
                   key={i + partners.length}
                   src={img}
                   alt={name}
-                  className="h-40 w-40 rounded-xl object-cover flex-shrink-0 p-4"
+                  className="h-42 w-42 rounded-xl object-cover flex-shrink-0 p-4"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="overflow-x-hidden relative w-[1300px] ml-30">
+            <div className="flex animate-scroll-right gap-8 w-max">
+              {partners.map(({ name, img }, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={name}
+                  className="h-42 w-42 rounded-xl object-cover flex-shrink-0 p-4"
+                />
+              ))}
+              {partners.map(({ name, img }, i) => (
+                <img
+                  key={i + partners.length}
+                  src={img}
+                  alt={name}
+                  className="h-42 w-42 rounded-xl object-cover flex-shrink-0 p-4"
                 />
               ))}
             </div>
@@ -329,7 +349,7 @@ function Home() {
         <div className="flex flex-row items-center justify-center gap-2 mt-20 mb-10 m-10">
           <div className="w-3/5">
             <div className="w-full flex flex-col justify-center items-start text-black mt-10">
-              <div className="w-1/2 rounded-full bg-gradient-to-r from-orange-700 to-orange-400 text-white text-center font-bold text-2xl px-10 py-4 m-2">
+              <div className="w-50 rounded-full bg-gradient-to-r from-orange-700 to-orange-400 text-white text-center text-sm font-bold py-4 m-2">
                 Join Our Community
               </div>
               <h1 className="w-full my-2">
