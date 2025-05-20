@@ -6,6 +6,7 @@ import LastPage from './components/LastPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import GridBackground from './components/GridBackground';
+import Event from './components/Event';
 
 // ...existing code...
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/speakers" element={<Speakers />} />
           <Route path="/team" element={<MeetOurTeam />} />
+          <Route path="/event" element={<Event />} />
           <Route path="/lastPage" element={<LastPage />} />
         </Routes>
       </div>

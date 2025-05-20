@@ -41,7 +41,7 @@ function Navbar() {
             </a>
 
             <Link
-              to="/"
+              to="/event"
             className={`cursor-pointer font-extrabold `}
             style={{
               color: 'black', fontWeight: "bold"
