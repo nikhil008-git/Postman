@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import star from "../assets/star.png";
 import communityIcon from "../assets/community.png";
 import workshopIcon from "../assets/workshop.png";
@@ -19,8 +19,11 @@ import girlInTech from "../assets/partners/girlInTech.svg";
 import MLH from "../assets/partners/MLH.svg";
 import puneDAO from "../assets/partners/puneDAO.svg";
 import spheron from "../assets/partners/spheron.svg";
+import Email from "./Email";
 
 function Home() {
+  
+
   const partners = [
     { name: "devDisplay", img: devDisplay },
     { name: "digitalOcean", img: digitalOcean },
@@ -137,7 +140,7 @@ function Home() {
               className="w-full flex flex-row items-center border-1 border-black px-4 py-3 my-2 rounded-sm text-gray-700 text-sm"
             >
               <div className="w-10 border-r-1 border-black"></div>
-              <div className="w-45 border-r-1 border-black text-left text-gray-700">
+              <div className="w-48 border-r-1 border-black text-left text-gray-700">
                 {row.key}
               </div>
               <div className="w-80 border-r-1 border-black text-left text-gray-700 pl-2">
@@ -378,40 +381,7 @@ function Home() {
               ))}
             </div>
           </div>
-          <div className="bg-gray-100 w-1/2 text-gray-800 p-6 rounded-2xl">
-            <h2 className="p-2">Stay Connected</h2>
-            <form action="" className="flex flex-col text-gray-700">
-              <p className="py-2">Your Name</p>
-              <input
-                type="text"
-                label="Your Name"
-                placeholder="John Doe"
-                className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
-              />
-              <p className="py-2">Email Address</p>
-              <input
-                type="email"
-                label="Your Email"
-                placeholder="john@example.com"
-                className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
-              />
-              <p className="py-2">Your Interest</p>
-              <select
-                label="Your Interest"
-                className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Select an option
-                </option>
-                <option value="option1">Volunteer</option>
-                <option value="option2">Management</option>
-                <option value="option3">Social Media</option>
-                <option value="option4">Content Creation</option>
-                <option value="option5">Design</option>
-              </select>
-            </form>
-          </div>
+          <Email />
         </div>
       </div>
     </div>
