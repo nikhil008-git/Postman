@@ -9,7 +9,7 @@ import gummie from '../assets/event/gummie.jpg';
 function Event() {
   return (
     <div className="relative w-screen min-h-screen bg-white overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto my-20 flex flex-col items-center justify-center">
+      <div className="relative z-10 max-w-6xl mx-auto my-10 flex flex-col items-center justify-center">
         <h2 className="text-4xl text-black font-bold text-center mb-12 uppercase border-b-2 border-black pb-4">
           EVENT
         </h2>
