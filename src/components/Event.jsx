@@ -65,9 +65,9 @@ function Event() {
                   <h2>POSTMAN @ Jun 2024</h2>
                 </div>
               </div>
-              <div className="flex flex-row justify-center items-center text-white p-6 gap-2">
-                <button>Go to Detail</button>
-                <button>Register</button>
+              <div className="flex flex-row justify-center items-center p-6 gap-2">
+                <button className="bg-black text-white">Go to Detail</button>
+                <button className="bg-gray-100 text-black">Register</button>
               </div>
             </div>
           </div>
@@ -99,9 +99,9 @@ function Event() {
                   <h2>POSTMAN @ Jun 2024</h2>
                 </div>
               </div>
-              <div className="flex flex-row justify-center items-center text-white p-6 gap-2">
-                <button>Go to Detail</button>
-                <button>Register</button>
+              <div className="flex flex-row justify-center items-center p-6 gap-2">
+                <button className="bg-black text-white">Go to Detail</button>
+                <button className="bg-gray-100 text-black">Register</button>
               </div>
             </div>
           </div>
@@ -133,9 +133,9 @@ function Event() {
                   <h2>POSTMAN @ Jun 2024</h2>
                 </div>
               </div>
-              <div className="flex flex-row justify-center items-center text-white p-6 gap-2">
-                <button>Go to Detail</button>
-                <button>Register</button>
+              <div className="flex flex-row justify-center items-center p-6 gap-2">
+                <button className="bg-black text-white">Go to Detail</button>
+                <button className="bg-gray-100 text-black">Register</button>
               </div>
             </div>
           </div>

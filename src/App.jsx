@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="relative pt-24 min-h-screen">
+      {/* <div className="relative pt-24 min-h-screen"> */}
         <GridBackground />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
           <Route path="/event" element={<Event />} />
           <Route path="/lastPage" element={<LastPage />} />
         </Routes>
-      </div>
+      {/* </div> */}
       <Footer />
     </BrowserRouter>
   );

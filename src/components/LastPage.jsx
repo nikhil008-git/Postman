@@ -1,8 +1,8 @@
 import React from "react";
-import communityDay from '../assets/postmanCommunityDay.svg'
-import postmanFun from '../assets/postman-fun.svg';
+import communityDay from "../assets/postmanCommunityDay.svg";
+import postmanFun from "../assets/postman-fun.svg";
 import speaker from "../assets/callForSpeaker.svg";
-import sponser from '../assets/callForSponsors.svg';
+import sponser from "../assets/callForSponsors.svg";
 import GridBackground from "./GridBackground";
 
 function LastPage() {
@@ -25,17 +25,19 @@ function LastPage() {
               />
             </div>
             <div className="p-6 bg-white">
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">Call For Speakers</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                Call For Speakers
+              </h2>
               <p className="text-gray-600 mb-6">
-                Share your expertise with Postman community. Submit your proposal to speak at our event.
+                Share your expertise with Postman community. Submit your
+                proposal to speak at our event.
               </p>
               <button
-                className="w-full bg-orange-500 text-gray-500 py-3 px-6 rounded-full font-semibold hover:bg-orange-600 transition-colors"
+                className=" bg-gray-100 w-full text-gray-500 py-3 px-6  font-semibold hover:bg-orange-600 transition-colors"
                 style={{
-                  border: '2px solid',
-                  borderImage: 'linear-gradient(to right, #cc5200, #ff8000, #ffd580) 1',
-                  backgroundColor: '#f3f4f6',
-                  color: '#6b7280',
+                  border: "2px solid",
+                  borderImage:
+                    "linear-gradient(to right, #cc5200, #ff8000, #ffd580) 1",
                 }}
               >
                 Call For Speakers
@@ -51,17 +53,19 @@ function LastPage() {
               />
             </div>
             <div className="p-6 bg-white">
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">Call For Sponsors</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                Call For Sponsors
+              </h2>
               <p className="text-gray-600 mb-6">
-                Support our event and connect with the Postman community. Explore our sponsorship packages.
+                Support our event and connect with the Postman community.
+                Explore our sponsorship packages.
               </p>
               <button
-                className="w-full bg-orange-500 text-gray-500 py-3 px-6 rounded-full font-semibold hover:bg-orange-600 transition-colors"
+                className=" bg-gray-100 w-full text-gray-500 py-3 px-6  font-semibold hover:bg-orange-600 transition-colors"
                 style={{
-                  border: '2px solid',
-                  borderImage: 'linear-gradient(to right, #cc5200, #ff8000, #ffd580) 1',
-                  backgroundColor: '#f3f4f6',
-                  color: '#6b7280', 
+                  border: "2px solid",
+                  borderImage:
+                    "linear-gradient(to right, #cc5200, #ff8000, #ffd580) 1",
                 }}
               >
                 Call For Sponsors
