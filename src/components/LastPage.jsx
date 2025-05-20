@@ -33,7 +33,7 @@ function LastPage() {
                 proposal to speak at our event.
               </p>
               <button
-                className=" bg-gray-100 w-full text-gray-500 py-3 px-6  font-semibold hover:bg-orange-600 transition-colors"
+                className=" bg-gray-100 w-full text-gray-500 py-3 px-6  font-semibold transition-colors"
                 style={{
                   border: "2px solid",
                   borderImage:
@@ -61,7 +61,7 @@ function LastPage() {
                 Explore our sponsorship packages.
               </p>
               <button
-                className=" bg-gray-100 w-full text-gray-500 py-3 px-6  font-semibold hover:bg-orange-600 transition-colors"
+                className=" bg-gray-100 w-full text-gray-500 py-3 px-6 font-semibold transition-colors"
                 style={{
                   border: "2px solid",
                   borderImage:
