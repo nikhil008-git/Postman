@@ -253,11 +253,7 @@ function Home() {
             </div>
 
             <button
-              className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2"
-              style={{
-                background: "linear-gradient(to right, #fc5e00, #f67c03)",
-                border: "solid 1px white",
-              }}
+              className="bg-gradient-to-r from-orange-700 to-orange-400 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center mx-auto gap-2"
             >
               Learn More About Us →
             </button>
