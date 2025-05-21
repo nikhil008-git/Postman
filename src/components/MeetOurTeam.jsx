@@ -20,12 +20,14 @@ import rutuja from '../assets/team/rutuja.jpeg';
 import sachin from '../assets/team/sachin.jpg';
 import suresh from '../assets/team/suresh.jpg'; 
 
+
+
 const MeetOurTeam = () => {
   const speakers = [
     {
       image: shrawan,
       name: "SHRAWAN SAPROO",
-      role: "Backend Developer",
+      role: "ORGANIZER",
       twitter: "https://x.com/SaprooShrawan",
       linkedin: "https://www.linkedin.com/in/shrawan513/",
       instagram: "https://www.instagram.com/shrawansaproo/",
@@ -33,7 +35,7 @@ const MeetOurTeam = () => {
     {
       image: aditya,
       name: "ADITYA BISHT",
-      role: "Security Consultant",
+      role: "CO-ORGANIZER",
       twitter: "https://x.com/adityab894",
       linkedin: "https://www.linkedin.com/in/adityab894/",
       instagram: "https://www.instagram.com/aditya__894/",
@@ -41,7 +43,7 @@ const MeetOurTeam = () => {
     {
       image: sachin,
       name: "SACHIN PARIHAR",
-      role: "Backend Developer",
+      role: "GROWTH MANAGER",
       twitter: "https://x.com/Sheenu_exe",
       linkedin: "https://www.linkedin.com/in/sachin-parihar-008180264/",
       instagram: "https://www.instagram.com/sachinn.js/",
@@ -49,7 +51,7 @@ const MeetOurTeam = () => {
     {
       image: nilanjan,
       name: "NILANJAN PAUL",
-      role: "Backend Developer",
+      role: "TECHNICAL LEAD",
       twitter: "",
       linkedin: "https://www.linkedin.com/in/nilanjan-paul21/",
       instagram: "https://www.instagram.com/_nilu343/",
@@ -57,7 +59,7 @@ const MeetOurTeam = () => {
     {
       image: eric,
       name: "ERIC FERNANDIS",
-      role: "Backend Developer",  
+      role: "SUPPORT MANAGER",  
       twitter: "",
       linkedin: "https://www.linkedin.com/in/ericfernandes1681/",
       instagram: "https://www.instagram.com/eric.fernandes11/",
@@ -65,7 +67,7 @@ const MeetOurTeam = () => {
     {
       image: atharva,
       name: "ATHARVA WANI",
-      role: "Backend Developer",
+      role: "DESIGNER",
       twitter: "",
       linkedin: "https://www.linkedin.com/in/waniatharva/",
       instagram: "https://www.instagram.com/atharvawani___/",
@@ -73,7 +75,7 @@ const MeetOurTeam = () => {
     {
       image: kunal,
       name: "KUNAL GAVIT",
-      role: "Developer",
+      role: "SOCIAL MEDIA",
       twitter: "",
       linkedin: "https://www.linkedin.com/in/kunal-gavit-1504gk/",
       instagram: "https://www.instagram.com/kunaaaal.gb04/",
@@ -81,7 +83,7 @@ const MeetOurTeam = () => {
     {
       image: suresh,
       name: "SURESH CHAUDHARY",
-      role: "Developer",
+      role: "CREATIVE HEAD",
       twitter: "https://x.com/suracechoudhary",
       linkedin: "https://www.linkedin.com/in/sschoudhary30/",
       instagram: "https://www.instagram.com/su.race0/",
@@ -89,39 +91,39 @@ const MeetOurTeam = () => {
     {
       image: alisha,
       name: "ALISHA SAPKAL",
-      role: "Frontend Developer",
+      role: "DEVELOPER",
       twitter: "",
-      linkedin: "https://www.linkedin.com/in/alisha-sapkal-06b0ba259/",
-      instagram: "https://www.instagram.com/alisha_s_18/?hl=en",
+      linkedin: "https://www.linkedin.com/in/alisha-sapkal/",
+      instagram: "https://www.instagram.com/alisha_s_18/",
     },
     {
       image: aman,
       name: "AMAN MOGAL",
-      role: "Developer",
+      role: "SPONSERSHIP",
       twitter: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/aman-mogal-b7773b246/",
       instagram: "",
     },
     {
       image: alice,
       name: "ALICE CHAUHAN",
-      role: "Developer",
+      role: "SOCIAL MEDIA",
       twitter: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/alice-chauhan-661305288/",
       instagram: "https://www.instagram.com/alicechauhan28/",
     },
     {
       image: nikhil,
       name: "NIKHIL RAJPUROHIT",
-      role: "Developer",
+      role: "SPONSERSHIP",
       twitter: "",
-      linkedin: "",
-      instagram: "",
+      linkedin: "https://www.linkedin.com/in/nikhil-rajpurohit-05b39734a/",
+      instagram: "https://www.instagram.com/nick.ipynb/",
     },
     {
       image: namrata,
       name: "NAMRATA",
-      role: "Developer",
+      role: "DESIGNER",
       twitter: "",
       linkedin: "https://www.linkedin.com/in/namrata-bhalerao-66417a244/",
       instagram:"https://www.instagram.com/yayynammmrata/",
@@ -129,15 +131,15 @@ const MeetOurTeam = () => {
     {
       image: kaushal,
       name: "KAUSHAL ABOJWAR",
-      role: "Developer",
+      role: "DESIGNER",
       twitter: "",
-      linkedin: "",
-      instagram: "",
+      linkedin: "https://www.linkedin.com/in/kaushalvabojwar/",
+      instagram: "https://www.instagram.com/kaushal0412/",
     },
     {
-      image: man,
+      image: arjun,
       name: "ARJUN KHADSE",
-      role: "Developer",
+      role: "MANAGEMENT",
       twitter: "https://x.com/3devArjun",
       linkedin: "https://www.linkedin.com/in/arjunkh/",
       instagram: "https://www.instagram.com/arjunpatil5047",
@@ -145,18 +147,18 @@ const MeetOurTeam = () => {
     {
       image: mayuri,
       name: "MAYURI SURYAWANSHI",
-      role: "Developer",
+      role: "MANAGEMENT",
       twitter: "",
-      linkedin: "",
-      instagram: "",
+      linkedin: "https://www.linkedin.com/in/mayuri-suryawanshi-aab3a9290/",
+      instagram: "https://www.instagram.com/mayuri._.50/",
     },
     {
       image: rutuja,
       name: "RUTUJA CHAUDHARI",
-      role: "Developer",
+      role: "MANAGEMENT",
       twitter: "",
-      linkedin: "",
-      instagram: "https://www.instagram.com/rutujachaudhari_19/?hl=en",
+      linkedin: "https://www.linkedin.com/in/rutuja-chaudhari-5529232a4/",
+      instagram: "https://www.instagram.com/rutujachaudhari_19/",
     },
   ];
 
