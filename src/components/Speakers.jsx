@@ -1,5 +1,5 @@
 import React from "react";
-import GridBackground from "./GridBackground";
+import { AiOutlineLinkedin } from "react-icons/ai";
 import man from "../assets/man.jpg";
 
 const Speakers = () => {
@@ -8,70 +8,69 @@ const Speakers = () => {
       image: man,
       name: "MATED",
       role: "Backend Developer",
-      company: "softserve",
+      linkedin: "",
     },
     {
       image: man,
       name: "WALTER",
       role: "Security Consultant",
-      company: "TU",
+      linkedin: "",
     },
     {
       image: man,
       name: "JUAN DAVID",
       role: "Backend Developer",
-      company: "softserve",
+      linkedin: "",
     },
-    { image: man, name: "GREGOBY", role: "Developer", company: "TU" },
+    { image: man, name: "GREGOBY", role: "Developer", linkedin: "" },
     {
       image: man,
       name: "SANTACRUZ",
       role: "Developer",
-      company: "softserve",
+      linkedin: "",
     },
-    { image: man, name: "GOMEZ", role: "Developer", company: "TU" },
+    { image: man, name: "GOMEZ", role: "Developer", linkedin: "" },
     {
       image: man,
       name: "JOSE",
       role: "Frontend Developer",
-      company: "Deinbar",
-    },
-    {
-      image: man,
-      name: "JOSE",
-      role: "Frontend Developer",
-      company: "Deinbar",
+      linkedin: "",
     },
     {
       image: man,
       name: "JOSE",
       role: "Frontend Developer",
-      company: "Deinbar",
+      linkedin: "",
+    },
+    {
+      image: man,
+      name: "JOSE",
+      role: "Frontend Developer",
+      linkedin: "",
     },
     {
       image: man,
       name: "SAMCLEMENTE",
       role: "Frontend Developer",
-      company: "Deinbar",
+      linkedin: "",
     },
     {
       image: man,
       name: "SAMCLEMENTE",
       role: "Frontend Developer",
-      company: "Deinbar",
+      linkedin: "",
     },
     {
       image: man,
       name: "SAMCLEMENTE",
       role: "Frontend Developer",
-      company: "Deinbar",
+      linkedin: "",
     },
   ];
 
   return (
     <section className=" w-screen bg-white py-12 px-4 md:px-8">
       <div className="relative min-h-screen overflow-hidden">
-        {/* <GridBackground /> */}
         <div className="relative z-10 max-w-6xl mx-auto my-5">
           <h2 className="text-4xl text-black font-bold text-center mb-12 uppercase border-b-2 border-black pb-4">
             Speakers
@@ -89,13 +88,11 @@ const Speakers = () => {
                   <h3 className="text-2xl text-black font-bold uppercase">
                     {speaker.name}
                   </h3>
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-600">
+                  <div className="flex flex-col justify-center items-center space-y-2">
+                    <p className="text-md font-medium text-gray-600">
                       {speaker.role}
                     </p>
-                    <p className="text-xs uppercase tracking-wide text-gray-500">
-                      {speaker.company}
-                    </p>
+                    <AiOutlineLinkedin className="w-7 h-7 text-gray-500 hover:text-gray-600" />
                   </div>
                 </div>
               </div>
