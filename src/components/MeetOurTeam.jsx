@@ -100,7 +100,7 @@ const MeetOurTeam = () => {
     {
       image: aman,
       name: "AMAN MOGAL",
-      role: "SPONSERSHIP",
+      role: "SPONOERSHIP",
       twitter: "",
       linkedin: "https://www.linkedin.com/in/aman-mogal-b7773b246/",
       instagram: "",
@@ -116,7 +116,7 @@ const MeetOurTeam = () => {
     {
       image: nikhil,
       name: "NIKHIL RAJPUROHIT",
-      role: "SPONSERSHIP",
+      role: "SPONSORSHIP",
       twitter: "",
       linkedin: "https://www.linkedin.com/in/nikhil-rajpurohit-05b39734a/",
       instagram: "https://www.instagram.com/nick.ipynb/",
