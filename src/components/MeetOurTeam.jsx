@@ -19,6 +19,7 @@ import nilanjan from '../assets/team/nilanjan.jpeg';
 import rutuja from '../assets/team/rutuja.jpeg';
 import sachin from '../assets/team/sachin.jpg';
 import suresh from '../assets/team/suresh.jpg'; 
+import arjun from '../assets/team/arjun.jpg';
 
 
 
