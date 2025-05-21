@@ -1,69 +1,69 @@
 import React from "react";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import man from "../assets/man.jpg";
+import rohan from "../assets/speakers/rohan.jpg";
+import arun from "../assets/speakers/arun.jpg";
+import nayan from "../assets/speakers/nayan.jpg";
+import akanksha from "../assets/speakers/akanksha.jpg";  
+import shweta from "../assets/speakers/shweta.jpg"; 
+import ganesh from "../assets/speakers/ganesh.jpg";
+import pawan from "../assets/speakers/pawan.jpg";
+import nikhil from "../assets/speakers/nikhil.jpg";
+import asit from "../assets/speakers/asit.jpg";
 
 const Speakers = () => {
   const speakers = [
     {
-      image: man,
+      image: rohan,
       name: "Rohan Khamkar",
       role: "Senior Solutions Architect",
       linkedin: "https://www.linkedin.com/in/rohankhamkar/",
     },
     {
-      image: man,
+      image: arun,
       name: "Arun Nair",
       role: "Senior Solutions Architect",
       linkedin: "https://www.linkedin.com/in/arun-nair-6454585a/",
     },
     {
-      image: man,
+      image: nayan,
       name: "Nayan Chandak",
       role: "Data Scientist",
       linkedin: "https://www.linkedin.com/in/nayan-chandak/",
     },
     {
-      image: man,
+      image: akanksha,
       name: "Akanksha Kapoor",
       role: "Customer Success Lead",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/akanksha-kapoor-545695119/",
     },
-    { image: man, name: "GOMEZ", role: "Developer", linkedin: "" },
+    { image: ganesh, 
+      name: "Ganesh Divekar",
+      role: "Android Developer", 
+      linkedin: "https://www.linkedin.com/in/ganesh-divekar-96a72bb7/" },
     {
-      image: man,
-      name: "JOSE",
-      role: "Frontend Developer",
-      linkedin: "",
-    },
-    {
-      image: man,
-      name: "JOSE",
-      role: "Frontend Developer",
-      linkedin: "",
+      image: pawan,
+      name: "Pawan Shirke",
+      role: "Network Engineer",
+      linkedin: "https://www.linkedin.com/in/pawan-shirke/",
     },
     {
-      image: man,
-      name: "JOSE",
-      role: "Frontend Developer",
-      linkedin: "",
+      image: shweta,
+      name: "Shweta Saraswat",
+      role: "Team Lead- Cloud Engineer",
+      linkedin: "https://www.linkedin.com/in/shwe/",
     },
     {
-      image: man,
-      name: "SAMCLEMENTE",
-      role: "Frontend Developer",
-      linkedin: "",
+      image: nikhil,
+      name: "Nikhil Pathak",
+      role: "Senior Engineer",
+      linkedin: "https://www.linkedin.com/in/nikhil-pathak/",
     },
     {
-      image: man,
-      name: "SAMCLEMENTE",
-      role: "Frontend Developer",
-      linkedin: "",
-    },
-    {
-      image: man,
-      name: "SAMCLEMENTE",
-      role: "Frontend Developer",
-      linkedin: "",
+      image: asit,
+      name: "Asit Sonawane",
+      role: "DevOps Engineer",
+      linkedin: "https://www.linkedin.com/in/asit-sonawane/",
     },
   ];
 
@@ -77,7 +77,7 @@ const Speakers = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-items-center">
             {speakers.map((speaker, index) => (
-              <div key={index} className="bg-white w-70 p-6 rounded-lg">
+              <div key={index} className="bg-white w-80 p-6 rounded-lg">
                 <div className="text-center space-y-4">
                   <img
                     src={speaker.image}

@@ -42,19 +42,19 @@ const Footer = () => (
         <h3 className="text-black text-2xl font-bold mb-4">QUICK LINKS</h3>
         <div className="flex flex-row gap-10">
           <div className="flex flex-col items-start space-y-2">
+            <Link to="/" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Home</Link>
+            <Link to="/speakers" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Speakers</Link>
+            <Link to="/team" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>About</Link>
+            <Link to="/lastPage" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Community</Link>
+            <Link to="/team" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Team</Link>
+          </div>
+          {/* <div className="flex flex-col items-start space-y-2">
             <Link to="/" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Home</Link>
             <Link to="/speakers" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Speakers</Link>
             <Link to="/team" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>About</Link>
             <Link to="/lastPage" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Community</Link>
             <Link to="/team" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Team</Link>
-          </div>
-          <div className="flex flex-col items-start space-y-2">
-            <Link to="/" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Home</Link>
-            <Link to="/speakers" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Speakers</Link>
-            <Link to="/team" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>About</Link>
-            <Link to="/lastPage" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Community</Link>
-            <Link to="/team" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Team</Link>
-          </div>
+          </div> */}
         </div>
       </div>
 
