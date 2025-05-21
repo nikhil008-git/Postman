@@ -33,7 +33,7 @@ function Navbar() {
               HOME
             </Link>
             <a
-              href="/#about"
+              href="/aboutus"
               className={`cursor-pointer font-extrabold`}
               style={{ color: 'black', fontWeight: 'bold' }}
             >
