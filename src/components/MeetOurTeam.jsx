@@ -4,11 +4,26 @@ import { FiTwitter } from "react-icons/fi";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { FaInstagram } from "react-icons/fa";
 import alisha from '../assets/team/alisha.jpg';
+import shrawan from '../assets/team/shrawan.jpg';
+import aditya from '../assets/team/aditya.JPG';
+import alice from '../assets/team/alice.jpg';
+import aman from '../assets/team/aman.jpeg';
+import atharva from '../assets/team/atharva.jpg';
+import eric from '../assets/team/eric.jpeg';
+import kaushal from '../assets/team/kaushal.jpeg';
+import kunal from '../assets/team/kunal.JPG';
+import mayuri from '../assets/team/mayuri.jpeg';
+import namrata from '../assets/team/namrata.jpg';
+import nikhil from '../assets/team/nikhil.webp';
+import nilanjan from '../assets/team/nilanjan.jpeg';
+import rutuja from '../assets/team/rutuja.jpeg';
+import sachin from '../assets/team/sachin.jpg';
+import suresh from '../assets/team/suresh.jpg'; 
 
 const MeetOurTeam = () => {
   const speakers = [
     {
-      image: man,
+      image: shrawan,
       name: "SHRAWAN SAPROO",
       role: "Backend Developer",
       twitter: "",
@@ -16,7 +31,7 @@ const MeetOurTeam = () => {
       instagram: "https://www.instagram.com/shrawansaproo/?hl=en",
     },
     {
-      image: man,
+      image: aditya,
       name: "ADITYA BISHT",
       role: "Security Consultant",
       twitter: "",
@@ -24,7 +39,7 @@ const MeetOurTeam = () => {
       instagram: "https://www.instagram.com/aditya__894/?hl=en",
     },
     {
-      image: man,
+      image: sachin,
       name: "SACHIN PARIHAR",
       role: "Backend Developer",
       twitter: "",
@@ -32,31 +47,31 @@ const MeetOurTeam = () => {
       instagram: "https://www.instagram.com/sachinn.js/?hl=en",
     },
     {
-      image: man,
+      image: nilanjan,
       name: "NILANJAN PAUL",
       role: "Backend Developer",
       twitter: "",
       linkedin: "",
-      instagram: "",
+      instagram: "https://www.instagram.com/_nilu343/?hl=en",
     },
     {
-      image: man,
+      image: eric,
       name: "ERIC FERNANDIS",
       role: "Backend Developer",
       twitter: "",
       linkedin: "",
-      instagram: "",
+      instagram: "https://www.instagram.com/eric.fernandes11/?hl=en",
     },
     {
-      image: man,
+      image: atharva,
       name: "ATHARVA WANI",
       role: "Backend Developer",
       twitter: "",
       linkedin: "",
-      instagram: "",
+      instagram: "https://www.instagram.com/atharvawani___/?hl=en",
     },
     {
-      image: man,
+      image: kunal,
       name: "KUNAL GAVIT",
       role: "Developer",
       twitter: "",
@@ -64,7 +79,7 @@ const MeetOurTeam = () => {
       instagram: "",
     },
     {
-      image: man,
+      image: suresh,
       name: "SURESH CHAUDHARY",
       role: "Developer",
       twitter: "",
@@ -76,11 +91,11 @@ const MeetOurTeam = () => {
       name: "ALISHA SAPKAL",
       role: "Frontend Developer",
       twitter: "",
-      linkedin: "",
-      instagram: "",
+      linkedin: "https://www.linkedin.com/in/alisha-sapkal-06b0ba259/",
+      instagram: "https://www.instagram.com/alisha_s_18/?hl=en",
     },
     {
-      image: man,
+      image: aman,
       name: "AMAN MOGAL",
       role: "Developer",
       twitter: "",
@@ -88,7 +103,7 @@ const MeetOurTeam = () => {
       instagram: "",
     },
     {
-      image: man,
+      image: alice,
       name: "ALICE CHAUHAN",
       role: "Developer",
       twitter: "",
@@ -96,7 +111,7 @@ const MeetOurTeam = () => {
       instagram: "",
     },
     {
-      image: man,
+      image: nikhil,
       name: "NIKHIL RAJPUROHIT",
       role: "Developer",
       twitter: "",
@@ -104,7 +119,7 @@ const MeetOurTeam = () => {
       instagram: "",
     },
     {
-      image: man,
+      image: namrata,
       name: "NAMRATA",
       role: "Developer",
       twitter: "",
@@ -112,7 +127,7 @@ const MeetOurTeam = () => {
       instagram: "",
     },
     {
-      image: man,
+      image: kaushal,
       name: "KAUSHAL ABOJWAR",
       role: "Developer",
       twitter: "",
@@ -125,10 +140,10 @@ const MeetOurTeam = () => {
       role: "Developer",
       twitter: "",
       linkedin: "",
-      instagram: "",
+      instagram: "https://www.instagram.com/arjun_khadse_714/?hl=en",
     },
     {
-      image: man,
+      image: mayuri,
       name: "MAYURI SURYAWANSHI",
       role: "Developer",
       twitter: "",
@@ -136,12 +151,12 @@ const MeetOurTeam = () => {
       instagram: "",
     },
     {
-      image: man,
+      image: rutuja,
       name: "RUTUJA CHAUDHARI",
       role: "Developer",
       twitter: "",
       linkedin: "",
-      instagram: "",
+      instagram: "https://www.instagram.com/rutujachaudhari_19/?hl=en",
     },
   ];
 
