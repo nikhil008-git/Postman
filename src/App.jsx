@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import GridBackground from './components/GridBackground';
 import Event from './components/Event';
+import About from './components/About';
 
 // ...existing code...
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/team" element={<MeetOurTeam />} />
           <Route path="/event" element={<Event />} />
           <Route path="/lastPage" element={<LastPage />} />
+          <Route path="/aboutus" element={<About />} />
         </Routes>
       </div>
       <Footer />

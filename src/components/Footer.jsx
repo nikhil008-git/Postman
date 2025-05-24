@@ -24,7 +24,7 @@ const Footer = () => (
       }}
     />
 
-    <div className="relative z-10 w-full flex flex-row justify-around items-center uppercase font-bold mt-40 gap-2">
+    <div className="relative z-10 w-full flex flex-row justify-around items-center uppercase font-bold gap-2 mt-6">
       <div className="flex flex-col justify-between items-center max-w-sm text-center">
         <div className="flex items-center gap-2">
           <img src={logo} alt="Postman Logo" className="w-10 h-10" />
@@ -38,23 +38,17 @@ const Footer = () => (
         </p>
       </div>
 
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center mt-20">
         <h3 className="text-black text-2xl font-bold mb-4">QUICK LINKS</h3>
         <div className="flex flex-row gap-10">
-          <div className="flex flex-col items-start space-y-2">
-            <Link to="/" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Home</Link>
-            <Link to="/speakers" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Speakers</Link>
-            <Link to="/team" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>About</Link>
-            <Link to="/lastPage" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Community</Link>
-            <Link to="/team" className="text-black font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Team</Link>
+          <div className="flex flex-col items-start gap-2">
+            <Link to="/" className="text-black font-bold" style={{color: "black", fontSize: "15px", fontWeight: "semibold"}}>Home</Link>
+            <Link to="/speakers" className="text-black font-bold" style={{color: "black", fontSize: "15px", fontWeight: "semibold"}}>Speakers</Link>
+            <Link to="/aboutus" className="text-black font-bold" style={{color: "black", fontSize: "15px", fontWeight: "semibold"}}>About</Link>
+            <Link to="/lastPage" className="text-black font-bold" style={{color: "black", fontSize: "15px", fontWeight: "semibold"}}>Community Day</Link>
+            <Link to="/team" className="text-black font-bold" style={{color: "black", fontSize: "15px", fontWeight: "semibold"}}>Team</Link>
+            <Link to="/team" className="text-black font-bold" style={{color: "black", fontSize: "15px", fontWeight: "semibold"}}>Contact Us</Link>
           </div>
-          {/* <div className="flex flex-col items-start space-y-2">
-            <Link to="/" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Home</Link>
-            <Link to="/speakers" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Speakers</Link>
-            <Link to="/team" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>About</Link>
-            <Link to="/lastPage" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Community</Link>
-            <Link to="/team" className="text-black text-sm font-bold" style={{color: "black", fontSize: "12px", fontWeight: "semibold"}}>Team</Link>
-          </div> */}
         </div>
       </div>
 
