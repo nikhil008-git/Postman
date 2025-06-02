@@ -14,13 +14,13 @@ function Navbar() {
 
   return (
     <div className="w-full fixed top-0 z-30 bg-white flex flex-col items-center">
-      <div className="w-full max-w-6xl px-4 sm:px-6 lg:px-8 bg-gray-300 flex justify-between items-center py-3 mt-2 rounded-full shadow-md border border-orange-300">
-        <div className="flex items-center">
+      <div className="w-full max-w-3xl bg-gray-300 flex justify-between items-center pr-0 my-2 sm:py-3 md:py-2 rounded-full shadow-md border border-orange-300 sm:px-2 lg:px-4">
+        <div className="flex items-center flex-shrink-0 mr-4">
           <Link to="/">
             <img
               src={logo}
               alt="Logo"
-              className="h-14 w-14 object-contain border-white border-2 rounded-full"
+              className="h-14  w-14 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain border-white border-2 rounded-full"
             />
           </Link>
         </div>

@@ -48,7 +48,7 @@ function Email() {
 };
 
   return (
-    <div className="bg-gray-100 w-1/2 text-gray-800 p-6 rounded-2xl">
+    <div className="bg-gray-100 text-gray-800 p-6 rounded-2xl">
 
       {submitted ? (
         <div className="text-center py-10 rounded-lg">
