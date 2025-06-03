@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <div className="w-full fixed top-0 z-30 bg-white flex flex-col items-center">
-      <div className="w-full max-w-3xl bg-gray-300 flex justify-between items-center pl-0 pr-2 sm:pl-0 sm:pr-4 md:pl-0 md:pr-6 my-2 sm:my-3 rounded-full shadow-md border border-orange-300 transition-all duration-300">
+      <div className="w-80 max-w-3xl sm:w-full bg-gray-300 flex justify-between items-center pl-0 pr-2 sm:pl-0 sm:pr-4 md:pl-0 md:pr-6 my-2 sm:my-3 rounded-full shadow-md border border-orange-300 transition-all duration-300">
         <div className="flex items-center flex-shrink-0">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <img
@@ -26,7 +26,11 @@ function Navbar() {
         </div>
 
         <div className="hidden md:flex gap-4 lg:gap-6 text-sm font-extrabold text-black">
-          <Link to="/" className="cursor-pointer hover:text-orange-600 transition-colors" style={{ color: "black" }}>
+          <Link
+            to="/"
+            className="cursor-pointer hover:text-orange-600 transition-colors"
+            style={{ color: "black" }}
+          >
             HOME
           </Link>
           <a
@@ -36,7 +40,11 @@ function Navbar() {
           >
             ABOUT
           </a>
-          <Link to="/event" className="cursor-pointer hover:text-orange-600 transition-colors" style={{ color: "black" }}>
+          <Link
+            to="/event"
+            className="cursor-pointer hover:text-orange-600 transition-colors"
+            style={{ color: "black" }}
+          >
             EVENT
           </Link>
           <Link
@@ -46,7 +54,11 @@ function Navbar() {
           >
             SPEAKERS
           </Link>
-          <Link to="/team" className="cursor-pointer hover:text-orange-600 transition-colors" style={{ color: "black" }}>
+          <Link
+            to="/team"
+            className="cursor-pointer hover:text-orange-600 transition-colors"
+            style={{ color: "black" }}
+          >
             TEAM
           </Link>
         </div>
@@ -58,9 +70,15 @@ function Navbar() {
         </Link>
 
         <div className="md:hidden">
-          <button 
-            className="text-black p-2 hover:bg-gray-200 rounded-full transition-colors" 
+          <button
             onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 rounded-full text-black focus:outline-none focus:ring-0 active:outline-none active:ring-0 border-none"
+            style={{
+              border: "none",
+              outline: "none",
+              boxShadow: "none",
+              background: "none",
+            }}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -69,13 +87,25 @@ function Navbar() {
 
       {menuOpen && (
         <div className="w-full max-w-3xl bg-gray-300 rounded-xl shadow-md border mx-2 border-orange-300 px-6 py-4 flex flex-col items-center text-sm font-extrabold text-black md:hidden animate-fadeIn">
-          <Link to="/" className="block mb-3 hover:text-orange-600 transition-colors" style={{ color: "black" }}>
+          <Link
+            to="/"
+            className="block mb-3 hover:text-orange-600 transition-colors"
+            style={{ color: "black" }}
+          >
             HOME
           </Link>
-          <a href="/aboutus" className="block mb-3 hover:text-orange-600 transition-colors" style={{ color: "black" }}>
+          <a
+            href="/aboutus"
+            className="block mb-3 hover:text-orange-600 transition-colors"
+            style={{ color: "black" }}
+          >
             ABOUT
           </a>
-          <Link to="/event" className="block mb-3 hover:text-orange-600 transition-colors" style={{ color: "black" }}>
+          <Link
+            to="/event"
+            className="block mb-3 hover:text-orange-600 transition-colors"
+            style={{ color: "black" }}
+          >
             EVENT
           </Link>
           <Link
@@ -85,7 +115,11 @@ function Navbar() {
           >
             SPEAKERS
           </Link>
-          <Link to="/team" className="block mb-4 hover:text-orange-600 transition-colors" style={{ color: "black" }}>
+          <Link
+            to="/team"
+            className="block mb-4 hover:text-orange-600 transition-colors"
+            style={{ color: "black" }}
+          >
             TEAM
           </Link>
           <Link to="/lastPage">

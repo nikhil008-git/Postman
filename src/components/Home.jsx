@@ -80,7 +80,7 @@ function Home() {
 
           <div className="w-full h-2"></div>
 
-          <div className="flex flex-row items-center gap-1 sm:gap-2 px-2 sm:px-4 py-4 sm:py-6 mb-2 flex-wrap justify-center">
+          <div className="flex flex-row items-center gap-1 sm:gap-2 px-2 sm:px-4 pt-4 sm:py-2 mb-2 flex-wrap justify-center">
             <div className="flex flex-row items-center justify-around gap-1 sm:gap-2 border border-black rounded-md px-2 sm:px-4 py-2 font-bold text-black bg-white flex-grow max-w-full sm:max-w-[550px]">
               <div className="flex items-center gap-1 sm:gap-2 border-r-2 border-gray-200 pr-2">
                 <span className="text-xs sm:text-base">POST</span>
@@ -90,11 +90,13 @@ function Home() {
                 POSTMAN Community Pune
               </div>
             </div>
-            <div className="h-10 w-20 sm:w-25 font-semibold flex flex-row items-center justify-around gap-1 sm:gap-2 bg-blue-600 rounded-md cursor-pointer shrink-0">
+            <div className="h-8 sm:h-10 sm:w-25 font-semibold flex flex-row items-center justify-around gap-1 sm:gap-2 bg-blue-600 rounded-md cursor-pointer shrink-0 mx-2 sm:mx-0 px-2 sm:px-4 text-white hover:bg-blue-700 transition-colors">
               <div className="text-xs sm:text-base">Send</div>
               <IoIosArrowDown className="h-3 w-3 text-white" />
             </div>
           </div>
+
+          <div className="w-[650px] sm:max-w-[650px]"></div>
 
           {/* Table header */}
           <div className="w-full max-w-full sm:max-w-[600px] flex flex-row text-xs sm:text-sm border border-black px-2 sm:px-4 text-gray-700 rounded-sm mb-2 overflow-x-auto">
