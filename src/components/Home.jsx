@@ -215,7 +215,6 @@ function Home() {
             </p>
 
             <div className="w-full max-w-xl flex flex-col items-start text-black">
-              <MessageSquare className="w-6 h-6 text-orange-500 mb-4" />
               {available.map((item, index) => (
                 <div key={index} className="flex items-start gap-3 mb-4">
                   <div className="text-orange-500 mt-1">{item.icon}</div>
