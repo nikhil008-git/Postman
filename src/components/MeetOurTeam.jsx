@@ -41,14 +41,14 @@ const MeetOurTeam = () => {
       linkedin: "https://www.linkedin.com/in/adityab894/",
       instagram: "https://www.instagram.com/aditya__894/",
     },
-    {
-      image: sachin,
-      name: "SACHIN PARIHAR",
-      role: "GROWTH MANAGER",
-      twitter: "https://x.com/Sheenu_exe",
-      linkedin: "https://www.linkedin.com/in/sachin-parihar-008180264/",
-      instagram: "https://www.instagram.com/sachinn.js/",
-    },
+    // {
+    //   image: sachin,
+    //   name: "SACHIN PARIHAR",
+    //   role: "GROWTH MANAGER",
+    //   twitter: "https://x.com/Sheenu_exe",
+    //   linkedin: "https://www.linkedin.com/in/sachin-parihar-008180264/",
+    //   instagram: "https://www.instagram.com/sachinn.js/",
+    // },
     {
       image: nilanjan,
       name: "NILANJAN PAUL",
