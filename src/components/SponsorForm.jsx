@@ -425,7 +425,7 @@ function SponsorForm() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card>
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mt-5">
                   <svg
                     className="w-8 h-8 text-orange-500"
                     fill="none"
@@ -453,7 +453,7 @@ function SponsorForm() {
 
             <Card>
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mt-5">
                   <svg
                     className="w-8 h-8 text-orange-500"
                     fill="none"
@@ -479,7 +479,7 @@ function SponsorForm() {
 
             <Card>
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mt-5">
                   <svg
                     className="w-8 h-8 text-orange-500"
                     fill="none"
