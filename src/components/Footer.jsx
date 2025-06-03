@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import wave from "../assets/footer.png";
+import { Linkedin, Instagram, Github  } from 'lucide-react';
 
 const Footer = () => (
   <footer className="w-full relative overflow-hidden bg-blue-100 text-black">
@@ -32,10 +33,21 @@ const Footer = () => (
       </div>
 
       <div>
-        <h3 className="text-2xl font-bold mb-3">Contact</h3>
-        <p className="text-sm font-semibold">Pune, Maharashtra, India</p>
-        <p className="text-sm font-semibold">Postmancommunitypune@gmail.com</p>
-        <p className="text-sm font-semibold">+91 7889564517</p>
+        <h3 className="text-2xl font-bold mb-3">Connect with us</h3>
+        <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-2 cursor-pointer" onClick={() => window.open('https://github.com/postmanapipune', '_blank')}>
+            <Github  />
+            <p>Github  |  </p>
+          </div>
+          <div className="flex flex-row gap-2 cursor-pointer" onClick={() => window.open('https://www.instagram.com/postman_pune/?hl=en/', '_blank')}>
+            <Instagram />
+            <p>Instagram  |  </p>
+          </div>
+          <div className="flex flex-row gap-2 cursor-pointer" onClick={() => window.open('https://www.linkedin.com/company/postmanapipune/posts/?feedView=all', '_blank')}>
+            <Linkedin />
+            <p>LinkedIn</p>
+          </div>
+        </div>
       </div>
     </div>
   </footer>

@@ -66,92 +66,109 @@ function Home() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center">
       <div className="relative z-10 flex flex-col items-center justify-center px-2 sm:px-4 md:px-6 lg:px-8 max-w-full">
-  <div className="bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center mx-auto max-w-full w-full sm:w-auto">
-    <div className="w-full flex flex-row items-center bg-gray-50 rounded-t-2xl p-2 sm:p-3 mb-1 gap-2 sm:gap-4">
-      <div className="flex flex-row gap-1 sm:gap-2">
-        <div className="h-3 w-3 sm:h-4 sm:w-4 bg-red-600 rounded-full"></div>
-        <div className="h-3 w-3 sm:h-4 sm:w-4 bg-yellow-500 rounded-full"></div>
-        <div className="h-3 w-3 sm:h-4 sm:w-4 bg-green-500 rounded-full"></div>
-      </div>
-      <div className="flex-1 text-black font-bold text-sm sm:text-lg text-center sm:pl-4">
-        <span className="text-orange-600">POSTMAN</span> Community Pune
-      </div>
-    </div>
+        <div className="bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center mx-auto max-w-full w-full sm:w-auto">
+          <div className="w-full flex flex-row items-center bg-gray-50 rounded-t-2xl p-2 sm:p-3 mb-1 gap-2 sm:gap-4">
+            <div className="flex flex-row gap-1 sm:gap-2">
+              <div className="h-3 w-3 sm:h-4 sm:w-4 bg-red-600 rounded-full"></div>
+              <div className="h-3 w-3 sm:h-4 sm:w-4 bg-yellow-500 rounded-full"></div>
+              <div className="h-3 w-3 sm:h-4 sm:w-4 bg-green-500 rounded-full"></div>
+            </div>
+            <div className="flex-1 text-black font-bold text-sm sm:text-lg text-center sm:pl-4">
+              <span className="text-orange-600">POSTMAN</span> Community Pune
+            </div>
+          </div>
 
-    <div className="w-full h-2"></div>
+          <div className="w-full h-2"></div>
 
-    <div className="flex flex-row items-center gap-1 sm:gap-2 px-2 sm:px-4 py-4 sm:py-6 mb-2 flex-wrap justify-center">
-      <div className="flex flex-row items-center justify-around gap-1 sm:gap-2 border border-black rounded-md px-2 sm:px-4 py-2 font-bold text-black bg-white flex-grow max-w-full sm:max-w-[550px]">
-        <div className="flex items-center gap-1 sm:gap-2 border-r-2 border-gray-200 pr-2">
-          <span className="text-xs sm:text-base">POST</span>
-          <IoIosArrowDown className="h-3 w-3 text-gray-400" />
+          <div className="flex flex-row items-center gap-1 sm:gap-2 px-2 sm:px-4 py-4 sm:py-6 mb-2 flex-wrap justify-center">
+            <div className="flex flex-row items-center justify-around gap-1 sm:gap-2 border border-black rounded-md px-2 sm:px-4 py-2 font-bold text-black bg-white flex-grow max-w-full sm:max-w-[550px]">
+              <div className="flex items-center gap-1 sm:gap-2 border-r-2 border-gray-200 pr-2">
+                <span className="text-xs sm:text-base">POST</span>
+                <IoIosArrowDown className="h-3 w-3 text-gray-400" />
+              </div>
+              <div className="truncate text-xs sm:text-base text-orange-600">
+                POSTMAN Community Pune
+              </div>
+            </div>
+            <div className="h-10 w-20 sm:w-25 font-semibold flex flex-row items-center justify-around gap-1 sm:gap-2 bg-blue-600 rounded-md cursor-pointer shrink-0">
+              <div className="text-xs sm:text-base">Send</div>
+              <IoIosArrowDown className="h-3 w-3 text-white" />
+            </div>
+          </div>
+
+          {/* Table header */}
+          <div className="w-full max-w-full sm:max-w-[600px] flex flex-row text-xs sm:text-sm border border-black px-2 sm:px-4 text-gray-700 rounded-sm mb-2 overflow-x-auto">
+            <div className="w-12 sm:w-10 h-8 border-r border-black shrink-0"></div>
+            <div className="w-36 sm:w-46.5 h-8 border-r border-black pl-1 sm:pl-2 truncate">
+              Key
+            </div>
+            <div className="w-56 sm:w-77 h-8 pl-1 sm:pl-2 border-r border-black truncate">
+              Value
+            </div>
+            <div className="w-24 h-8 text-center flex justify-end gap-1 sm:gap-2 text-gray-400 shrink-0">
+              <BsThreeDots className="h-4 sm:h-5 w-4 sm:w-5" />
+              <span className="hidden sm:inline">Bulk Edit</span>
+            </div>
+          </div>
+
+          {[
+            { key: "Community", value: "POSTMAN Pune" },
+            { key: "Member", value: "2000" },
+            {
+              key: "Focus",
+              value: '["API Development", "Testing", "Collaboration"]',
+            },
+            { key: "Fastest-growing-community", value: "True" },
+            { key: "Join", value: "True" },
+          ].map((row) => (
+            <div
+              key={row.key}
+              className="w-full max-w-full sm:max-w-[600px] flex flex-row border border-black px-2 sm:px-4 mb-2 rounded-sm text-gray-700 text-xs sm:text-sm overflow-x-auto"
+            >
+              <div className="w-12 sm:w-10 h-8 border-r border-black shrink-0"></div>
+              <div className="w-36 sm:w-46 border-r border-black text-left text-gray-700 pl-1 sm:pl-2 truncate">
+                {row.key}
+              </div>
+              <div className="w-56 sm:w-76 border-r border-black text-left text-gray-700 pl-1 sm:pl-2 truncate">
+                {row.value}
+              </div>
+              <div className="w-24 h-8 flex justify-end gap-1 sm:gap-2 text-gray-400 shrink-0">
+                <BsThreeDots className="h-4 sm:h-5 w-4 sm:w-5" />
+                <span className="hidden sm:inline">Bulk Edit</span>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="truncate text-xs sm:text-base text-orange-600">
-          POSTMAN Community Pune
+      </div>
+
+      <div className="relative w-full overflow-hidden bg-orange-500 py-1 sm:py-2 transform rotate-3 my-16">
+        <div className="flex animate-scroll-left gap-6 w-max">
+          {[...Array(8)].map((_, index) => (
+            <div key={index} className="flex items-center gap-1 sm:gap-2">
+              <img
+                className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5"
+                src={star}
+                alt="Star"
+              />
+              <span className="text-white font-bold text-[10px] sm:text-xs md:text-sm">POSTMAN</span>
+              <img
+                className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5"
+                src={star}
+                alt="Star"
+              />
+              <span className="text-white font-bold text-[10px] sm:text-xs md:text-sm">COMMUNITY</span>
+              <img
+                className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5"
+                src={star}
+                alt="Star"
+              />
+              <span className="text-white font-bold text-[10px] sm:text-xs md:text-sm">PUNE</span>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="h-10 w-20 sm:w-25 font-semibold flex flex-row items-center justify-around gap-1 sm:gap-2 bg-blue-600 rounded-md cursor-pointer shrink-0">
-        <div className="text-xs sm:text-base">Send</div>
-        <IoIosArrowDown className="h-3 w-3 text-white" />
-      </div>
-    </div>
 
-    {/* Table header */}
-    <div className="w-full max-w-full sm:max-w-[600px] flex flex-row text-xs sm:text-sm border border-black px-2 sm:px-4 text-gray-700 rounded-sm mb-2 overflow-x-auto">
-      <div className="w-12 sm:w-10 h-8 border-r border-black shrink-0"></div>
-      <div className="w-36 sm:w-46.5 h-8 border-r border-black pl-1 sm:pl-2 truncate">Key</div>
-      <div className="w-56 sm:w-77 h-8 pl-1 sm:pl-2 border-r border-black truncate">Value</div>
-      <div className="w-24 h-8 text-center flex justify-end gap-1 sm:gap-2 text-gray-400 shrink-0">
-        <BsThreeDots className="h-4 sm:h-5 w-4 sm:w-5" />
-        <span className="hidden sm:inline">Bulk Edit</span>
-      </div>
-    </div>
-
-    {[{ key: "Community", value: "POSTMAN Pune" }, { key: "Member", value: "2000" }, { key: "Focus", value: '["API Development", "Testing", "Collaboration"]' }, { key: "Fastest-growing-community", value: "True" }, { key: "Join", value: "True" }].map((row) => (
-      <div
-        key={row.key}
-        className="w-full max-w-full sm:max-w-[600px] flex flex-row border border-black px-2 sm:px-4 mb-2 rounded-sm text-gray-700 text-xs sm:text-sm overflow-x-auto"
-      >
-        <div className="w-12 sm:w-10 h-8 border-r border-black shrink-0"></div>
-        <div className="w-36 sm:w-46 border-r border-black text-left text-gray-700 pl-1 sm:pl-2 truncate">{row.key}</div>
-        <div className="w-56 sm:w-76 border-r border-black text-left text-gray-700 pl-1 sm:pl-2 truncate">{row.value}</div>
-        <div className="w-24 h-8 flex justify-end gap-1 sm:gap-2 text-gray-400 shrink-0">
-          <BsThreeDots className="h-4 sm:h-5 w-4 sm:w-5" />
-          <span className="hidden sm:inline">Bulk Edit</span>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-      <div className="flex flex-wrap justify-center items-center transform rotate-3 bg-orange-500 text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg px-2 my-8 sm:px-4 py-2 sm:py-4 rounded-xl shadow-lg gap-2 sm:gap-4 w-full">
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-        <div>POSTMAN</div>
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-        <div>COMMUNITY</div>
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-        <div>PUNE</div>
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-      </div>
-
-      <div className="w-full mt-20 flex flex-col gap-8 w-full justify-center items-center px-4">
+      <div className="w-full mt-10 flex flex-col gap-8 w-full justify-center items-center px-4">
         <div className="overflow-hidden w-full max-w-screen-xl">
           <div className="flex animate-scroll-left gap-6 w-max">
             {[...partners, ...partners].map(({ name, img }, i) => (
@@ -180,32 +197,6 @@ function Home() {
       </div>
 
       <About />
-
-      <div className="flex flex-wrap justify-center items-center transform rotate-3 bg-orange-500 text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg px-2 my-8 mt-15 sm:px-4 py-2 sm:py-4 rounded-xl shadow-lg gap-2 sm:gap-4 w-full">
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-        <div>POSTMAN</div>
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-        <div>COMMUNITY</div>
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-        <div>PUNE</div>
-        <img
-          className="h-4 w-3 sm:h-6 sm:w-5 md:h-8 md:w-6 lg:h-10 lg:w-8"
-          src={star}
-          alt="Star"
-        />
-      </div>
 
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10 px-4 lg:px-10 mt-10 mb-10 max-w-7xl mx-auto">
         <div className="w-full lg:w-3/5">
