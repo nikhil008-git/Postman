@@ -1,21 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "./ui/dialog";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
 
 const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    organization: '',
-    talkTitle: '',
-    talkType: '',
-    talkDescription: '',
+    fullName: "",
+    email: "",
+    organization: "",
+    talkTitle: "",
+    talkType: "",
+    talkDescription: "",
     previousSpeakingExperience: false,
-    termsAccepted: false
+    termsAccepted: false,
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     onClose();
   };
 
@@ -30,119 +48,141 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative shadow-xl">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-        >
-          ×
-        </button>
-        
-        <h2 className="text-3xl font-bold mb-4 text-center text-black tracking-wide">
-          SUBMIT YOUR TALK PROPOSAL
-        </h2>
-        <p className="text-gray-600 mb-8 text-center">
-          Share your expertise with the Postman community. Fill out the form below to submit your talk for consideration.
-        </p>
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="bg-white text-black sm:max-w-[600px] max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <DialogHeader>
+          <DialogTitle className="text-3xl font-bold text-center tracking-wide text-black">
+            SUBMIT YOUR TALK PROPOSAL
+          </DialogTitle>
+          <DialogDescription className="text-center text-gray-600">
+            Share your expertise with the Postman community. Fill out the form
+            below to submit your talk for consideration.
+          </DialogDescription>
+        </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Full Name
-            </label>
-            <input
-              type="text"
+          <div className="space-y-2">
+            <Label htmlFor="fullName">Full Name</Label>
+            <Input
+              id="fullName"
               name="fullName"
               placeholder="Enter your full name"
               value={formData.fullName}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md text-black"
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, fullName: e.target.value }))
+              }
               required
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email Address
-            </label>
-            <input
+          <div className="space-y-2">
+            <Label htmlFor="email">Email Address</Label>
+            <Input
+              id="email"
               type="email"
               name="email"
               placeholder="your.email@example.com"
               value={formData.email}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md text-black"
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, email: e.target.value }))
+              }
               required
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Organization
-            </label>
-            <input
-              type="text"
+          <div className="space-y-2">
+            <Label htmlFor="organization">Organization</Label>
+            <Input
+              id="organization"
               name="organization"
               placeholder="Company or organization"
               value={formData.organization}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md text-black"
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  organization: e.target.value,
+                }))
+              }
               required
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Talk Title
-            </label>
-            <input
-              type="text"
+          <div className="space-y-2">
+            <Label htmlFor="talkTitle">Talk Title</Label>
+            <Input
+              id="talkTitle"
               name="talkTitle"
               placeholder="Title of your proposed talk"
               value={formData.talkTitle}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md text-black"
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, talkTitle: e.target.value }))
+              }
               required
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Talk Type
-            </label>
-            <select
-              name="talkType"
+          <div className="space-y-2">
+            <Label htmlFor="talkType">Talk Type</Label>
+            <Select
               value={formData.talkType}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md text-black"
+              onValueChange={(value) =>
+                setFormData((prev) => ({ ...prev, talkType: value }))
+              }
               required
             >
-              <option value="">Select talk format</option>
-              <option value="technical">Technical Session</option>
-              <option value="casestudy">Case Study</option>
-              <option value="workshop">Workshop</option>
-              <option value="lightning">Lightning Talk</option>
-            </select>
-            <p className="text-sm text-gray-500 mt-1">
+              <SelectTrigger className="w-full bg-white border border-gray-300 text-black">
+                <SelectValue placeholder="Select talk format" />
+              </SelectTrigger>
+              <SelectContent className="bg-white border border-gray-300">
+                <SelectItem
+                  value="technical"
+                  className="text-black hover:bg-gray-100 cursor-pointer"
+                >
+                  Technical Session
+                </SelectItem>
+                <SelectItem
+                  value="casestudy"
+                  className="text-black hover:bg-gray-100 cursor-pointer"
+                >
+                  Case Study
+                </SelectItem>
+                <SelectItem
+                  value="workshop"
+                  className="text-black hover:bg-gray-100 cursor-pointer"
+                >
+                  Workshop
+                </SelectItem>
+                <SelectItem
+                  value="lightning"
+                  className="text-black hover:bg-gray-100 cursor-pointer"
+                >
+                  Lightning Talk
+                </SelectItem>
+              </SelectContent>
+            </Select>
+            <p className="text-sm text-gray-500">
               Select the format that best suits your topic
             </p>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Talk Description
-            </label>
-            <textarea
+          <div className="space-y-2">
+            <Label htmlFor="talkDescription">Talk Description</Label>
+            <Textarea
+              id="talkDescription"
               name="talkDescription"
               placeholder="Describe your talk, target audience, and key takeaways"
               value={formData.talkDescription}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md h-32 text-black"
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  talkDescription: e.target.value,
+                }))
+              }
+              className="min-h-[120px]"
               required
               minLength={50}
             />
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-muted-foreground">
               Please provide a detailed description (at least 50 characters)
             </p>
           </div>
@@ -180,19 +220,16 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
             </label>
           </div>
 
-          <button
+          <Button
             type="submit"
-            className="w-full py-3 px-6 text-white font-semibold rounded-md"
-            style={{
-              background: 'linear-gradient(to right, #cc5200, #ff8000)',
-            }}
+            className="w-full bg-gradient-to-r from-orange-700 to-orange-500 hover:from-orange-800 hover:to-orange-600"
           >
             Submit Proposal
-          </button>
+          </Button>
         </form>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 
-export default SpeakerSubmissionModal; 
+export default SpeakerSubmissionModal;

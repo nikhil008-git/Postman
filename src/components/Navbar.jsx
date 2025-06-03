@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <div className="w-full fixed top-0 z-30 bg-white flex flex-col items-center">
-      <div className="w-full max-w-3xl bg-gray-300 flex justify-between items-center px-2 sm:px-4 md:px-6 my-2 sm:my-3 rounded-full shadow-md border border-orange-300 transition-all duration-300">
+      <div className="w-full max-w-3xl bg-gray-300 flex justify-between items-center pl-0 pr-2 sm:pl-0 sm:pr-4 md:pl-0 md:pr-6 my-2 sm:my-3 rounded-full shadow-md border border-orange-300 transition-all duration-300">
         <div className="flex items-center flex-shrink-0">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <img
