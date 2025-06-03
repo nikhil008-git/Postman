@@ -41,14 +41,14 @@ const MeetOurTeam = () => {
       linkedin: "https://www.linkedin.com/in/adityab894/",
       instagram: "https://www.instagram.com/aditya__894/",
     },
-    {
-      image: sachin,
-      name: "SACHIN PARIHAR",
-      role: "GROWTH MANAGER",
-      twitter: "https://x.com/Sheenu_exe",
-      linkedin: "https://www.linkedin.com/in/sachin-parihar-008180264/",
-      instagram: "https://www.instagram.com/sachinn.js/",
-    },
+    // {
+    //   image: sachin,
+    //   name: "SACHIN PARIHAR",
+    //   role: "GROWTH MANAGER",
+    //   twitter: "https://x.com/Sheenu_exe",
+    //   linkedin: "https://www.linkedin.com/in/sachin-parihar-008180264/",
+    //   instagram: "https://www.instagram.com/sachinn.js/",
+    // },
     {
       image: nilanjan,
       name: "NILANJAN PAUL",
@@ -144,22 +144,22 @@ const MeetOurTeam = () => {
       linkedin: "https://www.linkedin.com/in/arjunkh/",
       instagram: "https://www.instagram.com/arjunpatil5047",
     },
-    {
-      image: mayuri,
-      name: "MAYURI SURYAWANSHI",
-      role: "MANAGEMENT",
-      // twitter: "",
-      linkedin: "https://www.linkedin.com/in/mayuri-suryawanshi-aab3a9290/",
-      instagram: "https://www.instagram.com/mayuri._.50/",
-    },
-    {
-      image: rutuja,
-      name: "RUTUJA CHAUDHARI",
-      role: "MANAGEMENT",
-      // twitter: "",
-      linkedin: "https://www.linkedin.com/in/rutuja-chaudhari-5529232a4/",
-      instagram: "https://www.instagram.com/rutujachaudhari_19/",
-    },
+    // {
+    //   image: mayuri,
+    //   name: "MAYURI SURYAWANSHI",
+    //   role: "MANAGEMENT",
+    //   // twitter: "",
+    //   linkedin: "https://www.linkedin.com/in/mayuri-suryawanshi-aab3a9290/",
+    //   instagram: "https://www.instagram.com/mayuri._.50/",
+    // },
+    // {
+    //   image: rutuja,
+    //   name: "RUTUJA CHAUDHARI",
+    //   role: "MANAGEMENT",
+    //   // twitter: "",
+    //   linkedin: "https://www.linkedin.com/in/rutuja-chaudhari-5529232a4/",
+    //   instagram: "https://www.instagram.com/rutujachaudhari_19/",
+    // },
   ];
 
   const firstTwo = speakers.slice(0, 2);

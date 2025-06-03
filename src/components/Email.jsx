@@ -98,7 +98,7 @@ function Email() {
           <input
             type="submit"
             value="Join Our Team"
-            className="w-1/4 bg-gradient-to-r from-orange-700 to-orange-400 text-white justify-center rounded-lg px-4 py-2 mt-4 mx-auto block"
+            className="bg-gradient-to-r from-orange-700 to-orange-400 text-white justify-center rounded-lg px-4 py-2 mt-4 mx-auto block"
           />
         </form>
         </div>

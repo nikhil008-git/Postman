@@ -168,7 +168,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="w-full mt-10 flex flex-col gap-8 w-full justify-center items-center px-4">
+      <div className="w-full mt-10 flex flex-col gap-8 justify-center items-center px-4">
         <div className="overflow-hidden w-full max-w-screen-xl">
           <div className="flex animate-scroll-left gap-6 w-max">
             {[...partners, ...partners].map(({ name, img }, i) => (
