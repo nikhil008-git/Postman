@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import GridBackground from './components/GridBackground';
 import Event from './components/Event';
 import About from './components/About';
+import SponsorForm from './components/SponsorForm';
 
 // ...existing code...
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/event" element={<Event />} />
           <Route path="/lastPage" element={<LastPage />} />
           <Route path="/aboutus" element={<About />} />
+          <Route path="/sponsor" element={<SponsorForm />} />
         </Routes>
       </div>
       <Footer />
@@ -30,8 +32,5 @@ function App() {
   );
 }
 // ...existing code...
-
-
-
 
 export default App;
