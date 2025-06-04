@@ -9,6 +9,7 @@ import GridBackground from './components/GridBackground';
 import Event from './components/Event';
 import About from './components/About';
 import SponsorForm from './components/SponsorForm';
+import { Toaster } from "sonner"
 
 // ...existing code...
 function App() {
@@ -28,6 +29,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <Toaster richColors position="top-right" />
     </BrowserRouter>
   );
 }

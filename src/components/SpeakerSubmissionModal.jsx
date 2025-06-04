@@ -18,8 +18,13 @@ import {
 } from "./ui/select";
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
+import { toast } from "sonner"
+import { Loader2 } from "lucide-react"
+
+const API_URL = 'http://localhost:5002/api/speakers';
 
 const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -31,10 +36,55 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
     termsAccepted: false,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    onClose();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${API_URL}/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle validation errors
+        if (response.status === 400 && data.errors) {
+          const errorMessages = data.errors.map(error => error.message).join('\n');
+          throw new Error(errorMessages);
+        }
+        throw new Error(data.message || 'Failed to submit proposal');
+      }
+
+      // Success toast
+      toast.success("Your talk proposal has been submitted successfully!", {
+        description: "We'll review your submission and contact you via email soon.",
+      });
+
+      // Reset form and close modal
+      setFormData({
+        fullName: "",
+        email: "",
+        organization: "",
+        talkTitle: "",
+        talkType: "",
+        talkDescription: "",
+        previousSpeakingExperience: false,
+        termsAccepted: false,
+      });
+      onClose();
+    } catch (error) {
+      // Error toast
+      toast.error("Failed to submit proposal", {
+        description: error.message || "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -72,6 +122,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
                 setFormData((prev) => ({ ...prev, fullName: e.target.value }))
               }
               required
+              disabled={isSubmitting}
             />
           </div>
 
@@ -87,6 +138,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
                 setFormData((prev) => ({ ...prev, email: e.target.value }))
               }
               required
+              disabled={isSubmitting}
             />
           </div>
 
@@ -104,6 +156,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
                 }))
               }
               required
+              disabled={isSubmitting}
             />
           </div>
 
@@ -118,6 +171,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
                 setFormData((prev) => ({ ...prev, talkTitle: e.target.value }))
               }
               required
+              disabled={isSubmitting}
             />
           </div>
 
@@ -129,6 +183,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
                 setFormData((prev) => ({ ...prev, talkType: value }))
               }
               required
+              disabled={isSubmitting}
             >
               <SelectTrigger className="w-full bg-white border border-gray-300 text-black">
                 <SelectValue placeholder="Select talk format" />
@@ -181,6 +236,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
               className="min-h-[120px]"
               required
               minLength={50}
+              disabled={isSubmitting}
             />
             <p className="text-sm text-muted-foreground">
               Please provide a detailed description (at least 50 characters)
@@ -194,6 +250,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
               checked={formData.previousSpeakingExperience}
               onChange={handleChange}
               className="mt-1 mr-2"
+              disabled={isSubmitting}
             />
             <label className="text-sm text-gray-700">
               Previous Speaking Experience
@@ -211,6 +268,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               className="mt-1 mr-2"
               required
+              disabled={isSubmitting}
             />
             <label className="text-sm text-gray-700">
               Terms and Conditions
@@ -223,8 +281,16 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
           <Button
             type="submit"
             className="w-full bg-gradient-to-r from-orange-700 to-orange-500 hover:from-orange-800 hover:to-orange-600"
+            disabled={isSubmitting}
           >
-            Submit Proposal
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              'Submit Proposal'
+            )}
           </Button>
         </form>
       </DialogContent>

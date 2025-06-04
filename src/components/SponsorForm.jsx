@@ -30,6 +30,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "../hooks/use-toast";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 const sponsorshipPackages = [
   {
@@ -78,6 +80,8 @@ const sponsorshipPackages = [
   },
 ];
 
+const API_URL = 'http://localhost:5002/api/sponsors';
+
 const FormSchema = z.object({
   name: z.string().min(2, { message: "Name is required" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -107,18 +111,70 @@ function SponsorForm() {
   });
 
   const onSubmit = async (data) => {
+    console.log('Form data:', data);
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form submitted:", data);
-      toast({
-        title: "Sponsorship Request Submitted",
-        description: "We'll contact you soon with more information.",
+    try {
+      // Show loading toast
+      toast.loading("Submitting your sponsorship request...", {
+        id: "submission-status",
       });
+
+      const response = await fetch(`${API_URL}/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      console.log('Response:', result);
+
+      if (!response.ok) {
+        // Handle validation errors
+        if (response.status === 400 && result.errors) {
+          const errorMessages = result.errors.map(error => error.message).join('\n');
+          toast.error("Validation Error", {
+            description: errorMessages,
+            id: "submission-status",
+          });
+          return;
+        }
+        throw new Error(result.message || 'Failed to submit sponsorship request');
+      }
+
+      // Success toast with more details
+      toast.success("Sponsorship Request Submitted Successfully!", {
+        description: (
+          <div className="mt-2">
+            <p>Thank you for your interest in sponsoring our event!</p>
+            <p className="mt-1">We will review your submission and contact you at {data.email} soon.</p>
+          </div>
+        ),
+        id: "submission-status",
+        duration: 5000,
+      });
+
+      // Reset form after successful submission
       form.reset();
+    } catch (error) {
+      console.error('Submission error:', error);
+      
+      // Enhanced error toast
+      toast.error("Submission Failed", {
+        description: (
+          <div className="mt-2">
+            <p>{error.message || "Please try again later."}</p>
+            <p className="mt-1 text-sm">If the problem persists, please contact our support team.</p>
+          </div>
+        ),
+        id: "submission-status",
+        duration: 5000,
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -399,9 +455,14 @@ function SponsorForm() {
                       className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 text-lg"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting
-                        ? "Submitting..."
-                        : "Submit Sponsorship Request"}
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        "Submit Sponsorship Request"
+                      )}
                     </Button>
                   </form>
                 </Form>
