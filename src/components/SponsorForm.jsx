@@ -29,7 +29,6 @@ import { Checkbox } from "./ui/checkbox";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useToast } from "../hooks/use-toast";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
@@ -95,7 +94,6 @@ const FormSchema = z.object({
 
 function SponsorForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const form = useForm({
     resolver: zodResolver(FormSchema),
@@ -111,57 +109,55 @@ function SponsorForm() {
   });
 
   const onSubmit = async (data) => {
-    console.log('Form data:', data);
     setIsSubmitting(true);
 
     try {
       // Show loading toast
-      toast.loading("Submitting your sponsorship request...", {
-        id: "submission-status",
-      });
-
-      const response = await fetch(`${API_URL}/submit`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-      console.log('Response:', result);
-
-      if (!response.ok) {
-        // Handle validation errors
-        if (response.status === 400 && result.errors) {
-          const errorMessages = result.errors.map(error => error.message).join('\n');
-          toast.error("Validation Error", {
-            description: errorMessages,
-            id: "submission-status",
-          });
-          return;
+      toast.promise(
+        fetch(`${API_URL}/submit`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }).then(async (response) => {
+          const result = await response.json();
+          
+          if (!response.ok) {
+            // Handle validation errors
+            if (response.status === 400 && result.errors) {
+              const errorMessages = result.errors.map(error => error.message).join('\n');
+              throw new Error(errorMessages);
+            }
+            throw new Error(result.message || 'Failed to submit sponsorship request');
+          }
+          
+          return result;
+        }),
+        {
+          loading: 'Submitting your sponsorship request...',
+          success: (result) => {
+            // Reset form after successful submission
+            form.reset();
+            return (
+              <div className="mt-2">
+                <p>Thank you for your interest in sponsoring our event!</p>
+                <p className="mt-1">We will review your submission and contact you at {data.email} soon.</p>
+              </div>
+            );
+          },
+          error: (error) => {
+            return (
+              <div className="mt-2">
+                <p>{error.message || "Please try again later."}</p>
+                <p className="mt-1 text-sm">If the problem persists, please contact our support team.</p>
+              </div>
+            );
+          },
         }
-        throw new Error(result.message || 'Failed to submit sponsorship request');
-      }
-
-      // Success toast with more details
-      toast.success("Sponsorship Request Submitted Successfully!", {
-        description: (
-          <div className="mt-2">
-            <p>Thank you for your interest in sponsoring our event!</p>
-            <p className="mt-1">We will review your submission and contact you at {data.email} soon.</p>
-          </div>
-        ),
-        id: "submission-status",
-        duration: 5000,
-      });
-
-      // Reset form after successful submission
-      form.reset();
+      );
     } catch (error) {
       console.error('Submission error:', error);
-      
-      // Enhanced error toast
       toast.error("Submission Failed", {
         description: (
           <div className="mt-2">
@@ -169,8 +165,6 @@ function SponsorForm() {
             <p className="mt-1 text-sm">If the problem persists, please contact our support team.</p>
           </div>
         ),
-        id: "submission-status",
-        duration: 5000,
       });
     } finally {
       setIsSubmitting(false);
