@@ -35,47 +35,70 @@ import { ENDPOINTS } from '../config/api';
 
 const sponsorshipPackages = [
   {
-    name: "Gold",
-    price: "$5,000",
+    name: "TITLE",
+    price: "₹2,50,000",
+    color: "#FF9B45",
     benefits: [
-      "Premium logo placement on event website",
-      "Booth space at event (premium location)",
+      "Exclusive title Sponsor Recognition",
+      "Premium logo placement on all event materials",
+      "Display Booth - Extra Large Booth",
+      //"VIP booth space at prime location",
+      "7 free event tickets",
+      "Keynote Speaking Slot",
+      "Featured in all Email Communications",
+      "Logo on Tees & Stage",
+      // "Access to attendee database",
+      "Swags Distribution",
+    ],
+  },
+  {
+    name: "GOLD",
+    price: "₹1,50,000",
+    color: "#FFD700",
+    benefits: [
+      "Premium logo placement on Event Website",
+      "Display Booth - Large Booth",
       "5 free event tickets",
-      "20-minute speaking slot",
-      "Email promotion to attendees",
-      "Social media mentions (5 dedicated posts)",
-      "Logo on all event materials",
+      "20-minute Speaking Slot",
+      "Email Promotion to attendees",
+      "Logo on Tees & Stage (Standard)",
+      "Swags Distribution",
     ],
   },
   {
-    name: "Silver",
-    price: "$2,500",
+    name: "SILVER",
+    price: "₹1,00,000",
+    color: "#C0C0C0",
     benefits: [
-      "Logo placement on event website",
-      "Booth space at event",
-      "3 free event tickets",
+      "Logo placement on Event Website",
+      "Display Booth - Small Booth",
+      "5 free event tickets",
       "Lightning talk opportunity",
-      "Social media mentions (3 dedicated posts)",
+      // "Social media mentions (5 dedicated posts)",
       "Logo on digital event materials",
     ],
   },
   {
-    name: "Bronze",
-    price: "$1,000",
+    name: "ASSOCIATE",
+    price: "₹50,000",
+    color: "#8D0B41",
+    benefits: [
+      "Logo placement on Event Website",
+      "Small booth space at event",
+      "3 free event tickets",
+      "Logo on digital event materials",
+    ],
+  },
+  {
+    name: "IN KIND",
+    price: "Custom",
+    color: "#57B4BA",
     benefits: [
       "Logo placement on event website",
-      "1 free event ticket",
-      "Social media mention (1 dedicated post)",
-      "Logo on digital event materials",
-    ],
-  },
-  {
-    name: "Community",
-    price: "$500",
-    benefits: [
-      "Name listed on event website",
-      "1 free event ticket",
-      "Logo on digital event materials",
+      "Event tickets - IN KIND",
+      "Recognition in event materials",
+      "Opportunity for product showcase",
+      "Swags Distribution",
     ],
   },
 ];
@@ -186,9 +209,9 @@ function SponsorForm() {
       </section>
 
       {/* Packages Section */}
-      <section className="py-16">
+      <section className="py-8 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl font-bold mb-4 text-black">
               Sponsorship Packages
             </h2>
@@ -198,68 +221,114 @@ function SponsorForm() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {sponsorshipPackages.map((pkg) => (
-              <Card
-                key={pkg.name}
-                className="overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <CardHeader
-                  className={`
-                  ${pkg.name === "Gold" ? "bg-yellow-400" : ""} 
-                  ${pkg.name === "Silver" ? "bg-gray-300" : ""} 
-                  ${pkg.name === "Bronze" ? "bg-amber-500" : ""} 
-                  ${pkg.name === "Community" ? "bg-orange-400" : ""}
-                  text-white p-6
-                `}
+          {/* Mobile View */}
+          <div className="block md:hidden">
+            <div className="flex flex-col gap-6">
+              {sponsorshipPackages.map((pkg) => (
+                <Card
+                  key={pkg.name}
+                  className="w-full hover:shadow-lg transition-shadow"
                 >
-                  <CardTitle className="text-2xl">{pkg.name}</CardTitle>
-                  <div className="text-3xl font-bold mt-2">{pkg.price}</div>
-                </CardHeader>
-                <CardContent className="p-6 text-black">
-                  <h4 className="font-semibold mb-4">Benefits:</h4>
-                  <ul className="space-y-2">
-                    {pkg.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start">
-                        <svg
-                          className="w-5 h-5 text-green-500 mr-2 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          ></path>
-                        </svg>
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter className="p-6 pt-0">
-                  <Button
-                    asChild
-                    className={`w-full text-lg py-4 px-8 font-semibold ${
-                      pkg.name === "Gold" ? "bg-yellow-500" : ""
-                    } 
-                    ${
-                      pkg.name === "Silver" ? "bg-gray-300  text-gray-800" : ""
-                    } 
-                    ${pkg.name === "Bronze" ? "bg-amber-500 " : ""} 
-                    ${pkg.name === "Community" ? "bg-orange-500" : ""}
-                    `}
+                  <CardHeader
+                    style={{ backgroundColor: pkg.color }}
+                    className="text-white p-4 md:p-6"
                   >
-                    <a href="#sponsorship-form" className="text-black">
-                      Select
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+                    <CardTitle className="text-xl md:text-2xl">{pkg.name} SPONSOR</CardTitle>
+                    <div className="text-2xl md:text-3xl font-bold mt-2">{pkg.price}</div>
+                  </CardHeader>
+                  <CardContent className="p-4 md:p-6 text-black">
+                    <h4 className="font-semibold mb-4">Benefits:</h4>
+                    <ul className="space-y-2">
+                      {pkg.benefits.map((benefit, index) => (
+                        <li key={index} className="flex items-start">
+                          <svg
+                            className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M5 13l4 4L19 7"
+                            ></path>
+                          </svg>
+                          <span className="text-sm md:text-base">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="p-4 md:p-6 pt-0">
+                    <Button
+                      asChild
+                      style={{ backgroundColor: pkg.color }}
+                      className="w-full text-base md:text-lg py-3 md:py-4 px-6 md:px-8 font-semibold text-black hover:opacity-90"
+                    >
+                      <a href="#sponsorship-form">
+                        Select
+                      </a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop View */}
+          <div className="hidden md:block">
+            <div className="flex flex-nowrap gap-4 overflow-x-auto pb-6 px-4 snap-x snap-mandatory">
+              {sponsorshipPackages.map((pkg) => (
+                <Card
+                  key={pkg.name}
+                  className="flex-none w-72 hover:shadow-lg transition-shadow snap-center"
+                >
+                  <CardHeader
+                    style={{ backgroundColor: pkg.color }}
+                    className="text-white p-6"
+                  >
+                    <CardTitle className="text-2xl">{pkg.name} SPONSOR</CardTitle>
+                    <div className="text-3xl font-bold mt-2">{pkg.price}</div>
+                  </CardHeader>
+                  <CardContent className="p-6 text-black h-[400px] overflow-y-auto">
+                    <h4 className="font-semibold mb-4">Benefits:</h4>
+                    <ul className="space-y-2">
+                      {pkg.benefits.map((benefit, index) => (
+                        <li key={index} className="flex items-start">
+                          <svg
+                            className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M5 13l4 4L19 7"
+                            ></path>
+                          </svg>
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="p-6 pt-0">
+                    <Button
+                      asChild
+                      style={{ backgroundColor: pkg.color }}
+                      className="w-full text-lg py-4 px-8 font-semibold text-black hover:opacity-90"
+                    >
+                      <a href="#sponsorship-form">
+                        Select
+                      </a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -405,11 +474,11 @@ function SponsorForm() {
                                 <SelectValue placeholder="Select a package" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="text-black bg-white border-none">
+                            <SelectContent className="text-black bg-white border-none w-full">
                               {sponsorshipPackages.map((pkg) => (
-                                <SelectItem key={pkg.name} value={pkg.name}>
-                                  <div className="flex justify-between w-full">
-                                    <span>{pkg.name}</span>
+                                <SelectItem key={pkg.name} value={pkg.name} className="w-full p-0">
+                                  <div className="flex justify-between items-center w-full px-3 py-2">
+                                    <span  className="truncate">{pkg.name}</span>
                                     <span className="text-orange-500 font-semibold">
                                       {pkg.price}
                                     </span>
