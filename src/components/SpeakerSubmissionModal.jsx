@@ -21,7 +21,7 @@ import { Label } from "@/components/ui/label"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
 
-const API_URL = 'http://localhost:5002/api/speakers';
+const API_URL = '/api/speakers';
 
 const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
