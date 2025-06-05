@@ -20,8 +20,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
-
-const API_URL = 'http://localhost:5002/api/speakers';
+import { ENDPOINTS } from '../config/api';
 
 const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,7 +40,7 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${API_URL}/submit`, {
+      const response = await fetch(`${ENDPOINTS.SPEAKERS}/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
