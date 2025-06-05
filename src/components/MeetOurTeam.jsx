@@ -99,7 +99,7 @@ const MeetOurTeam = () => {
     {
       image: aman,
       name: "AMAN MOGAL",
-      role: "SPONOERSHIP",
+      role: "SPONSORSHIP",
       twitter: "https://x.com/Aman25m",
       linkedin: "https://www.linkedin.com/in/aman-mogal-b7773b246/",
       instagram: "",
