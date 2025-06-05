@@ -1,73 +1,79 @@
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 function Email() {
   const form = useRef();
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const sendEmail = (e) => {
-  e.preventDefault();
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  const formData = new FormData(form.current);
-  const userName = formData.get("user_name");
-  const userEmail = formData.get("user_email");
-  const userInterest = formData.get("user_interest");
+    try {
+      const formData = new FormData(form.current);
+      const data = {
+        userName: formData.get("user_name"),
+        userEmail: formData.get("user_email"),
+        userInterest: formData.get("user_interest"),
+      };
 
-  // 1. Send to admin (you)
-  emailjs
-    .sendForm("service_58j8oxu", "template_2empwmj", form.current, {
-      publicKey: "7q-j2p6gtmA-Sfsru",
-    })
-    .then(() => {
-      console.log("Admin email sent successfully!");
-
-      // 2. Send confirmation email to user
-      emailjs
-        .send(
-          "service_58j8oxu", // same service ID
-          "template_2bow59v", // your user confirmation template ID
-          {
-            user_name: userName,
-            user_email: userEmail,
+      toast.promise(
+        fetch("http://localhost:5002/api/email/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-          {
-            publicKey: "7q-j2p6gtmA-Sfsru",
+          body: JSON.stringify(data),
+        }).then(async (response) => {
+          const result = await response.json();
+
+          if (!response.ok) {
+            if (response.status === 400 && result.errors) {
+              const errorMessages = result.errors
+                .map((error) => error.message)
+                .join("\n");
+              throw new Error(errorMessages);
+            }
+            throw new Error(result.message || "Failed to submit form");
           }
-        )
-        .then(() => {
-          console.log("Confirmation email sent to user!");
-          setSubmitted(true);
-        })
-        .catch((error) => {
-          console.error("Failed to send confirmation email:", error);
-        });
-    })
-    .catch((error) => {
-      console.error("Failed to send admin email:", error);
-    });
-};
+
+          return result;
+        }),
+        {
+          loading: "Submitting your interest...",
+          success: () => {
+            form.current.reset();
+            return "Thank you for your interest! We will contact you soon.";
+          },
+          error: (error) => {
+            return error.message || "Something went wrong. Please try again.";
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error("Submission Failed", {
+        description: error.message || "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="bg-gray-100 text-gray-800 p-6 rounded-2xl">
-
-      {submitted ? (
-        <div className="text-center py-10 rounded-lg">
-          <h3 className="text-xl text-black font-semibold mb-2">Thank you for reaching out!</h3>
-          <p>We'll get back to you soon.</p>
-        </div>
-      ) : (
-        <div>
-          <h2 className="text-md p-2">Stay Connected</h2>
-          <form
-            className="flex flex-col text-gray-700"
-            onSubmit={sendEmail}
-            ref={form}
-          >
-            <p className="py-2">Your Name</p>
-            <input
-              type="text"
-              name="user_name"
-              placeholder="John Doe"
+      <div>
+        <h2 className="text-md p-2">Stay Connected</h2>
+        <form
+          className="flex flex-col text-gray-700"
+          onSubmit={sendEmail}
+          ref={form}
+        >
+          <p className="py-2">Your Name</p>
+          <input
+            type="text"
+            name="user_name"
+            placeholder="John Doe"
             className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
             required
           />
@@ -95,18 +101,20 @@ function Email() {
             <option value="Content Creation">Content Creation</option>
             <option value="Design">Design</option>
           </select>
-          <input
+          <button
             type="submit"
-            value="Join Our Team"
-            className="bg-gradient-to-r from-orange-700 to-orange-400 text-white justify-center rounded-lg px-4 py-2 mt-4 mx-auto block"
-          />
+            disabled={isSubmitting}
+            className="bg-gradient-to-r from-orange-700 to-orange-400 text-white justify-center rounded-lg px-4 py-2 mt-4 mx-auto block disabled:opacity-50"
+          >
+            {isSubmitting ? "Submitting..." : "Join Our Team"}
+          </button>
         </form>
-        </div>
-      )}
+      </div>
 
-      {!submitted && (
+      {!isSubmitting && (
         <p className="text-lg text-red-500 mt-4">
-          Kindly click the submit button once—your request may take a few seconds to process.
+          Kindly click the submit button once—your request may take a few
+          seconds to process.
         </p>
       )}
     </div>
