@@ -10,7 +10,6 @@ import alice from '../assets/team/alice.jpg';
 import aman from '../assets/team/aman.jpeg';
 import atharva from '../assets/team/atharva.jpg';
 import eric from '../assets/team/eric.jpeg';
-import kaushal from '../assets/team/kaushal.jpeg';
 import kunal from '../assets/team/kunal.JPG';
 import mayuri from '../assets/team/mayuri.jpeg';
 import namrata from '../assets/team/namrata.jpg';
@@ -127,14 +126,6 @@ const MeetOurTeam = () => {
       role: "DESIGNER",
       linkedin: "https://www.linkedin.com/in/namrata-bhalerao-66417a244/",
       instagram:"https://www.instagram.com/yayynammmrata/",
-    },
-    {
-      image: kaushal,
-      name: "KAUSHAL ABOJWAR",
-      role: "DESIGNER",
-      // twitter: "",
-      linkedin: "https://www.linkedin.com/in/kaushalvabojwar/",
-      instagram: "https://www.instagram.com/kaushal0412/",
     },
     {
       image: arjun,
