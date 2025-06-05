@@ -31,6 +31,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { ENDPOINTS } from '../config/api';
 
 const sponsorshipPackages = [
   {
@@ -79,8 +80,6 @@ const sponsorshipPackages = [
   },
 ];
 
-const API_URL = 'http://localhost:5002/api/sponsors';
-
 const FormSchema = z.object({
   name: z.string().min(2, { message: "Name is required" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -114,7 +113,7 @@ function SponsorForm() {
     try {
       // Show loading toast
       toast.promise(
-        fetch(`${API_URL}/submit`, {
+        fetch(`${ENDPOINTS.SPONSORS}/submit`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

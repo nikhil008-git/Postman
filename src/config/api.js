@@ -6,6 +6,7 @@ export const API_BASE_URL = isDevelopment
 
 export const ENDPOINTS = {
   SPEAKERS: `${API_BASE_URL}/speakers`,
+  SPONSORS: `${API_BASE_URL}/sponsors`,
   // Add other endpoints here
 };
 
