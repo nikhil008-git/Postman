@@ -11,6 +11,44 @@ import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/pop
 import { Button } from '../../components/ui/button';
 import { CalendarIcon } from "lucide-react";
 
+// Image compression function
+const compressImage = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+        
+        // Calculate new dimensions while maintaining aspect ratio
+        const maxDimension = 1200; // Max width or height
+        if (width > height && width > maxDimension) {
+          height = Math.round((height * maxDimension) / width);
+          width = maxDimension;
+        } else if (height > maxDimension) {
+          width = Math.round((width * maxDimension) / height);
+          height = maxDimension;
+        }
+        
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        // Convert to JPEG with quality 0.7
+        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);
+        resolve(compressedDataUrl);
+      };
+      img.onerror = reject;
+    };
+    reader.onerror = reject;
+  });
+};
+
 const CreateEvent = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -36,22 +74,36 @@ const CreateEvent = () => {
     }));
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Create a temporary URL for preview
-      const previewUrl = URL.createObjectURL(file);
-      setImagePreview(previewUrl);
-      
-      // Convert file to base64 for storage
-      const reader = new FileReader();
-      reader.onloadend = () => {
+      // Check file size (limit to 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error('Image size should be less than 5MB');
+        return;
+      }
+
+      // Check file type
+      if (!file.type.startsWith('image/')) {
+        toast.error('Please upload an image file');
+        return;
+      }
+
+      try {
+        // Create a temporary URL for preview
+        const previewUrl = URL.createObjectURL(file);
+        setImagePreview(previewUrl);
+        
+        // Compress the image
+        const compressedImage = await compressImage(file);
         setFormData(prev => ({
           ...prev,
-          image: reader.result // This will be the base64 string
+          image: compressedImage
         }));
-      };
-      reader.readAsDataURL(file);
+      } catch (error) {
+        console.error('Error processing image:', error);
+        toast.error('Error processing image. Please try again.');
+      }
     }
   };
 
@@ -147,7 +199,7 @@ const CreateEvent = () => {
         duration: 5000,
       });
       
-      navigate('/admin/events');
+      navigate('/events');
     } catch (err) {
       console.error('Error creating event:', err);
       toast.error('Failed to create event', {
