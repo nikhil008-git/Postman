@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { CalendarDays, Clock, MapPin, Users, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, ArrowLeft } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -11,6 +11,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { format } from 'date-fns';
 
 function EventDetails() {
   const { eventId } = useParams();
@@ -111,17 +112,12 @@ function EventDetails() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <div className="flex items-center gap-4">
                 <div className="bg-orange-100 p-3 rounded-full">
-                  <CalendarDays className="w-6 h-6 text-orange-600" />
+                  <Calendar className="w-6 h-6 text-orange-600" />
                 </div>
                 <div>
                   <p className="text-sm text-black font-medium">Date</p>
                   <p className="font-semibold text-black">
-                    {new Date(event.date).toLocaleDateString('en-US', { 
-                      weekday: 'long',
-                      month: 'long', 
-                      day: 'numeric', 
-                      year: 'numeric' 
-                    })}
+                    {format(new Date(event.date), 'PPP')}
                   </p>
                 </div>
               </div>

@@ -10,6 +10,7 @@ import { cn } from '../../lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
 import { Button } from '../../components/ui/button';
 import { CalendarIcon } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select";
 
 // Image compression function
 const compressImage = (file) => {
@@ -49,11 +50,25 @@ const compressImage = (file) => {
   });
 };
 
+// Generate time options in 24-hour format
+const generateTimeOptions = () => {
+  const times = [];
+  for (let hour = 0; hour < 24; hour++) {
+    for (let minute = 0; minute < 60; minute += 30) {
+      const formattedHour = hour.toString().padStart(2, '0');
+      const formattedMinute = minute.toString().padStart(2, '0');
+      times.push(`${formattedHour}:${formattedMinute}`);
+    }
+  }
+  return times;
+};
+
+const timeOptions = generateTimeOptions();
+
 const CreateEvent = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [showTimePicker, setShowTimePicker] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
@@ -115,28 +130,11 @@ const CreateEvent = () => {
     setShowCalendar(false);
   };
 
-  const handleTimeChange = (e) => {
-    const timeValue = e.target.value;
+  const handleTimeChange = (value) => {
     setFormData(prev => ({
       ...prev,
-      time: timeValue
+      time: value
     }));
-  };
-
-  const handleTimePickerChange = (e) => {
-    const timeValue = e.target.value;
-    // Convert 24-hour format to 12-hour format with AM/PM
-    const [hours, minutes] = timeValue.split(':');
-    const hour = parseInt(hours);
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    const hour12 = hour % 12 || 12;
-    const formattedTime = `${hour12}:${minutes} ${ampm}`;
-    
-    setFormData(prev => ({
-      ...prev,
-      time: formattedTime
-    }));
-    setShowTimePicker(false);
   };
 
   const validateForm = () => {
@@ -182,10 +180,10 @@ const CreateEvent = () => {
         time: formData.time,
         location: formData.location,
         availableSeats: parseInt(formData.availableSeats),
-        image: formData.image // This will be the base64 string
+        image: formData.image
       };
 
-      console.log('Submitting event data:', eventData); // Debug log
+      console.log('Submitting event data:', eventData);
 
       const response = await eventAPI.createEvent(eventData);
       
@@ -199,7 +197,7 @@ const CreateEvent = () => {
         duration: 5000,
       });
       
-      navigate('/events');
+      navigate('/event');
     } catch (err) {
       console.error('Error creating event:', err);
       toast.error('Failed to create event', {
@@ -277,7 +275,7 @@ const CreateEvent = () => {
                   Date
                 </label>
                 <div className="relative">
-                <input
+                  <input
                     type="text"
                     value={format(formData.date, 'PPP')}
                     onClick={() => setShowCalendar(true)}
@@ -290,66 +288,29 @@ const CreateEvent = () => {
                   <div className="absolute z-10 mt-1 bg-white shadow-lg rounded-md">
                     <CalendarComponent
                       onChange={handleDateChange}
-                  value={formData.date}
+                      value={formData.date}
                       minDate={new Date()}
-                />
+                    />
                   </div>
                 )}
               </div>
 
-              <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div>
+                <label htmlFor="time" className="block text-sm font-medium text-gray-700">
                   Time
                 </label>
-                <div className="relative">
-                <input
-                    type="text"
-                  name="time"
-                  value={formData.time}
-                    placeholder="Select time"
-                    onClick={() => setShowTimePicker(true)}
-                    readOnly
-                    className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
-                  <Clock 
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer" 
-                    onClick={() => setShowTimePicker(!showTimePicker)}
-                  />
-                </div>
-                {showTimePicker && (
-                  <div className="absolute z-10 mt-1 bg-white shadow-lg rounded-md p-2 w-full">
-                    <div className="grid grid-cols-4 gap-2">
-                      {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
-                        <button
-                          key={hour}
-                          onClick={() => {
-                            const time = `${hour}:00 ${hour < 12 ? 'AM' : 'PM'}`;
-                            setFormData(prev => ({ ...prev, time }));
-                            setShowTimePicker(false);
-                          }}
-                          className="px-3 py-2 text-sm border rounded hover:bg-gray-100"
-                        >
-                          {hour}:00 {hour < 12 ? 'AM' : 'PM'}
-                        </button>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-4 gap-2 mt-2">
-                      {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
-                        <button
-                          key={hour}
-                          onClick={() => {
-                            const time = `${hour}:30 ${hour < 12 ? 'AM' : 'PM'}`;
-                            setFormData(prev => ({ ...prev, time }));
-                            setShowTimePicker(false);
-                          }}
-                          className="px-3 py-2 text-sm border rounded hover:bg-gray-100"
-                        >
-                          {hour}:30 {hour < 12 ? 'AM' : 'PM'}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <Select onValueChange={handleTimeChange} value={formData.time}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select time" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white text-black max-h-[300px] overflow-y-auto">
+                    {timeOptions.map((time) => (
+                      <SelectItem key={time} value={time}>
+                        {time}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 

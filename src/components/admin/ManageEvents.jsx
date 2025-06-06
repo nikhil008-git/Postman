@@ -168,7 +168,7 @@ function ManageEvents() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent>
+        <DialogContent className='bg-white text-black'>
           <DialogHeader>
             <DialogTitle>Delete Event</DialogTitle>
             <DialogDescription>
@@ -179,7 +179,7 @@ function ManageEvents() {
             <Button variant="outline" onClick={() => setIsDeleteDialogOpen(false)}>
               Cancel
             </Button>
-            <Button variant="destructive" onClick={handleDelete}>
+            <Button variant="destructive" onClick={handleDelete} className='bg-red-500 text-white border-none' >
               Delete
             </Button>
           </DialogFooter>

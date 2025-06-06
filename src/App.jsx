@@ -76,7 +76,7 @@ function App() {
         richColors
         closeButton
       />
-    </BrowserRouter>
+    </Router>
   );
 }
 
