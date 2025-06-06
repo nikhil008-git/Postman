@@ -12,35 +12,39 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
+interface Event {
+  _id: string;
+  title: string;
+  description: string;
+  detailedDescription?: string;
+  date: string;
+  time: string;
+  location: string;
+  availableSeats: number;
+  image?: string;
+}
+
 function EventDetails() {
   const { eventId } = useParams();
   const navigate = useNavigate();
-  const [event, setEvent] = useState(null);
+  const [event, setEvent] = useState<Event | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [imageError, setImageError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchEvent = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002'}/api/events/${eventId}`);
-        console.log('Event data:', response.data);
         setEvent(response.data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching event:', err);
-        setError(err.message);
+        setError(err instanceof Error ? err.message : 'An error occurred');
         setLoading(false);
       }
     };
 
     fetchEvent();
   }, [eventId]);
-
-  const handleImageError = () => {
-    console.error('Image failed to load:', event?.image);
-    setImageError(true);
-  };
 
   if (loading) {
     return (
@@ -86,23 +90,19 @@ function EventDetails() {
 
         {/* Event Header */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-          <div className="w-full h-96 relative bg-gray-100">
-            {event.image && !imageError ? (
+          {event.image && (
+            <div className="w-full h-96 relative">
               <img
                 src={event.image}
                 alt={event.title}
                 className="w-full h-full object-cover"
-                onError={handleImageError}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://placehold.co/600x400?text=No+Image+Available';
+                }}
               />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                <div className="text-center">
-                  <p className="text-gray-500 mb-2">No Image Available</p>
-                  <p className="text-sm text-gray-400">Please update the event with a valid image URL</p>
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
           
           <div className="p-8">
             <h1 className="text-4xl font-bold text-black mb-4">{event.title}</h1>
@@ -195,4 +195,4 @@ function EventDetails() {
   );
 }
 
-export default EventDetails;
+export default EventDetails; 

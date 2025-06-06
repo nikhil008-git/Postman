@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "sonner";
 import { eventAPI } from '../../config/api';
+import { Calendar, Clock, Upload } from 'lucide-react';
+import { format } from 'date-fns';
+import { Calendar as CalendarComponent } from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import { cn } from '../../lib/utils';
+import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
+import { Button } from '../../components/ui/button';
+import { CalendarIcon } from "lucide-react";
 
-function CreateEvent() {
+const CreateEvent = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [imagePreview, setImagePreview] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     detailedDescription: '',
-    date: '',
+    date: new Date(),
     time: '',
     location: '',
     availableSeats: '',
     image: null
   });
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -28,35 +39,134 @@ function CreateEvent() {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setFormData(prev => ({
-        ...prev,
-        image: file
-      }));
+      // Create a temporary URL for preview
+      const previewUrl = URL.createObjectURL(file);
+      setImagePreview(previewUrl);
+      
+      // Convert file to base64 for storage
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData(prev => ({
+          ...prev,
+          image: reader.result // This will be the base64 string
+        }));
+      };
+      reader.readAsDataURL(file);
     }
+  };
+
+  const handleDateChange = (date) => {
+    setFormData(prev => ({
+      ...prev,
+      date
+    }));
+    setShowCalendar(false);
+  };
+
+  const handleTimeChange = (e) => {
+    const timeValue = e.target.value;
+    setFormData(prev => ({
+      ...prev,
+      time: timeValue
+    }));
+  };
+
+  const handleTimePickerChange = (e) => {
+    const timeValue = e.target.value;
+    // Convert 24-hour format to 12-hour format with AM/PM
+    const [hours, minutes] = timeValue.split(':');
+    const hour = parseInt(hours);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const hour12 = hour % 12 || 12;
+    const formattedTime = `${hour12}:${minutes} ${ampm}`;
+    
+    setFormData(prev => ({
+      ...prev,
+      time: formattedTime
+    }));
+    setShowTimePicker(false);
+  };
+
+  const validateForm = () => {
+    if (!formData.title.trim()) {
+      toast.error('Please enter an event title');
+      return false;
+    }
+    if (!formData.description.trim()) {
+      toast.error('Please enter a short description');
+      return false;
+    }
+    if (!formData.time) {
+      toast.error('Please select an event time');
+      return false;
+    }
+    if (!formData.location.trim()) {
+      toast.error('Please enter an event location');
+      return false;
+    }
+    if (!formData.availableSeats || formData.availableSeats < 1) {
+      toast.error('Please enter a valid number of available seats');
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value !== null) {
-          formDataToSend.append(key, value);
-        }
-      });
+      // Create the event data object
+      const eventData = {
+        title: formData.title,
+        description: formData.description,
+        detailedDescription: formData.detailedDescription,
+        date: formData.date.toISOString(),
+        time: formData.time,
+        location: formData.location,
+        availableSeats: parseInt(formData.availableSeats),
+        image: formData.image // This will be the base64 string
+      };
 
-      await eventAPI.createEvent(formDataToSend);
-      toast.success('Event created successfully!');
-      navigate('/admin');
-    } catch (error) {
-      toast.error(error.message || 'Failed to create event');
-      console.error('Error creating event:', error);
+      console.log('Submitting event data:', eventData); // Debug log
+
+      const response = await eventAPI.createEvent(eventData);
+      
+      // Clean up the preview URL
+      if (imagePreview) {
+        URL.revokeObjectURL(imagePreview);
+      }
+      
+      toast.success('Event created successfully!', {
+        description: 'Your event has been created and is now visible to users.',
+        duration: 5000,
+      });
+      
+      navigate('/admin/events');
+    } catch (err) {
+      console.error('Error creating event:', err);
+      toast.error('Failed to create event', {
+        description: err.message || 'Please try again later',
+        duration: 5000,
+      });
     } finally {
       setLoading(false);
     }
   };
+
+  // Clean up preview URL when component unmounts
+  useEffect(() => {
+    return () => {
+      if (imagePreview) {
+        URL.revokeObjectURL(imagePreview);
+      }
+    };
+  }, [imagePreview]);
 
   return (
     <div className="min-h-screen bg-gray-100 text-black py-12">
@@ -75,7 +185,7 @@ function CreateEvent() {
                 name="title"
                 required
                 value={formData.title}
-                onChange={handleInputChange}
+                onChange={handleChange}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
               />
             </div>
@@ -89,7 +199,7 @@ function CreateEvent() {
                 name="description"
                 required
                 value={formData.description}
-                onChange={handleInputChange}
+                onChange={handleChange}
                 rows={3}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
               />
@@ -102,43 +212,92 @@ function CreateEvent() {
               <textarea
                 id="detailedDescription"
                 name="detailedDescription"
-                required
                 value={formData.detailedDescription}
-                onChange={handleInputChange}
+                onChange={handleChange}
                 rows={5}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
+              <div className="relative">
                 <label htmlFor="date" className="block text-sm font-medium text-gray-700">
                   Date
                 </label>
+                <div className="relative">
                 <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  required
+                    type="text"
+                    value={format(formData.date, 'PPP')}
+                    onClick={() => setShowCalendar(true)}
+                    readOnly
+                    className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                  <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                </div>
+                {showCalendar && (
+                  <div className="absolute z-10 mt-1 bg-white shadow-lg rounded-md">
+                    <CalendarComponent
+                      onChange={handleDateChange}
                   value={formData.date}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
+                      minDate={new Date()}
                 />
+                  </div>
+                )}
               </div>
 
-              <div>
-                <label htmlFor="time" className="block text-sm font-medium text-gray-700">
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Time
                 </label>
+                <div className="relative">
                 <input
-                  type="time"
-                  id="time"
+                    type="text"
                   name="time"
-                  required
                   value={formData.time}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
-                />
+                    placeholder="Select time"
+                    onClick={() => setShowTimePicker(true)}
+                    readOnly
+                    className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                  <Clock 
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer" 
+                    onClick={() => setShowTimePicker(!showTimePicker)}
+                  />
+                </div>
+                {showTimePicker && (
+                  <div className="absolute z-10 mt-1 bg-white shadow-lg rounded-md p-2 w-full">
+                    <div className="grid grid-cols-4 gap-2">
+                      {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
+                        <button
+                          key={hour}
+                          onClick={() => {
+                            const time = `${hour}:00 ${hour < 12 ? 'AM' : 'PM'}`;
+                            setFormData(prev => ({ ...prev, time }));
+                            setShowTimePicker(false);
+                          }}
+                          className="px-3 py-2 text-sm border rounded hover:bg-gray-100"
+                        >
+                          {hour}:00 {hour < 12 ? 'AM' : 'PM'}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-4 gap-2 mt-2">
+                      {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
+                        <button
+                          key={hour}
+                          onClick={() => {
+                            const time = `${hour}:30 ${hour < 12 ? 'AM' : 'PM'}`;
+                            setFormData(prev => ({ ...prev, time }));
+                            setShowTimePicker(false);
+                          }}
+                          className="px-3 py-2 text-sm border rounded hover:bg-gray-100"
+                        >
+                          {hour}:30 {hour < 12 ? 'AM' : 'PM'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -152,7 +311,7 @@ function CreateEvent() {
                 name="location"
                 required
                 value={formData.location}
-                onChange={handleInputChange}
+                onChange={handleChange}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
               />
             </div>
@@ -168,28 +327,52 @@ function CreateEvent() {
                 required
                 min="1"
                 value={formData.availableSeats}
-                onChange={handleInputChange}
+                onChange={handleChange}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
               />
             </div>
 
             <div>
-              <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Event Image
               </label>
-              <input
-                type="file"
-                id="image"
-                name="image"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="mt-1 block w-full text-sm text-gray-500
-                  file:mr-4 file:py-2 file:px-4
-                  file:rounded-md file:border-0
-                  file:text-sm file:font-semibold
-                  file:bg-black file:text-white
-                  hover:file:bg-gray-800"
-              />
+              <div 
+                className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md cursor-pointer hover:border-blue-500"
+                onClick={() => document.getElementById('image-upload').click()}
+              >
+                <div className="space-y-1 text-center">
+                  <Upload className="mx-auto h-12 w-12 text-gray-400" />
+                  <div className="flex text-sm text-gray-600">
+                    <label
+                      htmlFor="image-upload"
+                      className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
+                    >
+                      <span>Upload a file</span>
+                      <input
+                        id="image-upload"
+                        name="image"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="sr-only"
+                      />
+                    </label>
+                    <p className="pl-1">or drag and drop</p>
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    PNG, JPG, GIF up to 10MB
+                  </p>
+                </div>
+              </div>
+              {imagePreview && (
+                <div className="mt-4">
+                  <img
+                    src={imagePreview}
+                    alt="Event preview"
+                    className="max-w-full h-48 object-cover rounded-md"
+                  />
+                </div>
+              )}
             </div>
 
             <div className="flex justify-end gap-4">
@@ -213,6 +396,6 @@ function CreateEvent() {
       </div>
     </div>
   );
-}
+};
 
 export default CreateEvent; 

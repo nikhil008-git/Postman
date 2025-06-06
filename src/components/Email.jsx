@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { toast } from "sonner";
-import { ENDPOINTS } from '../config/api';
+import api from '../config/api';
 
 function Email() {
   const form = useRef();
@@ -19,7 +19,7 @@ function Email() {
       };
 
       toast.promise(
-        fetch(`${ENDPOINTS.EMAIL}/submit`, {
+        fetch(`${api.ENDPOINTS.EMAIL}/submit`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

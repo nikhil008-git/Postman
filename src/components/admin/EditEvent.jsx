@@ -15,8 +15,7 @@ function EditEvent() {
     time: '',
     location: '',
     availableSeats: '',
-    image: null,
-    currentImage: ''
+    image: ''
   });
 
   useEffect(() => {
@@ -26,12 +25,12 @@ function EditEvent() {
         setFormData({
           title: event.title,
           description: event.description,
-          detailedDescription: event.detailedDescription,
+          detailedDescription: event.detailedDescription || '',
           date: new Date(event.date).toISOString().split('T')[0],
           time: event.time,
           location: event.location,
           availableSeats: event.availableSeats,
-          currentImage: event.image
+          image: event.image || ''
         });
         setLoading(false);
       } catch (error) {
@@ -52,34 +51,17 @@ function EditEvent() {
     }));
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFormData(prev => ({
-        ...prev,
-        image: file
-      }));
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value !== null && key !== 'currentImage') {
-          formDataToSend.append(key, value);
-        }
-      });
-
-      await eventAPI.updateEvent(eventId, formDataToSend);
+      await eventAPI.updateEvent(eventId, formData);
       toast.success('Event updated successfully!');
       navigate('/admin');
     } catch (error) {
       console.error('Error updating event:', error);
-      toast.error('Failed to update event');
+      toast.error(error.message || 'Failed to update event');
     } finally {
       setLoading(false);
     }
@@ -137,7 +119,6 @@ function EditEvent() {
               <textarea
                 id="detailedDescription"
                 name="detailedDescription"
-                required
                 value={formData.detailedDescription}
                 onChange={handleInputChange}
                 rows={5}
@@ -210,29 +191,29 @@ function EditEvent() {
 
             <div>
               <label htmlFor="image" className="block text-sm font-medium text-gray-700">
-                Event Image
+                Event Image URL
               </label>
-              {formData.currentImage && (
+              {formData.image && (
                 <div className="mt-2 mb-4">
                   <img
-                    src={formData.currentImage}
+                    src={formData.image}
                     alt="Current event"
                     className="h-32 w-32 object-cover rounded-lg"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://placehold.co/600x400?text=No+Image+Available';
+                    }}
                   />
                 </div>
               )}
               <input
-                type="file"
+                type="url"
                 id="image"
                 name="image"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="mt-1 block w-full text-sm text-gray-500
-                  file:mr-4 file:py-2 file:px-4
-                  file:rounded-md file:border-0
-                  file:text-sm file:font-semibold
-                  file:bg-black file:text-white
-                  hover:file:bg-gray-800"
+                value={formData.image}
+                onChange={handleInputChange}
+                placeholder="https://example.com/image.jpg"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black text-base py-3 px-4"
               />
             </div>
 

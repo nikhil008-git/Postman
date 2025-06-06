@@ -37,7 +37,12 @@ function App() {
         </Routes>
       </div>
       <Footer />
-      <Toaster richColors position="top-right" />
+      <Toaster 
+        position="top-right"
+        expand={true}
+        richColors
+        closeButton
+      />
     </BrowserRouter>
   );
 }
