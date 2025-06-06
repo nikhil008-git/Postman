@@ -11,7 +11,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { format } from 'date-fns';
+import { format, isAfter } from 'date-fns';
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 function EventDetails() {
   const { eventId } = useParams();
@@ -20,6 +23,15 @@ function EventDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageError, setImageError] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    githubAccount: '',
+    linkedinId: '',
+    portfolio: ''
+  });
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -41,6 +53,42 @@ function EventDetails() {
   const handleImageError = () => {
     console.error('Image failed to load:', event?.image);
     setImageError(true);
+  };
+
+  const isEventUpcoming = (eventDate) => {
+    return isAfter(new Date(eventDate), new Date());
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsRegistering(true);
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002'}/api/registrations`,
+        {
+          ...formData,
+          eventId
+        }
+      );
+
+      if (response.data.success) {
+        toast.success('Registration successful!');
+        navigate('/event');
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || 'Registration failed. Please try again.');
+    } finally {
+      setIsRegistering(false);
+    }
   };
 
   if (loading) {
@@ -72,6 +120,8 @@ function EventDetails() {
       </div>
     );
   }
+
+  const isUpcoming = isEventUpcoming(event.date);
 
   return (
     <div className="min-h-screen bg-white">
@@ -167,23 +217,98 @@ function EventDetails() {
               </div>
             )}
 
-            {/* Registration Button */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className="w-full md:w-auto bg-black text-white hover:bg-gray-800 transition-colors">
-                  Register for Event
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="bg-white">
-                <DialogHeader>
-                  <DialogTitle className="text-black">Register for {event.title}</DialogTitle>
-                  <DialogDescription className="text-black">
-                    Fill out the form below to register for this event.
-                  </DialogDescription>
-                </DialogHeader>
-                {/* Add registration form here */}
-              </DialogContent>
-            </Dialog>
+            {/* Registration Button and Form */}
+            {isUpcoming && (
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-full md:w-auto bg-black text-white hover:bg-gray-800 transition-colors">
+                    Register for Event
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="bg-white max-w-md text-black mx-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-black">Register for {event.title}</DialogTitle>
+                    <DialogDescription className="text-black">
+                      Fill out the form below to register for this event.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Enter your 10-digit phone number"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="githubAccount">GitHub Profile (Optional)</Label>
+                      <Input
+                        id="githubAccount"
+                        name="githubAccount"
+                        value={formData.githubAccount}
+                        onChange={handleInputChange}
+                        placeholder="https://github.com/username"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="linkedinId">LinkedIn Profile</Label>
+                      <Input
+                        id="linkedinId"
+                        name="linkedinId"
+                        value={formData.linkedinId}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="https://linkedin.com/in/username"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="portfolio">Portfolio Website (Optional)</Label>
+                      <Input
+                        id="portfolio"
+                        name="portfolio"
+                        value={formData.portfolio}
+                        onChange={handleInputChange}
+                        placeholder="https://your-portfolio.com"
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full bg-black text-white hover:bg-gray-800"
+                      disabled={isRegistering}
+                    >
+                      {isRegistering ? 'Registering...' : 'Submit Registration'}
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
+            )}
           </div>
         </div>
       </div>
