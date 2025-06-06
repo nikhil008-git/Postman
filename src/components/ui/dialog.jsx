@@ -15,7 +15,7 @@ function DialogTrigger({
 }) {
   return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
 }
-
+ 
 function DialogPortal({
   ...props
 }) {
@@ -25,7 +25,7 @@ function DialogPortal({
 function DialogClose({
   ...props
 }) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} style={{ border: 'none' }}/>;
 }
 
 function DialogOverlay({
