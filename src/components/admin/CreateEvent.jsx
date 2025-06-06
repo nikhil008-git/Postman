@@ -358,7 +358,7 @@ const CreateEvent = () => {
                   <div className="flex text-sm text-gray-600">
                     <label
                       htmlFor="image-upload"
-                      className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
+                      className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 focus-within:outline-none focus-within:ring-offset-2 "
                     >
                       <span>Upload a file</span>
                       <input

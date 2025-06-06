@@ -12,10 +12,10 @@ function AdminDashboard() {
         return <ManageEvents />;
       case 'registrations':
         return <EventRegistrations />;
-      case 'users':
-        return <div className="p-4">Users Management (Coming Soon)</div>;
-      case 'settings':
-        return <div className="p-4">Settings (Coming Soon)</div>;
+      // case 'users':
+      //   return <div className="p-4">Users Management (Coming Soon)</div>;
+      // case 'settings':
+      //   return <div className="p-4">Settings (Coming Soon)</div>;
       default:
         return <ManageEvents />;
     }
@@ -50,7 +50,7 @@ function AdminDashboard() {
               <ClipboardList className="w-5 h-5" />
               <span>Event Registrations</span>
             </button>
-            <button
+            {/* <button
               onClick={() => setActiveTab('users')}
               className={`w-full flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
                 activeTab === 'users'
@@ -71,7 +71,7 @@ function AdminDashboard() {
             >
               <Settings className="w-5 h-5" />
               <span>Settings</span>
-            </button>
+            </button> */}
           </nav>
         </div>
 

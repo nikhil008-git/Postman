@@ -321,7 +321,7 @@ function SponsorForm() {
                       style={{ backgroundColor: pkg.color }}
                       className="w-full text-lg py-4 px-8 font-semibold text-black hover:opacity-90"
                     >
-                      <a href="#sponsorship-form">
+                      <a href="#sponsorship-form" style={{color: 'black'}}>
                         Select
                       </a>
                     </Button>
