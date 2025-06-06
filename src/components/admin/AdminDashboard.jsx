@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Calendar, Users, Settings, ClipboardList } from "lucide-react";
+import { Calendar, Users, Settings, ClipboardList, Menu, X } from "lucide-react";
 import ManageEvents from './ManageEvents';
 import EventRegistrations from './EventRegistrations';
 
 function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('events');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -12,24 +13,42 @@ function AdminDashboard() {
         return <ManageEvents />;
       case 'registrations':
         return <EventRegistrations />;
-      // case 'users':
-      //   return <div className="p-4">Users Management (Coming Soon)</div>;
-      // case 'settings':
-      //   return <div className="p-4">Settings (Coming Soon)</div>;
       default:
         return <ManageEvents />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="flex">
-        {/* Sidebar */}
-        <div className="w-64 bg-white shadow-md min-h-screen p-4">
-          <h1 className="text-2xl font-bold text-black mb-8">Admin Panel</h1>
+    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
+      {/* Mobile Header */}
+      <div className="md:hidden bg-white shadow-md p-4 flex justify-between items-center">
+        <h1 className="text-xl font-bold text-black">Admin Panel</h1>
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="p-2 rounded-md hover:bg-gray-100"
+        >
+          {isSidebarOpen ? (
+            <X className="w-6 h-6 text-black" />
+          ) : (
+            <Menu className="w-6 h-6 text-black" />
+          )}
+        </button>
+      </div>
+
+      {/* Sidebar */}
+      <div
+        className={`${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } md:translate-x-0 fixed md:static inset-y-0 left-0 z-30 w-64 bg-white shadow-md transform transition-transform duration-200 ease-in-out`}
+      >
+        <div className="p-4">
+          <h1 className="text-2xl font-bold text-black mb-8 hidden md:block">Admin Panel</h1>
           <nav className="space-y-2">
             <button
-              onClick={() => setActiveTab('events')}
+              onClick={() => {
+                setActiveTab('events');
+                setIsSidebarOpen(false);
+              }}
               className={`w-full flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
                 activeTab === 'events'
                   ? 'bg-black text-white'
@@ -40,7 +59,10 @@ function AdminDashboard() {
               <span>Manage Events</span>
             </button>
             <button
-              onClick={() => setActiveTab('registrations')}
+              onClick={() => {
+                setActiveTab('registrations');
+                setIsSidebarOpen(false);
+              }}
               className={`w-full flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
                 activeTab === 'registrations'
                   ? 'bg-black text-white'
@@ -50,35 +72,21 @@ function AdminDashboard() {
               <ClipboardList className="w-5 h-5" />
               <span>Event Registrations</span>
             </button>
-            {/* <button
-              onClick={() => setActiveTab('users')}
-              className={`w-full flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                activeTab === 'users'
-                  ? 'bg-black text-white'
-                  : 'text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <Users className="w-5 h-5" />
-              <span>Users</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('settings')}
-              className={`w-full flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                activeTab === 'settings'
-                  ? 'bg-black text-white'
-                  : 'text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <Settings className="w-5 h-5" />
-              <span>Settings</span>
-            </button> */}
           </nav>
         </div>
+      </div>
 
-        {/* Main Content */}
-        <div className="flex-1 overflow-auto">
-          {renderContent()}
-        </div>
+      {/* Overlay for mobile */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* Main Content */}
+      <div className="flex-1 overflow-auto">
+        {renderContent()}
       </div>
     </div>
   );

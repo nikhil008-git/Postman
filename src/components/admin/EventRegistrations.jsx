@@ -145,20 +145,20 @@ function EventRegistrations() {
           </div>
         ) : (
           events.map((event) => (
-            <div key={event._id} className="bg-white rounded-lg shadow-md p-6">
-              <div className="flex justify-between items-center mb-4">
+            <div key={event._id} className="bg-white rounded-lg shadow-md p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
                 <h2 className="text-xl font-semibold text-black">{event.title}</h2>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                   <Button
                     onClick={() => handleViewRegistrations(event)}
-                    className="flex items-center gap-2 bg-black text-white hover:bg-gray-800"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-black text-white hover:bg-gray-800"
                   >
                     <Eye className="w-4 h-4" />
                     View Registrations
                   </Button>
                   <Button
                     onClick={() => exportToCSV(event._id)}
-                    className="flex items-center gap-2 bg-green-600 text-white hover:bg-green-700"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-green-600 text-white hover:bg-green-700"
                   >
                     <Download className="w-4 h-4" />
                     Export CSV
@@ -197,58 +197,58 @@ function EventRegistrations() {
                       <th className="text-left p-4 font-medium text-gray-500">Name</th>
                       <th className="text-left p-4 font-medium text-gray-500">Email</th>
                       <th className="text-left p-4 font-medium text-gray-500">Phone</th>
-                      <th className="text-left p-4 font-medium text-gray-500">GitHub</th>
-                      <th className="text-left p-4 font-medium text-gray-500">LinkedIn</th>
-                      <th className="text-left p-4 font-medium text-gray-500">Portfolio</th>
-                      <th className="text-left p-4 font-medium text-gray-500">Registration Date</th>
+                      <th className="text-left p-4 font-medium text-gray-500 hidden md:table-cell">GitHub</th>
+                      <th className="text-left p-4 font-medium text-gray-500 hidden md:table-cell">LinkedIn</th>
+                      <th className="text-left p-4 font-medium text-gray-500 hidden md:table-cell">Portfolio</th>
+                      <th className="text-left p-4 font-medium text-gray-500 hidden sm:table-cell">Registration Date</th>
                     </tr>
                   </thead>
                   <tbody>
                     {registrations[selectedEvent._id].map((registration) => (
                       <tr key={registration._id} className="border-b hover:bg-gray-50">
-                        <td className="p-4">{registration.name}</td>
-                        <td className="p-4">{registration.email}</td>
-                        <td className="p-4">{registration.phone}</td>
                         <td className="p-4">
-                          {registration.githubAccount ? (
-                            <a
-                              href={registration.githubAccount}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-600 hover:underline"
-                            >
-                              View
-                            </a>
-                          ) : (
-                            'N/A'
-                          )}
+                          <div className="font-medium text-black">{registration.name}</div>
+                          <div className="text-sm text-gray-500 md:hidden">
+                            {registration.email}
+                          </div>
+                          <div className="text-sm text-gray-500 md:hidden">
+                            {registration.phone}
+                          </div>
                         </td>
-                        <td className="p-4">
+                        <td className="p-4 hidden md:table-cell">{registration.email}</td>
+                        <td className="p-4 hidden md:table-cell">{registration.phone}</td>
+                        <td className="p-4 hidden md:table-cell">
                           <a
-                            href={registration.linkedinId}
+                            href={registration.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline"
                           >
-                            View
+                            {registration.github}
                           </a>
                         </td>
-                        <td className="p-4">
-                          {registration.portfolio ? (
-                            <a
-                              href={registration.portfolio}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-600 hover:underline"
-                            >
-                              View
-                            </a>
-                          ) : (
-                            'N/A'
-                          )}
+                        <td className="p-4 hidden md:table-cell">
+                          <a
+                            href={registration.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline"
+                          >
+                            {registration.linkedin}
+                          </a>
                         </td>
-                        <td className="p-4">
-                          {format(new Date(registration.registeredAt), 'PPP')}
+                        <td className="p-4 hidden md:table-cell">
+                          <a
+                            href={registration.portfolio}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline"
+                          >
+                            {registration.portfolio}
+                          </a>
+                        </td>
+                        <td className="p-4 hidden sm:table-cell">
+                          {format(new Date(registration.createdAt), 'PPP')}
                         </td>
                       </tr>
                     ))}
@@ -257,8 +257,8 @@ function EventRegistrations() {
               </div>
             </div>
           ) : (
-            <div className="text-center py-4">
-              <p className="text-gray-600">Loading registrations...</p>
+            <div className="text-center py-8">
+              <p className="text-gray-500">No registrations found for this event</p>
             </div>
           )}
         </DialogContent>
