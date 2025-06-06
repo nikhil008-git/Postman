@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import Speakers from './components/Speakers';
 import MeetOurTeam from './components/MeetOurTeam';
@@ -14,10 +15,20 @@ import EventDetails from './components/EventDetails';
 import AdminDashboard from './components/admin/AdminDashboard';
 import CreateEvent from './components/admin/CreateEvent';
 import EditEvent from './components/admin/EditEvent';
+import AdminLogin from './components/admin/AdminLogin';
+
+// Admin route wrapper component
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('adminToken');
+  if (!token) {
+    return <Navigate to="/admin/login" />;
+  }
+  return children;
+};
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
       <div className="relative pt-24 min-h-screen">
         <Routes>
@@ -31,9 +42,31 @@ function App() {
           <Route path="/sponsor" element={<SponsorForm />} />
           
           {/* Admin Routes */}
-          <Route path="/admin/" element={<AdminDashboard />} />
-          <Route path="/admin/events/create" element={<CreateEvent />} />
-          <Route path="/admin/events/edit/:eventId" element={<EditEvent />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/events/create"
+            element={
+              <ProtectedRoute>
+                <CreateEvent />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/events/edit/:eventId"
+            element={
+              <ProtectedRoute>
+                <EditEvent />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </div>
       <Footer />
