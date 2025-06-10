@@ -17,5 +17,8 @@
       "source": "/(.*)",
       "destination": "/"
     }
-  ]
+  ],
+  "env": {
+    "VITE_BACKEND_URL": "https://postman-backend-ochre.vercel.app"
+  }
 }
