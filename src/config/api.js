@@ -1,21 +1,21 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://postman-backend-ochre.vercel.app/api';
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://postman-backend-ochre.vercel.app';
 
 // Maintain ENDPOINTS for backward compatibility
 export const ENDPOINTS = {
-  SPEAKERS: `${API_BASE_URL}/speakers`,
-  SPONSORS: `${API_BASE_URL}/sponsors`,
-  EMAIL: `${API_BASE_URL}/email`,
-  EVENTS: `${API_BASE_URL}/events`,
-  USERS: `${API_BASE_URL}/users`,
-  AUTH: `${API_BASE_URL}/auth`,
-  ADMIN_AUTH: `${API_BASE_URL}/admin/auth`,
+  SPEAKERS: `${API_BASE_URL}/api/speakers`,
+  SPONSORS: `${API_BASE_URL}/api/sponsors`,
+  EMAIL: `${API_BASE_URL}/api/email`,
+  EVENTS: `${API_BASE_URL}/api/events`,
+  USERS: `${API_BASE_URL}/api/users`,
+  AUTH: `${API_BASE_URL}/api/auth`,
+  ADMIN_AUTH: `${API_BASE_URL}/api/admin/auth`,
 };
 
 // Create axios instance with default config
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: `${API_BASE_URL}/api`,
   headers: {
     'Content-Type': 'application/json',
   },
