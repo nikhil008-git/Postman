@@ -4,10 +4,11 @@ import { CalendarDays, TicketMinus, MapPin } from "lucide-react";
 import { eventAPI } from "../config/api";
 import { toast } from "sonner";
 import memory from "../assets/event/memory.jpg";
+import memory1 from "../assets/event/memory1.jpg";
 import ghibli from "../assets/event/ghibli.jpg";
 import postmanGhibli from "../assets/event/postmanGhibli.jpg";
 import G from "../assets/event/G.png";
-import gummie from "../assets/event/gummie.jpg";
+import gummie from "../assets/event/gummie.png";
 
 function Event() {
   const navigate = useNavigate();
@@ -75,16 +76,16 @@ function Event() {
             </div>
             <div className="flex flex-col sm:flex-row gap-2 w-full">
               <div className="w-full sm:w-1/3">
-                <img src={postmanGhibli} alt="Postman Ghibli" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
+                <img src={G} alt="Postman Ghibli" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
               </div>
               <div className="w-full sm:w-1/3">
-                <img src={G} alt="G" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
+                <img src={postmanGhibli} alt="G" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
               </div>
               <div className="w-full sm:w-1/3">
                 <img src={gummie} alt="Gummie" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
               </div>
             </div>
-            <img src={memory} alt="Memory" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
+            <img src={memory1} alt="Memory" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
           </div>
 
         {/* Events List */}
