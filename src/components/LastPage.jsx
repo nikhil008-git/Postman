@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import communityDay from "../assets/postmanCommunityDay.svg";
+import APIConf from "../assets/APIConf.svg";
 import postmanFun from "../assets/postman-fun.svg";
 import speaker from "../assets/callForSpeaker.svg";
 import sponser from "../assets/callForSponsors.svg";
@@ -20,7 +20,7 @@ function LastPage() {
       {/* <GridBackground /> */}
       <div className="relative">
         <div className="flex flex-col w-full justify-center items-center mt-20">
-          <img src={communityDay} alt="" className="h-auto w-auto" />
+          <img src={APIConf} alt="" className="h-auto w-auto" />
           <img src={postmanFun} alt="" className="h-auto w-auto" />
         </div>
 
