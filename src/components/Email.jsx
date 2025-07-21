@@ -16,6 +16,7 @@ function Email() {
         userName: formData.get("user_name"),
         userEmail: formData.get("user_email"),
         userInterest: formData.get("user_interest"),
+        userNumber: formData.get("user_number"), 
       };
 
       toast.promise(
@@ -83,6 +84,17 @@ function Email() {
             type="email"
             name="user_email"
             placeholder="john@example.com"
+            className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
+            required
+          />
+          <label className="py-2">Phone Number</label>
+          <input
+            type="tel"
+            name="user_number"
+            placeholder="1234567890"
+            pattern="[0-9]{10,15}"
+            minLength={10}
+            maxLength={15}
             className="border border-gray-300 bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full"
             required
           />
