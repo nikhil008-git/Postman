@@ -37,17 +37,9 @@ const MeetOurTeam = () => {
       name: "ADITYA BISHT",
       role: "CO-ORGANIZER",
       twitter: "https://x.com/adityab894",
-      linkedin: "https://www.linkedin.com/in/adityab894/",
+      linkedin: "https://www.linkedin.com/in/aditya894/",
       instagram: "https://www.instagram.com/aditya__894/",
     },
-    // {
-    //   image: sachin,
-    //   name: "SACHIN PARIHAR",
-    //   role: "GROWTH MANAGER",
-    //   twitter: "https://x.com/Sheenu_exe",
-    //   linkedin: "https://www.linkedin.com/in/sachin-parihar-008180264/",
-    //   instagram: "https://www.instagram.com/sachinn.js/",
-    // },
     {
       image: nilanjan,
       name: "NILANJAN PAUL",
@@ -134,6 +126,14 @@ const MeetOurTeam = () => {
       twitter: "https://x.com/3devArjun",
       linkedin: "https://www.linkedin.com/in/arjunkh/",
       instagram: "https://www.instagram.com/arjunpatil5047",
+    },
+    {
+      image: sachin,
+      name: "SACHIN PARIHAR",
+      role: "Designer",
+      twitter: "https://x.com/Sheenu_exe",
+      linkedin: "https://www.linkedin.com/in/sachin-parihar-008180264/",
+      instagram: "https://www.instagram.com/sachinn.js/",
     },
     // {
     //   image: mayuri,
