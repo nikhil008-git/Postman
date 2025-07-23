@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'https://postman-backend-ochre.vercel.app';
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002';
 
 // Maintain ENDPOINTS for backward compatibility
 export const ENDPOINTS = {
-  SPEAKERS: `${API_BASE_URL}/api/speakers`,
+  SPEAKERS: `${API_BASE_URL}/api/speakers`,  
   SPONSORS: `${API_BASE_URL}/api/sponsors`,
   EMAIL: `${API_BASE_URL}/api/email`,
   EVENTS: `${API_BASE_URL}/api/events`,
