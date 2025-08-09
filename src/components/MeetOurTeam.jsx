@@ -10,8 +10,8 @@ import alice from '../assets/team/alice.jpg';
 import atharva from '../assets/team/atharva.jpg';
 import eric from '../assets/team/eric.jpeg';
 import kunal from '../assets/team/kunal.JPG';
-import aman from '../assets/team/aman.jpeg';
 import nikhil from '../assets/team/nikhil.webp';
+import aman from '../assets/team/aman.jpeg';
 import mayuri from '../assets/team/mayuri.jpeg';
 import namrata from '../assets/team/namrata.jpg';
 import nilanjan from '../assets/team/nilanjan.jpeg';
@@ -76,7 +76,7 @@ const MeetOurTeam = () => {
       image: nikhil,
       name: "NIKHIL RAJPUROHIT",
       role: "GROWTH LEAD",
-      // twitter: "",
+      twitter: "https://x.com/nick_realm_01",
       linkedin: "https://www.linkedin.com/in/nikhil-rajpurohit-05b39734a/",
       instagram: "https://www.instagram.com/web4.nick/",
     },
