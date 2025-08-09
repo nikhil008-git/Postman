@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    './pages/**/*.{js,jsx,mdx}',
+    './components/**/*.{js,jsx,mdx}',
+    './app/**/*.{js,jsx,mdx}',
+    './src/**/*.{js,jsx,mdx}',
   ],
   prefix: "",
   theme: {
@@ -13,7 +13,7 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1440px", // slightly different from 1400px
       },
     },
     extend: {
@@ -74,4 +74,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} 
+};
