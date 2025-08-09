@@ -7,13 +7,13 @@ import alisha from '../assets/team/alisha.jpg';
 import shrawan from '../assets/team/shrawan.jpg';
 import aditya from '../assets/team/aditya.JPG';
 import alice from '../assets/team/alice.jpg';
-import aman from '../assets/team/aman.jpeg';
 import atharva from '../assets/team/atharva.jpg';
 import eric from '../assets/team/eric.jpeg';
 import kunal from '../assets/team/kunal.JPG';
+import aman from '../assets/team/aman.jpeg';
+import nikhil from '../assets/team/nikhil.webp';
 import mayuri from '../assets/team/mayuri.jpeg';
 import namrata from '../assets/team/namrata.jpg';
-import nikhil from '../assets/team/nikhil.webp';
 import nilanjan from '../assets/team/nilanjan.jpeg';
 import rutuja from '../assets/team/rutuja.jpeg';
 import sachin from '../assets/team/sachin.jpg';
@@ -71,6 +71,22 @@ const MeetOurTeam = () => {
       twitter: "https://x.com/KunalGavit10/",
       linkedin: "https://www.linkedin.com/in/kunal-gavit-1504gk/",
       instagram: "https://www.instagram.com/kunaaaal.gb04/",
+    },  
+    {
+      image: nikhil,
+      name: "NIKHIL RAJPUROHIT",
+      role: "GROWTH LEAD",
+      // twitter: "",
+      linkedin: "https://www.linkedin.com/in/nikhil-rajpurohit-05b39734a/",
+      instagram: "https://www.instagram.com/web4.nick/",
+    },
+    {
+      image: aman,
+      name: "AMAN MOGAL",
+      role: "GROWTH MANAGER",
+      twitter: "https://x.com/Aman25m",
+      linkedin: "https://www.linkedin.com/in/aman-mogal-b7773b246/",
+      instagram: "",
     },
     {
       image: suresh,
@@ -88,14 +104,7 @@ const MeetOurTeam = () => {
       linkedin: "https://www.linkedin.com/in/alisha-sapkal/",
       instagram: "https://www.instagram.com/alisha_s_18/",
     },
-    {
-      image: aman,
-      name: "AMAN MOGAL",
-      role: "SPONSORSHIP",
-      twitter: "https://x.com/Aman25m",
-      linkedin: "https://www.linkedin.com/in/aman-mogal-b7773b246/",
-      instagram: "",
-    },
+  
     {
       image: alice,
       name: "ALICE CHAUHAN",
@@ -103,14 +112,6 @@ const MeetOurTeam = () => {
       // twitter: "",
       linkedin: "https://www.linkedin.com/in/alice-chauhan-661305288/",
       instagram: "https://www.instagram.com/alicechauhan28/",
-    },
-    {
-      image: nikhil,
-      name: "NIKHIL RAJPUROHIT",
-      role: "SPONSORSHIP",
-      // twitter: "",
-      linkedin: "https://www.linkedin.com/in/nikhil-rajpurohit-05b39734a/",
-      instagram: "https://www.instagram.com/nick.ipynb/",
     },
     {
       image: namrata,
